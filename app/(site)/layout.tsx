@@ -20,20 +20,20 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <ThemeProvider
-        attribute="class"
-        defaultTheme="dark"
-        enableSystem={false}
-        storageKey="portfolio-theme"
+      <body
+        className={`${inter.className} bg-white dark:bg-zinc-900 dark:text-white h-screen flex flex-col`}
       >
-        <body
-          className={`${inter.className} bg-white dark:bg-zinc-900 dark:text-white h-screen flex flex-col`}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem={false}
+          storageKey="portfolio-theme"
         >
           <Navbar />
           {children}
           <Footer />
-        </body>
-      </ThemeProvider>
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
