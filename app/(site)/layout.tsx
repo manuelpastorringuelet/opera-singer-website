@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-screen">
       <body
-        className={`${inter.className} bg-white dark:bg-zinc-900 dark:text-white`}
+        className={`${inter.className} bg-white dark:bg-zinc-900 dark:text-white h-screen`}
       >
         <ThemeProvider
           attribute="class"
