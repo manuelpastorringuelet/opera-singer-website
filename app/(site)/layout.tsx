@@ -19,21 +19,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="h-screen">
-      <body
-        className={`${inter.className} bg-white dark:bg-zinc-900 dark:text-white h-screen`}
+    <html lang="en">
+      <ThemeProvider
+        attribute="class"
+        defaultTheme="dark"
+        enableSystem={false}
+        storageKey="portfolio-theme"
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem={false}
-          storageKey="portfolio-theme"
+        <body
+          className={`${inter.className} bg-white dark:bg-zinc-900 dark:text-white h-screen flex flex-col`}
         >
           <Navbar />
           {children}
           <Footer />
-        </ThemeProvider>
-      </body>
+        </body>
+      </ThemeProvider>
     </html>
   );
 }
