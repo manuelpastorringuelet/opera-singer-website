@@ -5,6 +5,12 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
+interface Page {
+  name: string;
+  href?: string;
+  children?: Page[];
+}
+
 export const pages = [
   {
     name: "HOME",
@@ -12,7 +18,16 @@ export const pages = [
   },
   {
     name: "ABOUT",
-    href: "/about",
+    children: [
+      {
+        name: "DEUTSCH",
+        href: "/deutsch",
+      },
+      {
+        name: "ENGLISH",
+        href: "/english",
+      },
+    ],
   },
   {
     name: "CALENDAR",
@@ -24,7 +39,16 @@ export const pages = [
   },
   {
     name: "GALLERY",
-    href: "/portrait",
+    children: [
+      {
+        name: "ON STAGE",
+        href: "/onstage",
+      },
+      {
+        name: "PORTRAIT",
+        href: "/portrait",
+      },
+    ],
   },
   {
     name: "REPERTOIRE",

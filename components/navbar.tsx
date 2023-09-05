@@ -1,15 +1,12 @@
 "use client";
 
-import Link from "next/link";
-import Image from "next/image";
 import { useState } from "react";
 
 import { ModeToggle } from "./mode-toggle";
 
-import Logo from "@/public/logo.png";
 import { MobileNav } from "./mobile-nav";
 import { Icons } from "./icons";
-import { pages } from "@/lib/utils";
+import ListPages from "./list-pages";
 
 const Navbar = () => {
   const [showMobileMenu, setShowMobileMenu] = useState<boolean>(false);
@@ -27,18 +24,7 @@ const Navbar = () => {
         {showMobileMenu && <MobileNav />}
 
         <nav className="hidden md:inline-flex">
-          <ul className="flex items-center gap-x-4">
-            {pages.map((page) => (
-              <li key={page.name}>
-                <Link
-                  href={page.href}
-                  className="hover:bg-primary/90 p-3 rounded-md hover:text-primary-foreground transition-colors"
-                >
-                  {page.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <ListPages />
         </nav>
         <ModeToggle />
       </div>

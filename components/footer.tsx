@@ -3,7 +3,7 @@ import React from "react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  const githubUrl = "https://github.com/manuelpastorringuelet/sanity-portfolio";
+  const manuelUrl = "https://www.manuelringuelet.com/";
   const impressumUrl = "/impressum";
   const datenschutzerklärungUrl = "/datenschutzerklarung";
 
@@ -23,7 +23,7 @@ const Footer = () => {
         </small>
 
         <small>
-          <a href={githubUrl} target="_blank" rel="noopener noreferrer">
+          <a href={manuelUrl} target="_blank" rel="noopener noreferrer">
             Made with &#9829; by{" "}
             <span className="text-green-400">Manuel Pastor Ringuelet</span>
             <span aria-hidden="true" className="sr-only">

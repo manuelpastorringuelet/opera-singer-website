@@ -2,6 +2,7 @@ import * as React from "react";
 import Link from "next/link";
 
 import { cn, pages } from "@/lib/utils";
+import ListPages from "./list-pages";
 
 export function MobileNav() {
   return (
@@ -11,18 +12,7 @@ export function MobileNav() {
       )}
     >
       <div className="relative z-20 grid gap-6 rounded-md bg-popover p-4 text-popover-foreground shadow-md">
-        <ul className="flex flex-col items-start gap-y-8">
-          {pages.map((page) => (
-            <li key={page.name}>
-              <Link
-                href={page.href}
-                className="dark:hover:text-purple-400 hover:text-purple-800 duration-300"
-              >
-                {page.name}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <ListPages />
       </div>
     </div>
   );
