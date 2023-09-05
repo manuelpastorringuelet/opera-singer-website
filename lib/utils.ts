@@ -6,7 +6,6 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export const pages = [
-  // HOME, ABOUT, CALENDAR, LISTEN, GALLERY, REPERTOIRE, CONTACT
   {
     name: "HOME",
     href: "/",
@@ -21,11 +20,11 @@ export const pages = [
   },
   {
     name: "LISTEN",
-    href: "/listen",
+    href: "/music",
   },
   {
     name: "GALLERY",
-    href: "/gallery",
+    href: "/portrait",
   },
   {
     name: "REPERTOIRE",

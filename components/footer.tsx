@@ -1,22 +1,39 @@
-export default function Footer() {
+import Link from "next/link";
+import React from "react";
+
+const Footer = () => {
+  const currentYear = new Date().getFullYear();
+  const githubUrl = "https://github.com/manuelpastorringuelet/sanity-portfolio";
+  const impressumUrl = "/impressum";
+  const datenschutzerklärungUrl = "/datenschutzerklarung";
+
   return (
-    <footer className="border-t border-zinc-800 mt-44">
-      <div className="max-w-7xl mx-auto flex lg:flex-row flex-col items-center lg:justify-between justify-center gap-y-4 md:px-16 px-6 py-16 text-zinc-400">
-        <small className=" duration-200 font-mono">
-          Taryn Knerr &copy; {new Date().getFullYear()} All rights reserved
+    <footer>
+      <div className="text-center container mx-auto flex lg:flex-row flex-col items-center lg:justify-between justify-center gap-y-4 md:px-16 px-6 py-16 text-gray-400">
+        <small>
+          <span>&copy; Taryn Knerr {currentYear} All rights reserved</span>
+          {" | "}
+          <Link href={impressumUrl} className="underline">
+            Impressum
+          </Link>
+          {" | "}
+          <Link href={datenschutzerklärungUrl} className="underline">
+            Datenschutzerklärung
+          </Link>
         </small>
 
-        <small className="hover:text-white duration-200">
-          <a
-            href="https://github.com/manuelpastorringuelet/sanity-portfolio"
-            target="_blank"
-            rel="noreferrer noopener"
-          >
+        <small>
+          <a href={githubUrl} target="_blank" rel="noopener noreferrer">
             Made with &#9829; by{" "}
             <span className="text-green-400">Manuel Pastor Ringuelet</span>
+            <span aria-hidden="true" className="sr-only">
+              (opens in a new tab)
+            </span>
           </a>
         </small>
       </div>
     </footer>
   );
-}
+};
+
+export default Footer;
