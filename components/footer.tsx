@@ -9,9 +9,9 @@ const Footer = () => {
 
   return (
     <footer>
-      <div className="text-center container mx-auto flex lg:flex-row flex-col items-center lg:justify-between justify-center gap-y-4 md:px-16 px-6 py-16 text-gray-400">
+      <div className="container mx-auto flex flex-col items-center justify-center gap-y-4 px-6 py-10 text-center text-gray-400 md:px-16 lg:flex-row lg:justify-between">
         <small>
-          <span>&copy; Taryn Knerr {currentYear} All rights reserved</span>
+          <span>&copy; {currentYear} Taryn Knerr</span>
           {" | "}
           <Link href={impressumUrl} className="underline">
             Impressum
@@ -22,7 +22,7 @@ const Footer = () => {
           </Link>
         </small>
 
-        <small>
+        <small className="text-xs opacity-80">
           <a href={manuelUrl} target="_blank" rel="noopener noreferrer">
             Made with &#9829; by{" "}
             <span className="text-green-400">Manuel Pastor Ringuelet</span>

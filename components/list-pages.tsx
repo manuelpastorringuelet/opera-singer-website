@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
@@ -15,13 +17,13 @@ const ListPages = () => {
   const router = useRouter();
 
   return (
-    <ul className="flex md:flex-row flex-col items-start md:items-center gap-y-6 md:gap-x-4">
+    <ul className="flex flex-col items-start md:flex-row md:items-center md:gap-1">
       {pages.map((page) => (
         <li key={page.name}>
           {page.href ? (
             <Link
               href={page.href}
-              className="hover:bg-primary/90 p-3 rounded-md hover:text-primary-foreground transition-colors"
+              className="rounded-md transition-colors hover:bg-primary/90 hover:text-primary-foreground md:p-2 lg:p-3"
             >
               {page.name}
             </Link>
@@ -29,7 +31,7 @@ const ListPages = () => {
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button
-                  className="bg-transparent border-0 text-md"
+                  className="text-md border-0 bg-transparent font-normal md:p-1 lg:p-3"
                   variant="default"
                 >
                   {page.name}

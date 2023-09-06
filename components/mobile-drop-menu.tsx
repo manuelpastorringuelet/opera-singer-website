@@ -1,3 +1,5 @@
+"use client";
+
 import * as React from "react";
 
 import { useRouter } from "next/navigation";
@@ -8,12 +10,10 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
-import { Button } from "./ui/button";
 
 import { pages } from "@/lib/utils";
-import Link from "next/link";
 
-export function MobileNav() {
+export function MobileDropMenu() {
   const router = useRouter();
 
   return (
@@ -46,7 +46,7 @@ export function MobileNav() {
                 </DropdownMenuItem>
               ))}
             </DropdownMenuItem>
-          )
+          ),
         )}
       </DropdownMenuContent>
     </DropdownMenu>
