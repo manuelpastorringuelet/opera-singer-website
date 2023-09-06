@@ -1,19 +1,54 @@
 import * as React from "react";
+
+import { useRouter } from "next/navigation";
+
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "./ui/dropdown-menu";
+import { Button } from "./ui/button";
+
+import { pages } from "@/lib/utils";
 import Link from "next/link";
 
-import { cn, pages } from "@/lib/utils";
-import ListPages from "./list-pages";
-
 export function MobileNav() {
+  const router = useRouter();
+
   return (
-    <div
-      className={cn(
-        "fixed inset-0 top-16 z-50 grid h-[calc(100vh-4rem)] grid-flow-row auto-rows-max overflow-auto p-6 pb-32 shadow-md animate-in slide-in-from-bottom-80 md:hidden"
-      )}
-    >
-      <div className="relative z-20 grid gap-6 rounded-md bg-popover p-4 text-popover-foreground shadow-md">
-        <ListPages />
-      </div>
-    </div>
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <button>Menu</button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="start">
+        {pages.map((page) =>
+          page.href ? (
+            <DropdownMenuItem
+              key={page.name}
+              onClick={() => router.push(page.href)}
+            >
+              {page.name}
+            </DropdownMenuItem>
+          ) : (
+            <DropdownMenuItem
+              key={page.name}
+              className="flex flex-col items-start"
+            >
+              {page.name}
+              {page.children?.map((child) => (
+                <DropdownMenuItem
+                  key={child.name}
+                  onClick={() => router.push(child.href)}
+                  className="text-xs"
+                >
+                  {child.name}
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuItem>
+          )
+        )}
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 }
