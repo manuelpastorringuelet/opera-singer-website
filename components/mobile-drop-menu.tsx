@@ -11,7 +11,7 @@ import {
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 
-import { pages } from "@/lib/utils";
+import { pages } from "@/lib/pages";
 
 export function MobileDropMenu() {
   const router = useRouter();
@@ -26,7 +26,7 @@ export function MobileDropMenu() {
           page.href ? (
             <DropdownMenuItem
               key={page.name}
-              onClick={() => router.push(page.href)}
+              onClick={() => page.href && router.push(page.href)}
             >
               {page.name}
             </DropdownMenuItem>
@@ -39,7 +39,7 @@ export function MobileDropMenu() {
               {page.children?.map((child) => (
                 <DropdownMenuItem
                   key={child.name}
-                  onClick={() => router.push(child.href)}
+                  onClick={() => page.href && router.push(page.href)}
                   className="text-xs"
                 >
                   {child.name}

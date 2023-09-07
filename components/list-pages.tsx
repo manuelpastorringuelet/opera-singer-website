@@ -10,7 +10,7 @@ import {
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 
-import { pages } from "@/lib/utils";
+import { pages } from "@/lib/pages";
 import { Button } from "./ui/button";
 
 const ListPages = () => {
