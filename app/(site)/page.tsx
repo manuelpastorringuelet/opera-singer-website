@@ -50,7 +50,7 @@ export default function Home() {
       <motion.image
         className="absolute h-full overflow-hidden sm:top-0"
         initial={{
-          x: 500,
+          x: 200,
           opacity: 0,
           scale: 0.5,
         }}
@@ -60,7 +60,7 @@ export default function Home() {
           scale: 1,
         }}
         transition={{
-          duration: 1.5,
+          duration: 1,
         }}
       >
         <Image
