@@ -11,7 +11,7 @@ interface Page {
   children?: Page[];
 }
 
-export const pages = [
+export const pages:Page[] = [
   {
     name: "HOME",
     href: "/",

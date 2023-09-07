@@ -40,8 +40,9 @@ const ListPages = () => {
               <DropdownMenuContent align="center">
                 {page.children?.map((child) => (
                   <DropdownMenuItem
+                    className="cursor-pointer"
                     key={child.name}
-                    onClick={() => router.push(child.href)}
+                    onClick={() => router.push(child.href as string)}
                   >
                     {child.name}
                   </DropdownMenuItem>

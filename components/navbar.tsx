@@ -9,7 +9,6 @@ const Navbar = () => {
       <div className="mx-auto flex max-w-6xl items-center justify-between">
         <div className="md:hidden">
           <MenuBar />
-          {/* <MobileDropMenu /> */}
         </div>
         <div></div>
 
