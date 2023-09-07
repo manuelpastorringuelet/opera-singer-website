@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import Link from "next/link";
 import React from "react";
 
@@ -8,8 +11,22 @@ const Footer = () => {
   const datenschutzerklärungUrl = "/datenschutzerklarung";
 
   return (
-    <footer className="z-30 bg-background/70">
-      <div className="container mx-auto flex flex-col items-center justify-center gap-y-4 px-6 py-6 text-center md:px-16 lg:flex-row lg:justify-between">
+    <footer className="z-0 border-t border-zinc-800 bg-background/70">
+      <motion.div
+        initial={{
+          opacity: 0,
+          scale: 1,
+        }}
+        animate={{
+          x: 0,
+          opacity: 1,
+          scale: 1,
+        }}
+        transition={{
+          duration: 4,
+        }}
+        className="container mx-auto flex flex-col items-center justify-center gap-y-4 px-6 py-10 text-center md:px-16 lg:flex-row lg:justify-between"
+      >
         <small>
           <span>&copy; {currentYear} Taryn Knerr</span>
           {" | "}
@@ -31,7 +48,7 @@ const Footer = () => {
             <span className="sr-only">(opens in a new tab)</span>
           </a>
         </small>
-      </div>
+      </motion.div>
     </footer>
   );
 };

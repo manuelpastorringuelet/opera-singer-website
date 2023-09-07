@@ -35,7 +35,7 @@ export function MenuBar() {
             <X className="hidden group-data-[state=open]:block" />
           </NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid gap-3 px-6 py-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+            <ul className="grid gap-3 px-6 py-2 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
               {pages.map((page) =>
                 page.href ? (
                   <NavigationMenuLink
