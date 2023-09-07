@@ -5,8 +5,8 @@ import { motion } from "framer-motion";
 
 import { ModeToggle } from "./mode-toggle";
 
-import { MenuBar } from "./menubar";
 import ListPages from "./list-pages";
+import { MenuBar } from "./menubar";
 
 const Navbar = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -22,24 +22,9 @@ const Navbar = () => {
   return (
     <header className="z-30 border-b border-zinc-800 bg-background/70 px-6 py-6 md:px-16">
       <div className="mx-auto flex max-w-6xl items-center justify-between">
-        <motion.nav
-          initial={{
-            x: -500,
-            opacity: 0,
-            scale: 0.5,
-          }}
-          animate={{
-            x: 0,
-            opacity: 1,
-            scale: 1,
-          }}
-          transition={{
-            duration: 1.5,
-          }}
-          className="md:hidden"
-        >
+        <nav className="md:hidden">
           <MenuBar />
-        </motion.nav>
+        </nav>
         <div></div>
 
         <motion.nav
@@ -60,23 +45,7 @@ const Navbar = () => {
         >
           <ListPages />
         </motion.nav>
-        <motion.nav
-          initial={{
-            x: 500,
-            opacity: 0,
-            scale: 0.5,
-          }}
-          animate={{
-            x: 0,
-            opacity: 1,
-            scale: 1,
-          }}
-          transition={{
-            duration: 1.5,
-          }}
-        >
-          <ModeToggle />
-        </motion.nav>
+        <ModeToggle />
       </div>
     </header>
   );
