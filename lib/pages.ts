@@ -1,7 +1,7 @@
 interface Page {
   name: string;
   href?: string;
-  description?: string; 
+  description?: string;
   children?: Page[];
 }
 
