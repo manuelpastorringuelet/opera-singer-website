@@ -5,7 +5,7 @@ import ListPages from "./list-pages";
 
 const Navbar = () => {
   return (
-    <header className="z-30 mb-20 border-b border-zinc-800 px-6 py-6 md:mb-28 md:px-16">
+    <header className="z-30 border-b border-zinc-800 bg-background/70 px-6 py-6 md:px-16">
       <div className="mx-auto flex max-w-6xl items-center justify-between">
         <div className="md:hidden">
           <MenuBar />
