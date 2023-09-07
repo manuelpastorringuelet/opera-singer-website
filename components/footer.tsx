@@ -8,8 +8,8 @@ const Footer = () => {
   const datenschutzerklärungUrl = "/datenschutzerklarung";
 
   return (
-    <footer>
-      <div className="container mx-auto flex flex-col items-center justify-center gap-y-4 px-6 py-10 text-center text-gray-400 md:px-16 lg:flex-row lg:justify-between">
+    <footer className="z-30 bg-background/70">
+      <div className="container mx-auto flex flex-col items-center justify-center gap-y-4 px-6 py-6 text-center text-gray-400 md:px-16 lg:flex-row lg:justify-between">
         <small>
           <span>&copy; {currentYear} Taryn Knerr</span>
           {" | "}

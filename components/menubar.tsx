@@ -22,10 +22,8 @@ import { Menu, X } from "lucide-react";
 
 import { pages } from "@/lib/pages";
 import { Button } from "./ui/button";
-import { useRouter } from "next/navigation";
 
 export function MenuBar() {
-  const router = useRouter();
   return (
     <NavigationMenu>
       <NavigationMenuList>
