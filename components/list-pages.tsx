@@ -37,7 +37,7 @@ const ListPages = () => {
                   {page.name}
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="center">
+              <DropdownMenuContent align="start">
                 {page.children?.map((child) => (
                   <DropdownMenuItem
                     className="cursor-pointer hover:bg-primary/90 hover:text-primary-foreground"

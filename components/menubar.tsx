@@ -20,10 +20,12 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 
-import { cn } from "@/lib/utils";
 import { pages } from "@/lib/pages";
+import { useRouter } from "next/navigation";
 
 export function MenuBar() {
+  const router = useRouter();
+
   return (
     <NavigationMenu>
       <NavigationMenuList>
@@ -33,23 +35,34 @@ export function MenuBar() {
             <X className="hidden group-data-[state=open]:block" />
           </NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+            <ul className="grid gap-3 px-6 py-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
               {pages.map((page) =>
                 page.href ? (
-                  <ListItem key={page.name} href={page.href} title={page.name}>
-                    {page.description}
-                  </ListItem>
+                  <NavigationMenuLink
+                    className="py-2"
+                    key={page.name}
+                    onClick={() => router.push(page.href as string)}
+                  >
+                    {page.name}
+                  </NavigationMenuLink>
                 ) : (
                   <Accordion key={page.name} type="single" collapsible>
-                    <AccordionItem className="border-b-0" value="item-1">
-                      <AccordionTrigger className="px-3 py-3 text-sm font-medium">
+                    <AccordionItem
+                      // className="border-b-0"
+                      value="item-1"
+                    >
+                      <AccordionTrigger className="py-2 font-normal">
                         {page.name}
                       </AccordionTrigger>
                       <AccordionContent>
                         {page.children?.map((child) => (
-                          <ListItem key={child.name} href={child.href}>
+                          <NavigationMenuLink
+                            className="flex flex-col justify-center py-2 pl-2"
+                            key={child.name}
+                            onClick={() => router.push(child.href as string)}
+                          >
                             {child.name}
-                          </ListItem>
+                          </NavigationMenuLink>
                         ))}
                       </AccordionContent>
                     </AccordionItem>
@@ -63,29 +76,3 @@ export function MenuBar() {
     </NavigationMenu>
   );
 }
-
-const ListItem = React.forwardRef<
-  React.ElementRef<"a">,
-  React.ComponentPropsWithoutRef<"a">
->(({ className, title, children, ...props }, ref) => {
-  return (
-    <li>
-      <NavigationMenuLink asChild>
-        <a
-          ref={ref}
-          className={cn(
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-            className,
-          )}
-          {...props}
-        >
-          <div className="text-sm font-medium leading-none">{title}</div>
-          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-            {children}
-          </p>
-        </a>
-      </NavigationMenuLink>
-    </li>
-  );
-});
-ListItem.displayName = "ListItem";

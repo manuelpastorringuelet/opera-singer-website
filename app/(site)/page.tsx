@@ -48,7 +48,7 @@ export default function Home() {
         </h3>
       </motion.section>
       <motion.image
-        className="absolute z-10 h-full overflow-hidden sm:top-0"
+        className="absolute h-full overflow-hidden sm:top-0"
         initial={{
           x: 500,
           opacity: 0,
@@ -68,7 +68,7 @@ export default function Home() {
           width={2000}
           height={2000}
           alt="hero image"
-          className="translate-x-1/4 translate-y-1/2 scale-[210%] object-cover opacity-50 sm:-translate-y-10 sm:translate-x-40 sm:scale-100"
+          className=" translate-x-1/4 translate-y-1/2 scale-[210%] object-cover opacity-90 sm:-translate-y-10 sm:translate-x-40 sm:scale-100"
         />
       </motion.image>
     </main>
