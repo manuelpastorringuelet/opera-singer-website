@@ -1,14 +1,15 @@
 "use client";
 
 import * as React from "react";
+import { Menu, X } from "lucide-react";
 
-import { cn } from "@/lib/utils";
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "./ui/dropdown-menu";
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -18,10 +19,9 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import { Menu, X } from "lucide-react";
 
+import { cn } from "@/lib/utils";
 import { pages } from "@/lib/pages";
-import { Button } from "./ui/button";
 
 export function MenuBar() {
   return (
@@ -40,30 +40,20 @@ export function MenuBar() {
                     {page.description}
                   </ListItem>
                 ) : (
-                  <NavigationMenu
-                    key={page.name}
-                    className="flex max-w-none justify-start"
-                  >
-                    <NavigationMenuList>
-                      <NavigationMenuItem>
-                        <NavigationMenuTrigger className="p-3">
-                          <Button
-                            className="items-center border-0 bg-transparent p-0 font-normal hover:bg-transparent"
-                            variant="default"
-                          >
-                            {page.name}
-                          </Button>
-                        </NavigationMenuTrigger>
-                        <NavigationMenuContent>
-                          {page.children?.map((child) => (
-                            <ListItem key={child.name} href={child.href}>
-                              {child.name}
-                            </ListItem>
-                          ))}
-                        </NavigationMenuContent>
-                      </NavigationMenuItem>
-                    </NavigationMenuList>
-                  </NavigationMenu>
+                  <Accordion key={page.name} type="single" collapsible>
+                    <AccordionItem className="border-b-0" value="item-1">
+                      <AccordionTrigger className="px-3 py-3 text-sm font-medium">
+                        {page.name}
+                      </AccordionTrigger>
+                      <AccordionContent>
+                        {page.children?.map((child) => (
+                          <ListItem key={child.name} href={child.href}>
+                            {child.name}
+                          </ListItem>
+                        ))}
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
                 ),
               )}
             </ul>
