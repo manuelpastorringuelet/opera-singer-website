@@ -1,6 +1,7 @@
 interface Page {
   name: string;
   href?: string;
+  description?: string;
   children?: Page[];
 }
 
@@ -15,10 +16,12 @@ export const pages: Page[] = [
       {
         name: "DEUTSCH",
         href: "/deutsch",
+        description: "Biographie, Repertoire, Presse",
       },
       {
         name: "ENGLISH",
         href: "/english",
+        description: "Biography, Repertoire, Press",
       },
     ],
   },
