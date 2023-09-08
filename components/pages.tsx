@@ -32,7 +32,7 @@ const Pages = () => {
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button
-                  className="text-md text-box flex flex-1 items-center justify-between gap-1 border-0 bg-transparent p-2 font-normal transition-all hover:underline [&[data-state=open]>svg]:rotate-180"
+                  className="text-md flex h-[35.34px] w-fit flex-1 items-center justify-between gap-1 border-0 bg-transparent p-2 font-normal transition-all hover:underline [&[data-state=open]>svg]:rotate-180"
                   variant="default"
                 >
                   {page.name}
