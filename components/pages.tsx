@@ -12,18 +12,19 @@ import {
 
 import { pages } from "@/lib/pages";
 import { Button } from "./ui/button";
+import { ChevronDown } from "lucide-react";
 
-const ListPages = () => {
+const Pages = () => {
   const router = useRouter();
 
   return (
-    <ul className="flex flex-1 flex-col md:flex-row md:items-center md:gap-2 lg:gap-4 xl:gap-8">
+    <ul className="flex flex-1 flex-col gap-1 md:flex-row md:items-center">
       {pages.map((page) => (
         <li key={page.name}>
           {page.href ? (
             <Link
               href={page.href}
-              className="rounded-md transition-colors hover:bg-primary/90 hover:text-primary-foreground md:p-2 lg:p-3"
+              className="rounded-md transition-colors hover:bg-primary/90 hover:text-primary-foreground md:p-2"
             >
               {page.name}
             </Link>
@@ -31,16 +32,20 @@ const ListPages = () => {
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button
-                  className="text-md border-0 bg-transparent font-normal md:p-1 lg:p-3"
+                  className="text-md text-box flex flex-1 items-center justify-between gap-1 border-0 bg-transparent p-2 font-normal transition-all hover:underline [&[data-state=open]>svg]:rotate-180"
                   variant="default"
                 >
                   {page.name}
+                  <ChevronDown
+                    className="h-4 w-4 shrink-0 transition-transform duration-200"
+                    size={16}
+                  />
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="start">
                 {page.children?.map((child) => (
                   <DropdownMenuItem
-                    className="cursor-pointer hover:bg-primary/90 hover:text-primary-foreground"
+                    className="cursor-pointer p-2 focus:bg-primary/90"
                     key={child.name}
                     onClick={() => router.push(child.href as string)}
                   >
@@ -56,4 +61,4 @@ const ListPages = () => {
   );
 };
 
-export default ListPages;
+export default Pages;
