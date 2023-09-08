@@ -19,14 +19,12 @@ export default function Home() {
     <main className="mx-auto grid w-full flex-1 overflow-hidden sm:container sm:grid-cols-2">
       <motion.section
         initial={{
-          x: -500,
+          x: 200,
           opacity: 0,
-          scale: 0.5,
         }}
         animate={{
           x: 0,
           opacity: 1,
-          scale: 1,
         }}
         transition={{
           duration: 1.5,
