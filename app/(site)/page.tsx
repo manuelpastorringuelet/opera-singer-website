@@ -16,7 +16,7 @@ export default function Home() {
   }
 
   return (
-    <main className="mx-auto flex w-full max-w-7xl flex-1 flex-col items-center justify-start overflow-hidden">
+    <main className="container mx-auto grid w-full flex-1 overflow-hidden sm:grid-cols-2">
       <motion.section
         initial={{
           x: -500,
@@ -31,7 +31,7 @@ export default function Home() {
         transition={{
           duration: 1.5,
         }}
-        className="z-10 flex flex-col gap-3 sm:pr-60 sm:pt-10 md:pt-12 lg:pt-14 xl:pt-20"
+        className="z-10 flex flex-col items-start gap-3 pt-10 sm:justify-self-center md:pt-12 xl:pt-20"
       >
         <h1 className="text-6xl uppercase sm:text-8xl">
           Taryn
@@ -50,26 +50,23 @@ export default function Home() {
       <motion.image
         className="absolute h-full overflow-hidden sm:top-0"
         initial={{
-          x: 200,
           opacity: 0,
-          scale: 0.5,
         }}
         animate={{
-          x: 0,
           opacity: 1,
-          scale: 1,
         }}
         transition={{
-          duration: 1,
+          duration: 10,
         }}
       >
         <Image
           src="/hero.png"
+          priority
           width={2235}
           quality={100}
           height={1705}
           alt="hero image"
-          className=" translate-x-1/4 translate-y-1/2 scale-[210%] object-cover opacity-90 sm:-translate-y-10 sm:translate-x-40 sm:scale-100"
+          className=" translate-x-1/4 translate-y-1/2 scale-[200%] object-cover opacity-90 sm:-translate-y-10 sm:translate-x-40 sm:scale-100"
         />
       </motion.image>
     </main>
