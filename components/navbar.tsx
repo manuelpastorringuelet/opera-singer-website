@@ -37,14 +37,14 @@ const Navbar = () => {
         transition={{
           duration: 1.5,
         }}
-        className="container flex items-center justify-between px-6 md:px-16 "
+        className="container flex items-center justify-between px-6 md:px-16"
       >
         <nav className="md:hidden">
           <MenuBar />
         </nav>
         <nav
           onClick={() => router.push("/")}
-          className="cursor-pointer rounded-md p-3 hover:bg-primary/90"
+          className="hidden cursor-pointer rounded-md p-3 hover:bg-primary/90 md:inline-flex"
         >
           <HomeIcon size={20} />
         </nav>
