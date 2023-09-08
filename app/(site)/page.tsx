@@ -31,7 +31,7 @@ export default function Home() {
         transition={{
           duration: 1.5,
         }}
-        className="z-10 flex flex-col gap-3 pt-10 sm:pr-60"
+        className="z-10 flex flex-col gap-3 sm:pr-60 sm:pt-10 md:pt-12 lg:pt-14 xl:pt-20"
       >
         <h1 className="text-6xl uppercase sm:text-8xl">
           Taryn
@@ -64,9 +64,10 @@ export default function Home() {
         }}
       >
         <Image
-          src="/hero.jpg"
-          width={2000}
-          height={2000}
+          src="/hero.png"
+          width={2235}
+          quality={100}
+          height={1705}
           alt="hero image"
           className=" translate-x-1/4 translate-y-1/2 scale-[210%] object-cover opacity-90 sm:-translate-y-10 sm:translate-x-40 sm:scale-100"
         />
