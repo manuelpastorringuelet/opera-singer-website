@@ -20,7 +20,7 @@ const Navbar = () => {
   }
 
   return (
-    <header className="z-30 border-b border-zinc-800 bg-background/70 px-6 py-6 md:px-16">
+    <header className="z-30 border-b border-zinc-800 bg-background/70 py-6">
       <motion.div
         initial={{
           opacity: 0,
@@ -34,14 +34,13 @@ const Navbar = () => {
         transition={{
           duration: 4,
         }}
-        className="mx-auto flex max-w-6xl items-center justify-between"
+        className="container flex items-center justify-between px-6 md:px-16 "
       >
         <nav className="md:hidden">
           <MenuBar />
         </nav>
-        <div></div>
-
-        <motion.nav className="hidden self-center md:inline-flex">
+        {/* <div></div> */}
+        <motion.nav className="hidden flex-1 md:inline-flex">
           <ListPages />
         </motion.nav>
         <ModeToggle />
