@@ -17,7 +17,7 @@ const ListPages = () => {
   const router = useRouter();
 
   return (
-    <ul className="flex flex-1 flex-col md:flex-row md:items-center md:gap-3 lg:gap-8 xl:gap-12">
+    <ul className="flex flex-1 flex-col md:flex-row md:items-center md:gap-2 lg:gap-4 xl:gap-8">
       {pages.map((page) => (
         <li key={page.name}>
           {page.href ? (
