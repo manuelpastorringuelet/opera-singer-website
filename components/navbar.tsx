@@ -7,9 +7,12 @@ import { ModeToggle } from "./mode-toggle";
 
 import ListPages from "./list-pages";
 import { MenuBar } from "./menubar";
+import { HomeIcon } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 const Navbar = () => {
   const [isMounted, setIsMounted] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     setIsMounted(true);
@@ -39,8 +42,13 @@ const Navbar = () => {
         <nav className="md:hidden">
           <MenuBar />
         </nav>
-        {/* <div></div> */}
-        <motion.nav className="hidden flex-1 md:inline-flex">
+        <nav
+          onClick={() => router.push("/")}
+          className="cursor-pointer rounded-md p-3 hover:bg-primary/90"
+        >
+          <HomeIcon size={20} />
+        </nav>
+        <motion.nav className="hidden md:inline-flex">
           <ListPages />
         </motion.nav>
         <ModeToggle />
