@@ -32,7 +32,7 @@ const Navbar = () => {
           scale: 1,
         }}
         transition={{
-          duration: 4,
+          duration: 1.5,
         }}
         className="container flex items-center justify-between px-6 md:px-16 "
       >

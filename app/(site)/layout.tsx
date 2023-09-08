@@ -27,7 +27,7 @@ export default function RootLayout({
           attribute="class"
           defaultTheme="dark"
           enableSystem={false}
-          storageKey="portfolio-theme"
+          storageKey="theme"
         >
           <Navbar />
           {children}

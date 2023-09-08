@@ -25,7 +25,7 @@ const Footer = () => {
         transition={{
           duration: 4,
         }}
-        className="container mx-auto flex flex-col items-center justify-center gap-y-4 px-6 py-10 text-center md:px-16 lg:flex-row lg:justify-between"
+        className="container mx-auto flex flex-col items-center justify-center gap-y-4 px-6 py-10 text-center md:flex-row md:justify-between md:px-16"
       >
         <small>
           <span>&copy; {currentYear} Taryn Knerr</span>
