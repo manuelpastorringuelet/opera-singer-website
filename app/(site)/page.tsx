@@ -47,7 +47,7 @@ export default function Home() {
           <span className="opacity-50">- The New York Times</span>
         </h3>
       </motion.section>
-      <motion.image
+      <motion.div
         className="absolute h-full overflow-hidden"
         initial={{
           opacity: 0,
@@ -56,7 +56,7 @@ export default function Home() {
           opacity: 1,
         }}
         transition={{
-          duration: 5,
+          duration: 3,
         }}
       >
         <Image
@@ -68,7 +68,7 @@ export default function Home() {
           alt="hero image"
           className="mt-10 translate-x-28 scale-150 object-cover opacity-90 sm:mt-0 sm:translate-x-10 sm:scale-100"
         />
-      </motion.image>
+      </motion.div>
     </main>
   );
 }
