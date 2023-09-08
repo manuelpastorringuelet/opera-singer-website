@@ -6,10 +6,10 @@ interface Page {
 }
 
 export const pages: Page[] = [
-  {
-    name: "HOME",
-    href: "/",
-  },
+  // {
+  //   name: "HOME",
+  //   href: "/",
+  // },
   {
     name: "ABOUT",
     children: [
