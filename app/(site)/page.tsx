@@ -46,7 +46,7 @@ export default function Home() {
         </h3>
       </motion.section>
       <motion.div
-        className="absolute top-0 overflow-hidden"
+        className="absolute right-0 top-0 overflow-hidden"
         initial={{
           opacity: 0,
         }}
@@ -63,7 +63,7 @@ export default function Home() {
           height={1705}
           sizes="100vw"
           alt="taryn portrait"
-          className="mt-40 max-h-screen translate-x-28 scale-150 object-cover opacity-90 sm:mt-0 sm:translate-x-10 sm:scale-100"
+          className="max-h-screen-85 mt-[88px] max-w-screen-sm translate-x-52 object-cover opacity-90  sm:mt-[92px] sm:max-w-screen-lg sm:translate-x-28"
         />
       </motion.div>
     </main>
