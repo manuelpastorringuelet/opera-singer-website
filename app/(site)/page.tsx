@@ -59,11 +59,10 @@ export default function Home() {
       >
         <Image
           src="/hero.png"
-          priority
           width={2235}
-          quality={100}
           height={1705}
-          alt="hero image"
+          sizes="100vw"
+          alt="taryn portrait"
           className="mt-40 max-h-screen translate-x-28 scale-150 object-cover opacity-90 sm:mt-0 sm:translate-x-10 sm:scale-100"
         />
       </motion.div>
