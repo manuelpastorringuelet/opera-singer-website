@@ -2,13 +2,15 @@ import Image from "next/image";
 
 const AboutImage = () => {
   return (
-    <div className="h-40 overflow-clip object-cover object-top md:h-80 w-full">
+    <div className="relative h-60 w-full overflow-hidden object-cover md:h-80">
       <Image
         src="/hero.png"
-        width={1000}
-        height={1000}
+        width={2235}
+        height={1705}
+        objectPosition="top"
+        sizes="100vw"
         alt="taryn portrait"
-        className="w-full"
+        objectFit="cover"
       />
     </div>
   );
