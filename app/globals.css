@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .writing-vertical-rl {
+    writing-mode: vertical-rl;
+  }
+  .max-h-screen-85 {
+    max-height: 85vh;
+  }
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

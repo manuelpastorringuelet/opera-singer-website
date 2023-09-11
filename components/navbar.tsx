@@ -37,7 +37,7 @@ const Navbar = () => {
         transition={{
           duration: 1.5,
         }}
-        className="container flex items-center justify-between px-6 md:px-16"
+        className="flex items-center justify-between px-6 md:px-16"
       >
         <div className="md:hidden">
           <MenuBar />

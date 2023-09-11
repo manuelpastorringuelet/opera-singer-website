@@ -16,7 +16,7 @@ export default function Home() {
   }
 
   return (
-    <main className="mx-auto grid w-full flex-1 overflow-hidden sm:container sm:grid-cols-2">
+    <main className="mx-auto grid w-full flex-1 sm:container sm:grid-cols-2">
       <motion.section
         initial={{
           x: 200,
@@ -46,7 +46,7 @@ export default function Home() {
         </h3>
       </motion.section>
       <motion.div
-        className="absolute overflow-hidden"
+        className="absolute right-0 top-0 overflow-hidden"
         initial={{
           opacity: 0,
         }}
@@ -59,12 +59,11 @@ export default function Home() {
       >
         <Image
           src="/hero.png"
-          priority
           width={2235}
-          quality={100}
           height={1705}
-          alt="hero image"
-          className="mt-10 translate-x-28 scale-150 object-cover opacity-90 sm:mt-0 sm:translate-x-10 sm:scale-100"
+          sizes="100vw"
+          alt="taryn portrait"
+          className="max-h-screen-85 mt-[88px] max-w-screen-sm translate-x-52 object-cover opacity-90  sm:mt-[92px] sm:max-w-screen-lg sm:translate-x-28"
         />
       </motion.div>
     </main>
