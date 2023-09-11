@@ -2,10 +2,8 @@ import AboutImage from "@/components/about-image";
 
 const About = () => {
   return (
-    <section className="container flex flex-1 flex-col gap-8">
-      <AboutImage />
-      <p className="pb-4 text-justify text-sm font-thin md:columns-2 md:text-base">
-        Die aus Wisconsin (USA) stammende Sopranistin Taryn Knerr lebt als
+    <>
+        {`Die aus Wisconsin (USA) stammende Sopranistin Taryn Knerr lebt als
         freischaffende Musikerin in Leipzig. Ihre ersten Bühnenerfahrungen
         sammelte sie in Milwaukee und, nachdem sie nach Deutschland kam, in
         Produktionen am Theater Gera/Altenburg. Ihre stilistische Bandbreite
@@ -40,9 +38,8 @@ const About = () => {
         (u.a. ein Fulbright Stipendium, Calvin College Vocal Scholarship und das
         ad infinitum Stipendium). Meisterkurse bei John Norris, Philip Moll und
         Claude Webster gaben ihr wichtige und inspirierende Impulse für Technik
-        und Interpretation.
-      </p>
-    </section>
+        und Interpretation.`}
+      </>
   );
 };
 

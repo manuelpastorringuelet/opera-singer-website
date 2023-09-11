@@ -29,7 +29,7 @@ export default function Home() {
         transition={{
           duration: 1.5,
         }}
-        className="z-10 flex flex-col items-start gap-3 px-8 pt-10 sm:justify-self-center sm:px-0 md:pt-12 xl:pt-20"
+        className="z-10 flex flex-col items-start gap-3 overflow-hidden px-8 pt-10 sm:justify-self-center sm:px-0 md:pt-12 xl:pt-20"
       >
         <h1 className="text-6xl uppercase sm:text-8xl">
           Taryn
