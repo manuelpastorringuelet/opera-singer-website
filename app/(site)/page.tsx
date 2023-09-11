@@ -46,7 +46,7 @@ export default function Home() {
         </h3>
       </motion.section>
       <motion.div
-        className="absolute h-full overflow-hidden"
+        className="absolute overflow-hidden"
         initial={{
           opacity: 0,
         }}
