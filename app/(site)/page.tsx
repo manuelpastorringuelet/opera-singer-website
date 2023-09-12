@@ -61,9 +61,9 @@ export default function Home() {
           src="/hero.png"
           width={2235}
           height={1705}
-          sizes="100vw"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
           alt="taryn portrait"
-          className="max-h-screen-85 mt-[88px] max-w-screen-sm translate-x-52 object-cover opacity-90 sm:max-w-screen-lg sm:translate-x-28"
+          className="max-h-screen-85 mt-[88px] max-w-screen-sm translate-x-52 object-cover opacity-90 sm:max-w-screen-md sm:translate-x-28 lg:translate-x-0 xl:scale-125"
         />
       </motion.div>
     </main>
