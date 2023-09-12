@@ -1,9 +1,7 @@
-import AboutImage from "@/components/about-image";
-
 const About = () => {
   return (
     <>
-        {`Die aus Wisconsin (USA) stammende Sopranistin Taryn Knerr lebt als
+      {`Die aus Wisconsin (USA) stammende Sopranistin Taryn Knerr lebt als
         freischaffende Musikerin in Leipzig. Ihre ersten Bühnenerfahrungen
         sammelte sie in Milwaukee und, nachdem sie nach Deutschland kam, in
         Produktionen am Theater Gera/Altenburg. Ihre stilistische Bandbreite
@@ -22,10 +20,10 @@ const About = () => {
         der Musikalischen Komödie der Oper Leipzig im Rahmen des Musikfestivals
         „Klassik für Kinder“ zusammen – zuletzt als Dornröschen in Humperdincks
         gleichnamiger Oper. Zu ihren bevorstehenden Engagements zählt ihre
-        Mitwirkung in einer PamyProduktion von Wagners Parsifal.
-        <br />
-        <br />
-        Ihr Repertoire umfasst Oratorien und Messen von unter anderem Bach,
+        Mitwirkung in einer PamyProduktion von Wagners Parsifal.`}
+      <br />
+      <br />
+      {` Ihr Repertoire umfasst Oratorien und Messen von unter anderem Bach,
         Brahms, Dvorak, Händel, Haydn, Mendelssohn, Mozart, Pergolesi und Fauré.
         Taryn Knerr ist ebenfalls auf der Konzertbühne gefragt. Zuletzt sang sie
         beim Eröffnungskonzert der Festwochen der Alten Musik Innsbruck, mit der
@@ -39,7 +37,7 @@ const About = () => {
         ad infinitum Stipendium). Meisterkurse bei John Norris, Philip Moll und
         Claude Webster gaben ihr wichtige und inspirierende Impulse für Technik
         und Interpretation.`}
-      </>
+    </>
   );
 };
 
