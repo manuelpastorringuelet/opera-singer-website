@@ -17,10 +17,10 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 
 const formSchema = z.object({
-  name: z.string().nonempty(),
-  email: z.string().email(),
+  name: z.string().nonempty("Please enter your name."),
+  email: z.string().email("Please enter a valid email address."),
   subject: z.string().optional(),
-  message: z.string().nonempty(),
+  message: z.string().nonempty("Please enter a message."),
 });
 
 const ContactForm = () => {
@@ -45,7 +45,7 @@ const ContactForm = () => {
   return (
     <section className="container flex flex-1 flex-col items-center gap-8 py-8">
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 w-full max-w-screen-sm">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
           <FormField
             control={form.control}
             name="name"
@@ -66,7 +66,7 @@ const ContactForm = () => {
               <FormItem>
                 <FormLabel>Email</FormLabel>
                 <FormControl>
-            <Input type="text"  placeholder="email" {...field} />
+                  <Input type="text" placeholder="email" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -92,7 +92,7 @@ const ContactForm = () => {
               <FormItem>
                 <FormLabel>Message</FormLabel>
                 <FormControl>
-               <Textarea placeholder="message" rows={5} {...field} />
+                  <Textarea placeholder="message" rows={5} {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
