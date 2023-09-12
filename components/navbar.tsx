@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 import { ModeToggle } from "./mode-toggle";
@@ -23,7 +24,7 @@ const Navbar = () => {
   }
 
   return (
-    <header className="z-30 border-b border-zinc-800 bg-background/70 py-6">
+    <header className="z-30 border-b border-zinc-800 bg-background py-6">
       <motion.nav
         initial={{
           opacity: 0,
@@ -37,16 +38,23 @@ const Navbar = () => {
         transition={{
           duration: 1.5,
         }}
-        className="flex items-center justify-between px-6 md:px-16"
+        className="container flex items-center justify-between px-6 md:px-16"
       >
         <div className="md:hidden">
           <MenuBar />
         </div>
         <div
           onClick={() => router.push("/")}
-          className="hidden cursor-pointer rounded-md p-3 hover:bg-primary/90 md:inline-flex"
+          className="hidden flex-shrink-0 cursor-pointer rounded-md hover:bg-primary/90 md:inline-flex"
         >
-          <HomeIcon size={20} />
+          <Image
+            src="/signature.png"
+            width={100}
+            height={100}
+            objectFit="cover"
+            alt="signature"
+            className="h-9 w-full object-cover dark:invert"
+          />
         </div>
         <motion.nav className="hidden md:inline-flex">
           <Pages />
