@@ -18,7 +18,7 @@ const Pages = () => {
   const router = useRouter();
 
   return (
-    <ul className="flex flex-1 flex-col gap-1 md:flex-row md:items-center">
+    <ul className="flex flex-1 flex-col md:flex-row md:items-center md:gap-1">
       {pages.map((page) => (
         <li key={page.name}>
           {page.href ? (
@@ -32,7 +32,7 @@ const Pages = () => {
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button
-                  className="text-md flex h-[35.34px] w-fit flex-1 items-center justify-between gap-1 border-0 bg-transparent p-2 font-normal transition-all hover:underline [&[data-state=open]>svg]:rotate-180"
+                  className="text-md flex h-[35.34px] w-fit flex-1 items-center justify-between border-0 bg-transparent p-2 font-normal transition-all hover:underline md:gap-1 [&[data-state=open]>svg]:rotate-180"
                   variant="default"
                 >
                   {page.name}

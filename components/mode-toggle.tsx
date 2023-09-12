@@ -10,13 +10,9 @@ export function ModeToggle() {
   const { setTheme } = useTheme();
 
   return (
-    <Button
-      className="self-end border-0 bg-transparent"
-      variant="default"
-      size="icon"
-    >
+    <Button className="border-0 bg-transparent" variant="default" size="icon">
       <Sun
-        className="hover:rotate-90 h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"
+        className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all hover:rotate-90 dark:-rotate-90 dark:scale-0"
         onClick={() => setTheme("dark")}
       />
       <Moon
