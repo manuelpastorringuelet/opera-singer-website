@@ -1,6 +1,6 @@
 const Impressum = () => {
   return (
-    <section className="container mx-auto flex max-w-7xl flex-1 flex-col  gap-4 px-16 py-8 text-start text-sm">
+    <>
       <h1 className="text-2xl font-semibold">Impressum</h1>
 
       <section>
@@ -88,7 +88,7 @@ const Impressum = () => {
         </p>
       </section>
       <p>Quellenangaben: Disclaimer eRecht24</p>
-    </section>
+    </>
   );
 };
 

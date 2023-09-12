@@ -8,7 +8,6 @@ import { ModeToggle } from "./mode-toggle";
 
 import Pages from "./pages";
 import { MenuBar } from "./menubar";
-import { HomeIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 const Navbar = () => {
@@ -38,7 +37,7 @@ const Navbar = () => {
         transition={{
           duration: 1.5,
         }}
-        className="container flex items-center justify-between px-6 md:px-16"
+        className="container flex items-center justify-between px-6 sm:px-16"
       >
         <div className="md:hidden">
           <MenuBar />

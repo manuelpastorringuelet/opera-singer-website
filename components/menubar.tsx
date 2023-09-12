@@ -30,7 +30,7 @@ export function MenuBar() {
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="z-1- bg-transparent hover:bg-primary/90 hover:text-primary-foreground">
+          <NavigationMenuTrigger className="bg-transparent p-2 hover:bg-primary/90 hover:text-primary-foreground">
             <Menu className="group-data-[state=open]:hidden" />
             <X className="hidden group-data-[state=open]:block" />
           </NavigationMenuTrigger>

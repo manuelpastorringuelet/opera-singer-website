@@ -11,7 +11,7 @@ const AboutImage = () => {
         sizes="100vw"
         alt="taryn portrait"
         objectFit="cover"
-        className="h-32 object-cover sm:h-auto"
+        className="h-40 object-cover sm:h-auto"
       />
     </div>
   );

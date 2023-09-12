@@ -1,6 +1,6 @@
 const Datenschutzerklärung = () => {
   return (
-    <section className="justify- container mx-auto flex max-w-7xl flex-1 flex-col gap-4 px-16 py-8 text-start text-sm">
+    <>
       <h1 className="text-2xl font-semibold">Datenschutzerklärung</h1>
 
       <section>
@@ -226,7 +226,7 @@ const Datenschutzerklärung = () => {
           von Ihnen abgerufen und ausgedruckt werden.
         </p>
       </section>
-    </section>
+    </>
   );
 };
 
