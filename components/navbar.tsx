@@ -1,14 +1,15 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 
 import { ModeToggle } from "./mode-toggle";
 
 import Pages from "./pages";
 import { MenuBar } from "./menubar";
-import { useRouter } from "next/navigation";
 
 const Navbar = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -42,9 +43,9 @@ const Navbar = () => {
         <div className="md:hidden">
           <MenuBar />
         </div>
-        <div
-          onClick={() => router.push("/")}
-          className="hidden flex-shrink-0 cursor-pointer rounded-md hover:bg-primary/90 md:inline-flex"
+        <Link
+          href="/"
+          className="hidden flex-shrink-0 cursor-pointer rounded-md p-[2px] hover:bg-primary/90 md:inline-flex"
         >
           <Image
             src="/signature.png"
@@ -52,9 +53,9 @@ const Navbar = () => {
             height={100}
             objectFit="cover"
             alt="signature"
-            className="h-9 w-full object-cover dark:invert"
+            className="h-8 w-full object-cover dark:invert"
           />
-        </div>
+        </Link>
         <motion.nav className="hidden md:inline-flex">
           <Pages />
         </motion.nav>

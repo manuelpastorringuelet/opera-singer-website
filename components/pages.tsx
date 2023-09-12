@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 import {
   DropdownMenu,
@@ -13,9 +14,11 @@ import {
 import { pages } from "@/lib/pages";
 import { Button } from "./ui/button";
 import { ChevronDown } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const Pages = () => {
   const router = useRouter();
+  const pathname = usePathname();
 
   return (
     <ul className="flex flex-1 flex-col md:flex-row md:items-center md:gap-1">
@@ -24,7 +27,10 @@ const Pages = () => {
           {page.href ? (
             <Link
               href={page.href}
-              className="rounded-md transition-colors hover:bg-primary/90 hover:text-primary-foreground md:p-2"
+              className={cn(
+                "current:bg-green-500 rounded-md transition-colors hover:bg-primary/90 hover:text-primary-foreground md:p-2",
+                pathname === page.href && "ring-2 ring-primary",
+              )}
             >
               {page.name}
             </Link>
@@ -32,7 +38,11 @@ const Pages = () => {
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button
-                  className="text-md flex h-[35.34px] w-fit flex-1 items-center justify-between border-0 bg-transparent p-2 font-normal transition-all hover:underline md:gap-1 [&[data-state=open]>svg]:rotate-180"
+                  className={cn(
+                    "text-md group-[ring-2 ring-primary]: flex h-[35.34px] w-fit flex-1 items-center justify-between border-0 bg-transparent p-2 font-normal transition-all hover:underline md:gap-1 [&[data-state=open]>svg]:rotate-180",
+                    page.children?.find((child) => child.href === pathname) &&
+                      "ring-2 ring-primary",
+                  )}
                   variant="default"
                 >
                   {page.name}
