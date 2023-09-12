@@ -6,9 +6,6 @@
   .writing-vertical-rl {
     writing-mode: vertical-rl;
   }
-  .max-h-screen-85 {
-    max-height: 85vh;
-  }
 }
 
 @layer base {

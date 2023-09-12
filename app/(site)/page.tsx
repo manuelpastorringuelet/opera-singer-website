@@ -63,7 +63,7 @@ export default function Home() {
           height={1705}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
           alt="taryn portrait"
-          className="max-h-screen-85 mt-[88px] max-w-screen-sm translate-x-52 object-cover opacity-90 sm:max-w-screen-md sm:translate-x-28 lg:translate-x-0 xl:scale-125"
+          className="mt-[88px] max-w-screen-sm translate-x-52 object-cover opacity-90 sm:max-w-screen-md sm:translate-x-28 lg:translate-x-0 xl:block xl:max-h-screen xl:w-full xl:max-w-screen-xl"
         />
       </motion.div>
     </main>
