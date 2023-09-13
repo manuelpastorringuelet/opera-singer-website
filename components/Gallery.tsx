@@ -8,11 +8,11 @@ export default async function Gallery() {
   const images: ImagesResults | undefined = await fetchImages(url);
 
   if (!images) {
-    return <h2 className="test-2xl m-4 font-bold">No Images Found</h2>;
+    return <h2 className="m-4 text-2xl font-bold">No Images Found</h2>;
   }
 
   return (
-    <section className="grid-cols-gallery my-3 grid gap-2 px-2">
+    <section className="my-3 grid grid-cols-gallery gap-2 px-2">
       {images.photos.map((photo) => (
         <ImageContainer photo={photo} key={photo.id} />
       ))}
