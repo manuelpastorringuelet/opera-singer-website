@@ -1,13 +1,13 @@
 import "../globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Lora } from "next/font/google";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import ToasterProvider from "@/providers/ToasterProvider";
 
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 
-const inter = Inter({ subsets: ["latin"] });
+const lora = Lora({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Taryn Knerr",
@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} flex min-h-screen flex-col overflow-y-auto overflow-x-hidden bg-white dark:bg-zinc-900 dark:text-white`}
+        className={`${lora.className} flex min-h-screen flex-col overflow-y-auto overflow-x-hidden bg-white dark:bg-zinc-900 dark:text-white`}
       >
         <ToasterProvider />
 
