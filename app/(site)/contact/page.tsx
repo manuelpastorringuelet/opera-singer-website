@@ -1,8 +1,10 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { toast } from "react-hot-toast";
 
 import {
   Form,
@@ -24,6 +26,7 @@ const formSchema = z.object({
 });
 
 const ContactForm = () => {
+  const router = useRouter();
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -39,19 +42,23 @@ const ContactForm = () => {
   function onSubmit(values: z.infer<typeof formSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
+    router.push("/");
+    toast.success("Message sent!");
     console.log(values);
   }
 
   return (
-    <section className="container flex flex-1 flex-col items-center gap-8 py-8">
+    <section className="container flex max-w-sm flex-1 flex-col items-center gap-8 py-8">
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+        <form
+          onSubmit={form.handleSubmit(onSubmit)}
+          className="w-full space-y-4"
+        >
           <FormField
             control={form.control}
             name="name"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Name</FormLabel>
                 <FormControl>
                   <Input placeholder="name" {...field} />
                 </FormControl>
@@ -64,7 +71,6 @@ const ContactForm = () => {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Email</FormLabel>
                 <FormControl>
                   <Input type="text" placeholder="email" {...field} />
                 </FormControl>
@@ -77,7 +83,6 @@ const ContactForm = () => {
             name="subject"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Subject</FormLabel>
                 <FormControl>
                   <Input placeholder="subject" {...field} />
                 </FormControl>
@@ -90,7 +95,6 @@ const ContactForm = () => {
             name="message"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Message</FormLabel>
                 <FormControl>
                   <Textarea placeholder="message" rows={5} {...field} />
                 </FormControl>
@@ -98,7 +102,9 @@ const ContactForm = () => {
               </FormItem>
             )}
           />
-          <Button type="submit">Submit</Button>
+          <Button type="submit" className="w-full">
+            Submit
+          </Button>
         </form>
       </Form>
     </section>

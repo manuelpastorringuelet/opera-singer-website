@@ -1,7 +1,5 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -12,17 +10,6 @@ import Pages from "./pages";
 import { MenuBar } from "./menubar";
 
 const Navbar = () => {
-  const [isMounted, setIsMounted] = useState(false);
-  const router = useRouter();
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  if (!isMounted) {
-    return null;
-  }
-
   return (
     <header className="z-30 border-b border-zinc-800 bg-background/70 py-6">
       <motion.nav
@@ -48,10 +35,11 @@ const Navbar = () => {
           className="hidden flex-shrink-0 cursor-pointer rounded-md p-[2px] hover:bg-primary/90 md:inline-flex"
         >
           <Image
+            priority
             src="/signature.png"
             width={100}
             height={100}
-            objectFit="cover"
+            sizes="(max-width: 640px) 0vw, (max-width: 1200px) 20vw, 70vw"
             alt="signature"
             className="h-8 w-full object-cover dark:invert"
           />

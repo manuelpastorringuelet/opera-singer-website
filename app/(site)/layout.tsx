@@ -2,6 +2,7 @@ import "../globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/providers/theme-provider";
+import ToasterProvider from "@/providers/ToasterProvider";
 
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
@@ -23,6 +24,8 @@ export default function RootLayout({
       <body
         className={`${inter.className} flex min-h-screen flex-col overflow-y-auto overflow-x-hidden bg-white dark:bg-zinc-900 dark:text-white`}
       >
+        <ToasterProvider />
+
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
