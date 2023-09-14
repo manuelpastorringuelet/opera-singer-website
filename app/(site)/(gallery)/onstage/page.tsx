@@ -1,11 +1,7 @@
 import Gallery from "@/components/Gallery";
 
 const OnStage = () => {
-  return (
-    <section>
-      <Gallery />
-    </section>
-  );
+  return <Gallery />;
 };
 
 export default OnStage;
