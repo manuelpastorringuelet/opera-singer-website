@@ -14,7 +14,6 @@ const Music = () => {
         <div className="relative overflow-hidden rounded-xl">
           <video src="watch.m4v" muted controls className="h-full" />
         </div>
-        M M
       </section>
     </section>
   );
