@@ -1,9 +1,14 @@
 "use client";
 
+import { Lora } from "next/font/google";
 import Image from "next/image";
 import { motion } from "framer-motion";
+
 import { ProfileType } from "@/types";
 import { PortableText } from "@portabletext/react";
+import { cn } from "@/lib/utils";
+
+const lora = Lora({ subsets: ["latin"] });
 
 type Props = {
   profile: ProfileType;
@@ -11,7 +16,12 @@ type Props = {
 
 export default function Hero({ profile }: Props) {
   return (
-    <main className="mx-auto grid w-full flex-1 sm:container sm:grid-cols-2">
+    <main
+      className={cn(
+        "mx-auto grid w-full flex-1 sm:container sm:grid-cols-2",
+        lora.className,
+      )}
+    >
       <motion.section
         initial={{
           x: 300,
@@ -31,11 +41,13 @@ export default function Hero({ profile }: Props) {
           <br />
           {profile.lastName}
         </h1>
-        <h2 className="left-0 text-2xl sm:text-4xl">Soprano</h2>
+        <h2 className="left-0 text-3xl text-primary sm:text-6xl">
+          {profile.voiceType}
+        </h2>
         <text className="flex w-full flex-col gap-1">
           <PortableText value={profile.quote} />
         </text>
-        <span className="opacity-50">- The New York Times</span>
+        <span className="opacity-50">- {profile.quoteSource}</span>
       </motion.section>
       <motion.div
         className="absolute right-0 top-0 overflow-hidden"

@@ -1,4 +1,5 @@
 export type Performance = {
+  year: number;
   type: string;
   opera: string;
   composer: string;
@@ -7,11 +8,4 @@ export type Performance = {
   producer: string;
   dates: string;
   location: string;
-
-  director: string;
-  eurythmicDirection: string;
-  stageCostumesVideo: string;
-  lightingDesign: string;
-  choirConductor: string;
-  performers: string[];
 };

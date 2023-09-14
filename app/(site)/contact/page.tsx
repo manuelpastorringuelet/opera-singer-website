@@ -48,7 +48,7 @@ const ContactForm = () => {
   }
 
   return (
-    <section className="container flex max-w-sm flex-1 flex-col items-center gap-8 py-8">
+    <section className="container flex max-w-sm flex-1 flex-col items-center justify-center gap-8 py-8">
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
