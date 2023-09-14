@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${lora.className} flex min-h-screen flex-col overflow-y-auto overflow-x-hidden bg-white dark:bg-zinc-900 dark:text-white`}
+        className={`${inter.className} flex min-h-screen flex-col overflow-y-auto overflow-x-hidden bg-white dark:bg-zinc-900 dark:text-white`}
       >
         <ToasterProvider />
 
