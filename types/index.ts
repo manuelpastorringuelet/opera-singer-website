@@ -21,3 +21,9 @@ export type ProfileType = {
   germanBio: PortableTextBlock[];
   englishBio: PortableTextBlock[];
 };
+
+export type LegalType = {
+  _id: string;
+  imprint: PortableTextBlock[];
+  privacyPolicy: PortableTextBlock[];
+};

@@ -44,16 +44,17 @@ const MusicPlayer = () => {
       <div className="flex flex-1 flex-col  justify-around gap-6">
         <ul className="flex flex-col gap-1">
           {songs.map((song) => (
-            <Button
-              variant="ghost"
-              className="cursor-pointer justify-start rounded-md p-2 text-left transition-all duration-300 ease-in-out hover:text-primary/70"
-              onClick={() => {
-                setCurrentSong(song);
-              }}
-              key={song.id}
-            >
-              {song.title}
-            </Button>
+            <li key={song.id}>
+              <Button
+                variant="ghost"
+                className="cursor-pointer justify-start rounded-md p-2 text-left transition-all duration-300 ease-in-out hover:text-primary/70"
+                onClick={() => {
+                  setCurrentSong(song);
+                }}
+              >
+                {song.title}
+              </Button>
+            </li>
           ))}
         </ul>
         <div className="flex flex-col justify-end gap-1">

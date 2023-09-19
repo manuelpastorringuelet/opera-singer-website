@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+/* all descendent h1 default html style*/
+.article h1 {
+  @apply text-4xl font-bold;
+}
+.article h2 {
+  @apply text-3xl font-bold;
+}
+.article h3 {
+  @apply text-xl font-bold;
+}
+.article li {
+  @apply ml-4 list-inside list-disc;
+}
+
 @layer utilities {
   .writing-vertical-rl {
     writing-mode: vertical-rl;

@@ -1,7 +1,7 @@
 import { QueryParams, groq } from "next-sanity";
 import { client } from "./lib/client";
 
-import { ProfileType } from "@/types";
+import { LegalType, ProfileType } from "@/types";
 
 const revalidationOptions = { next: { revalidate: 10 } };
 const DEFAULT_PARAMS = {} as QueryParams;
@@ -23,6 +23,22 @@ export async function getProfile(): Promise<ProfileType[]> {
   `;
 
   return client.fetch<ProfileType[]>(
+    query,
+    DEFAULT_PARAMS,
+    revalidationOptions,
+  );
+}
+
+export async function getLegal(): Promise<LegalType[]> {
+  const query = groq`
+    *[_type == "legal"]{
+      _id,
+      imprint,
+      privacyPolicy,
+    }
+  `;
+
+  return client.fetch<LegalType[]>(
     query,
     DEFAULT_PARAMS,
     revalidationOptions,
