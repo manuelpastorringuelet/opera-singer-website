@@ -2,18 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
-/* all descendent h1 default html style*/
+/* Define custom styles for specific HTML elements */
 .article h1 {
-  @apply text-4xl font-bold;
+  @apply text-2xl font-semibold;
 }
 .article h2 {
-  @apply text-3xl font-bold;
+  @apply text-xl font-semibold;
 }
 .article h3 {
-  @apply text-xl font-bold;
+  @apply underline;
+}
+.article p {
+  @apply text-sm;
 }
 .article li {
-  @apply ml-4 list-inside list-disc;
+  @apply ml-2 list-inside list-disc text-sm;
 }
 
 @layer utilities {
