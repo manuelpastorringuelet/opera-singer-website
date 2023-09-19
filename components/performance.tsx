@@ -1,4 +1,4 @@
-import { Performance } from "@/lib/types";
+import { Performance } from "@/types";
 
 const Performance = (performance: Performance) => {
   return (
@@ -10,7 +10,7 @@ const Performance = (performance: Performance) => {
           </h2>
           <div className="max-w-sm">
             <h3 className="text-4xl font-medium sm:text-5xl">
-              {performance.opera}
+              {performance.title}
             </h3>
             <h4 className="text-2xl font-normal sm:text-3xl">
               {performance.composer}
@@ -23,7 +23,9 @@ const Performance = (performance: Performance) => {
               Production: {performance.producer}
             </p>
             <br />
-            <p className="text-sm sm:text-base">{performance.dates}</p>
+            <p className="text-sm sm:text-base">
+              {performance.dates.map((date) => new Date(date).toDateString())}
+            </p>
 
             <p className="text-sm sm:text-base">{performance.location}</p>
           </div>

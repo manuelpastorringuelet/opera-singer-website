@@ -27,3 +27,25 @@ export type LegalType = {
   imprint: PortableTextBlock[];
   privacyPolicy: PortableTextBlock[];
 };
+
+export type Critic = {
+  _id: string;
+  opera: string;
+  role: string;
+  description: string;
+  source: string;
+};
+
+export type Performance = {
+  _id: string;
+  title: string;
+  type: string;
+  composer: string;
+  composition: string;
+  role: string;
+  conductor: string;
+  producer: string;
+  dates: Date[];
+  location: string;
+  orchestra: string;
+};

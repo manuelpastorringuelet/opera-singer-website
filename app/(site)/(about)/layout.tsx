@@ -1,7 +1,9 @@
 import AboutImage from "@/components/about-image";
-import critics from "@/lib/critics";
+import { getCritics } from "@/sanity/sanity.query";
 
-const AboutLayout = ({ children }: { children: React.ReactNode }) => {
+const AboutLayout = async ({ children }: { children: React.ReactNode }) => {
+  const critics = await getCritics();
+
   return (
     <main className="container flex flex-1 flex-col gap-3 sm:px-16 md:gap-8">
       <AboutImage />
@@ -12,7 +14,7 @@ const AboutLayout = ({ children }: { children: React.ReactNode }) => {
               <q className="text-start text-2xl">{critics.description}</q>
               <cite className="text-xxs">- {critics.source}</cite>
               <p className="text-xxs">
-                {critics.role} <span>{critics.opera}</span>
+                {critics.role} <span>({critics.opera})</span>
               </p>
             </blockquote>
           ))}
