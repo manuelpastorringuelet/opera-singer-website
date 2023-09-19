@@ -11,7 +11,7 @@ export type ProfileType = {
     | "Tenor"
     | "Baritone"
     | "Bass";
-  quote: PortableTextBlock[];
+  quote: string;
   quoteSource: string;
   heroImage: {
     alt: string;

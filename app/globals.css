@@ -19,6 +19,10 @@
   @apply ml-2 list-inside list-disc text-sm;
 }
 
+p {
+  @apply text-sm;
+}
+
 @layer utilities {
   .writing-vertical-rl {
     writing-mode: vertical-rl;
