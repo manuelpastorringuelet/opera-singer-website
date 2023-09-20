@@ -1,5 +1,6 @@
-import Performance from "@/components/performance";
 import { getPerformances } from "@/sanity/sanity.query";
+
+import Performance from "@/components/performance";
 
 const Calendar = async () => {
   const performances = await getPerformances();
@@ -12,7 +13,6 @@ const Calendar = async () => {
     return earliestDateA.getFullYear() - earliestDateB.getFullYear();
   });
 
-  console.log(performances);
   // create a new array with only the years, remove duplicates
   const years = [
     ...new Set(
@@ -24,7 +24,6 @@ const Calendar = async () => {
     ),
   ];
 
-  console.log(years);
   return (
     <main className="container flex flex-1 flex-col items-center gap-8 py-8  text-center">
       {years.map((year, index) => (
@@ -43,13 +42,17 @@ const Calendar = async () => {
                       .getFullYear() === year,
                 )
                 .map((performance, index) => (
-                  <Performance key={index} {...performance} />
+                  <>
+                    <Performance key={index} {...performance} />
+                  </>
                 ))}
             </div>
           </section>
           {
             // add a horizontal rule between each year, except the last
-            index !== years.length - 1 && <hr className="w-2/3 opacity-50" />
+            index !== years.length - 1 && (
+              <hr className="w-full opacity-50 sm:w-2/3" />
+            )
           }
         </>
       ))}
