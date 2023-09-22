@@ -5,6 +5,12 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@cloudinary/react':
+    specifier: ^1.11.2
+    version: 1.11.2(react@18.2.0)
+  '@cloudinary/url-gen':
+    specifier: ^1.11.2
+    version: 1.11.2
   '@hookform/resolvers':
     specifier: ^3.3.1
     version: 3.3.1(react-hook-form@7.46.1)
@@ -101,6 +107,9 @@ dependencies:
   sanity:
     specifier: ^3.16.2
     version: 3.16.2(@types/node@20.5.9)(@types/react@18.2.21)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.2.3)
+  sanity-plugin-cloudinary:
+    specifier: ^1.1.1
+    version: 1.1.1(@babel/core@7.22.17)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(sanity@3.16.2)
   styled-components:
     specifier: ~5.2.3
     version: 5.2.3(@babel/core@7.22.17)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
@@ -386,6 +395,39 @@ packages:
       '@babel/helper-string-parser': 7.22.5
       '@babel/helper-validator-identifier': 7.22.15
       to-fast-properties: 2.0.0
+    dev: false
+
+  /@cloudinary/html@1.11.2:
+    resolution: {integrity: sha512-IibBZliI7MOK3dxvz0WlsEyTIsqZhY3SiCBQM0CNwCKxn3N1TO8OgetfU26Now1lJbdoF5JQ8S7Cn6ZWNuU1KA==}
+    dependencies:
+      '@types/lodash.clonedeep': 4.5.7
+      '@types/lodash.debounce': 4.0.7
+      '@types/node': 14.18.62
+      lodash.clonedeep: 4.5.0
+      lodash.debounce: 4.0.8
+      typescript: 4.9.5
+    dev: false
+
+  /@cloudinary/react@1.11.2(react@18.2.0):
+    resolution: {integrity: sha512-ZnVthMW7TExLMPmyven4N7EVr2oX2yZqnHn6EHBlni9iM0AZd6qtR8R5/SscxNLNwgBieWuvmejUlUT4LqPpMg==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      react: ^16.3.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      '@cloudinary/html': 1.11.2
+      react: 18.2.0
+    dev: false
+
+  /@cloudinary/transformation-builder-sdk@1.6.1:
+    resolution: {integrity: sha512-cBoSFbE4SnXO2QvUq+cYgUpXufmZTgg05Cy+jAdiNRGcC6lN+KO0ybMnLU6yg9cFub2NRkBDpU4N53wg4a977w==}
+    dependencies:
+      '@cloudinary/url-gen': 1.11.2
+    dev: false
+
+  /@cloudinary/url-gen@1.11.2:
+    resolution: {integrity: sha512-9yL3BlThh3PfyRg/zS8cQVic3FdFaIOp361YrDrQ4fqYbYE47SGWF4ji9KoFxYF4ejfDEptayeG9jF2C465KRQ==}
+    dependencies:
+      '@cloudinary/transformation-builder-sdk': 1.6.1
     dev: false
 
   /@codemirror/autocomplete@6.9.0(@codemirror/language@6.9.0)(@codemirror/state@6.2.1)(@codemirror/view@6.18.1)(@lezer/common@1.0.4):
@@ -2009,6 +2051,14 @@ packages:
       - supports-color
     dev: false
 
+  /@sanity/icons@1.3.10(react@18.2.0):
+    resolution: {integrity: sha512-5wVG/vIiGuGrSmq+Bl3PY7XDgQrGv0fyHdJI64FSulnr2wH3NMqZ6C59UFxnrZ93sr7kOt0zQFoNv2lkPBi0Cg==}
+    peerDependencies:
+      react: ^16.9 || ^17 || ^18
+    dependencies:
+      react: 18.2.0
+    dev: false
+
   /@sanity/icons@2.4.1(react@18.2.0):
     resolution: {integrity: sha512-/yxcIT0k1RxStI/pP/oHM44fHI6Oxiygf0jPcdV06Ce0xfFo+51UEqJSfE8hQ3fh+uFkat8ZZObZjq5v1ceJzw==}
     engines: {node: '>=14.0.0'}
@@ -2047,6 +2097,18 @@ packages:
       tar-fs: 2.1.1
     transitivePeerDependencies:
       - supports-color
+    dev: false
+
+  /@sanity/incompatible-plugin@1.0.4(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-2z39G9PTM8MXOF4fJNx3TG4tH0RrTjtH6dVLW93DSjCPbIS7FgCY5yWjZfQ+HVkwhLsF7ATDAGLA/jp65pFjAg==}
+    peerDependencies:
+      react: ^16.9 || ^17 || ^18
+      react-dom: ^16.9 || ^17 || ^18
+    dependencies:
+      '@sanity/icons': 1.3.10(react@18.2.0)
+      react: 18.2.0
+      react-copy-to-clipboard: 5.1.0(react@18.2.0)
+      react-dom: 18.2.0(react@18.2.0)
     dev: false
 
   /@sanity/logos@2.1.2(@sanity/color@2.2.5)(react@18.2.0):
@@ -2133,6 +2195,24 @@ packages:
       object-inspect: 1.12.3
     transitivePeerDependencies:
       - supports-color
+    dev: false
+
+  /@sanity/studio-secrets@2.0.2(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(sanity@3.16.2)(styled-components@5.2.3):
+    resolution: {integrity: sha512-XVA+08yGwgT4AB87KK6FpNMPfmbvW4VGJywGLQGwvG1WoxjZxnqoy3bKalGNqnMg1CuCKsVoLMtepcr8ylQ6HA==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      react: ^18
+      sanity: ^3.0.0
+      styled-components: ^5.3.0
+    dependencies:
+      '@sanity/incompatible-plugin': 1.0.4(react-dom@18.2.0)(react@18.2.0)
+      '@sanity/ui': 1.8.2(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(styled-components@5.2.3)
+      react: 18.2.0
+      sanity: 3.16.2(@types/node@20.5.9)(@types/react@18.2.21)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.2.3)
+      styled-components: 5.2.3(@babel/core@7.22.17)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
+    transitivePeerDependencies:
+      - react-dom
+      - react-is
     dev: false
 
   /@sanity/types@3.16.2:
@@ -2289,12 +2369,28 @@ packages:
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
     dev: false
 
+  /@types/lodash.clonedeep@4.5.7:
+    resolution: {integrity: sha512-ccNqkPptFIXrpVqUECi60/DFxjNKsfoQxSQsgcBJCX/fuX1wgyQieojkcWH/KpE3xzLoWN/2k+ZeGqIN3paSvw==}
+    dependencies:
+      '@types/lodash': 4.14.198
+    dev: false
+
+  /@types/lodash.debounce@4.0.7:
+    resolution: {integrity: sha512-X1T4wMZ+gT000M2/91SYj0d/7JfeNZ9PeeOldSNoE/lunLeQXKvkmIumI29IaKMotU/ln/McOIvgzZcQ/3TrSA==}
+    dependencies:
+      '@types/lodash': 4.14.198
+    dev: false
+
   /@types/lodash@4.14.198:
     resolution: {integrity: sha512-trNJ/vtMZYMLhfN45uLq4ShQSw0/S7xCTLLVM+WM1rmFpba/VS42jVUgaO3w/NOLiWR/09lnYk0yMaA/atdIsg==}
     dev: false
 
   /@types/minimatch@5.1.2:
     resolution: {integrity: sha512-K0VQKziLUWkVKiRVrx4a40iPaxTUefQmjtkQofBkYRcoaaL/8rhwDWww9qWbrgicNOgnpIsMxyNIUM4+n6dUIA==}
+    dev: false
+
+  /@types/node@14.18.62:
+    resolution: {integrity: sha512-53Fhb08qfKwSNCIUtysIqw0ye+v1d5QCdL2kl8liKQFlOZTAo+nEYr/FztzMaHBFwB5H0ugF0PF0gmtojaNNiQ==}
     dev: false
 
   /@types/node@20.5.9:
@@ -4970,6 +5066,14 @@ packages:
       p-locate: 5.0.0
     dev: false
 
+  /lodash.clonedeep@4.5.0:
+    resolution: {integrity: sha512-H5ZhCF25riFd9uB5UCkVKo61m3S/xZk1x4wA6yp/L3RFP6Z/eHH1ymQcGLo7J3GMPfm0V/7m1tryHuGVxpqEBQ==}
+    dev: false
+
+  /lodash.debounce@4.0.8:
+    resolution: {integrity: sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==}
+    dev: false
+
   /lodash.defaults@4.2.0:
     resolution: {integrity: sha512-qjxPLHd3r5DnsdGacqOMU6pb/avJzdh9tFX2ymgoZE27BmjXrNy/y4LoaiTeAb+O3gL8AfpJGtqfX/ae2leYYQ==}
     dev: false
@@ -6251,6 +6355,28 @@ packages:
       '@sanity/diff-match-patch': 3.1.1
     dev: false
 
+  /sanity-plugin-cloudinary@1.1.1(@babel/core@7.22.17)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(sanity@3.16.2):
+    resolution: {integrity: sha512-0jFnwWqzYEPN6b5bHRSAB+hs88QkCJDPR31zsZZqGZyXaQQRFMaHG6T1pLsd3XreR9Ez2yKFbpDFVSO/9QSlfA==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      react: ^18
+      react-dom: ^18
+      sanity: ^3
+    dependencies:
+      '@sanity/icons': 2.4.1(react@18.2.0)
+      '@sanity/incompatible-plugin': 1.0.4(react-dom@18.2.0)(react@18.2.0)
+      '@sanity/studio-secrets': 2.0.2(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(sanity@3.16.2)(styled-components@5.2.3)
+      '@sanity/ui': 1.8.2(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(styled-components@5.2.3)
+      nanoid: 3.3.6
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      sanity: 3.16.2(@types/node@20.5.9)(@types/react@18.2.21)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.2.3)
+      styled-components: 5.2.3(@babel/core@7.22.17)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
+    transitivePeerDependencies:
+      - '@babel/core'
+      - react-is
+    dev: false
+
   /sanity@3.16.2(@types/node@20.5.9)(@types/react@18.2.21)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.2.3):
     resolution: {integrity: sha512-7Kod3EgHwtpOrGOJ023eIefjsRcPID/C6roFexOs16ARy0s8rokBJwy7sOhtsl1/4xyp4RthyFetPtBg9/9DxA==}
     engines: {node: '>=14.18.0'}
@@ -6996,6 +7122,12 @@ packages:
 
   /typedarray@0.0.6:
     resolution: {integrity: sha512-/aCDEGatGvZ2BIk+HmLf4ifCJFwvKFNb9/JeZPMulfgFracn9QFcAf5GO8B/mweUjSoblS5In0cWhqpfs/5PQA==}
+    dev: false
+
+  /typescript@4.9.5:
+    resolution: {integrity: sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==}
+    engines: {node: '>=4.2.0'}
+    hasBin: true
     dev: false
 
   /typescript@5.2.2:

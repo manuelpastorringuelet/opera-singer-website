@@ -1,7 +1,14 @@
 import { QueryParams, groq } from "next-sanity";
 import { client } from "./lib/client";
 
-import { Critic, LegalType, ProfileType, Performance, Gallery } from "@/types";
+import {
+  Critic,
+  LegalType,
+  ProfileType,
+  Performance,
+  Gallery,
+  Media,
+} from "@/types";
 
 const revalidationOptions = { next: { revalidate: 10 } };
 const DEFAULT_PARAMS = {} as QueryParams;
@@ -112,4 +119,20 @@ export async function getGallery(): Promise<Gallery[]> {
   `;
 
   return client.fetch<Gallery[]>(query, DEFAULT_PARAMS, revalidationOptions);
+}
+
+export async function getMedia(): Promise<Media[]> {
+  const query = groq`
+    *[_type == "media"]{
+      _id,
+      title,
+      files[] {
+        alt,
+        title,
+        "file": asset->url,
+      },
+    }
+  `;
+
+  return client.fetch<Media[]>(query, DEFAULT_PARAMS, revalidationOptions);
 }

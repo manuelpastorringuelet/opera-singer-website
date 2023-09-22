@@ -67,3 +67,16 @@ export interface Picture {
   alt: string;
   image: string;
 }
+
+export interface Media extends SanityBody {
+  _id: string;
+  title: string;
+  files: File[];
+}
+
+export interface File {
+  description: string;
+  alt: string;
+  title: string;
+  file: string;
+}
