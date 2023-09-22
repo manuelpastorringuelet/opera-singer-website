@@ -4,13 +4,13 @@ import { Lora } from "next/font/google";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-import { ProfileType } from "@/types";
+import { Profile } from "@/types";
 import { cn } from "@/lib/utils";
 
 const lora = Lora({ subsets: ["latin"] });
 
 type Props = {
-  profile: ProfileType;
+  profile: Profile;
 };
 
 export default function Hero({ profile }: Props) {

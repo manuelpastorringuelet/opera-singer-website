@@ -18,9 +18,6 @@ const Repertoire = async () => {
       );
     });
 
-  // sort the repertoire alphabetically
-  console.log(typesOfRepertoire);
-
   return (
     <>
       {typesOfRepertoire.map((type, index) => (

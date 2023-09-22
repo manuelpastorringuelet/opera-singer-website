@@ -7,7 +7,7 @@ interface SanityBody {
   _updatedAt: string;
 }
 
-export type ProfileType = {
+export interface Profile extends SanityBody {
   _id: string;
   firstName: string;
   lastName: string;
@@ -20,31 +20,32 @@ export type ProfileType = {
     | "Bass";
   quote: string;
   quoteSource: string;
-  heroImage: {
-    alt: string;
-    image: string;
-  };
+  heroImage: Picture;
   email: string;
+}
+
+export interface About extends SanityBody {
+  _id: string;
   germanBio: PortableTextBlock[];
   englishBio: PortableTextBlock[];
-};
-
-export interface LegalType extends SanityBody {
+  aboutImage: Picture;
+}
+export interface Legal extends SanityBody {
   _id: string;
   title: string;
   content: PortableTextBlock[];
 }
 
-export type Critic = {
+export interface Critic extends SanityBody {
   _id: string;
   opera: string;
   role: string;
   description: string;
   source: string;
   ranking: number;
-};
+}
 
-export type Performance = {
+export interface Performance extends SanityBody {
   _id: string;
   title: string;
   type: string;
@@ -56,7 +57,7 @@ export type Performance = {
   dates: Date[];
   location: string;
   orchestra: string;
-};
+}
 
 export interface Gallery extends SanityBody {
   _id: string;

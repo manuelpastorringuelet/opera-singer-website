@@ -2,14 +2,14 @@
 
 import { motion } from "framer-motion";
 
-import { ProfileType } from "@/types";
+import { About } from "@/types";
 import Image from "next/image";
 
 interface AboutImageProps {
-  profile: ProfileType;
+  about: About;
 }
 
-const AboutImage = ({ profile }: AboutImageProps) => {
+const AboutImage = ({ about }: AboutImageProps) => {
   return (
     <motion.div
       initial={{
@@ -25,11 +25,11 @@ const AboutImage = ({ profile }: AboutImageProps) => {
     >
       <Image
         priority
-        src={profile.heroImage.image}
+        src={about.aboutImage.image}
         width={2235}
         height={1705}
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
-        alt={profile.heroImage.alt}
+        alt={about.aboutImage.alt}
         className="h-40 object-cover sm:h-auto"
       />
     </motion.div>

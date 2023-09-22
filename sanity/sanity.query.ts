@@ -3,18 +3,19 @@ import { client } from "./lib/client";
 
 import {
   Critic,
-  LegalType,
-  ProfileType,
+  Legal,
+  Profile,
   Performance,
   Gallery,
   Media,
   Repertoire,
+  About,
 } from "@/types";
 
 const revalidationOptions = { next: { revalidate: 10 } };
 const DEFAULT_PARAMS = {} as QueryParams;
 
-export async function getProfile(): Promise<ProfileType[]> {
+export async function getProfile(): Promise<Profile[]> {
   const query = groq`
     *[_type == "profile"]{
       _id,
@@ -25,19 +26,25 @@ export async function getProfile(): Promise<ProfileType[]> {
     quoteSource,
     heroImage { alt, "image": asset->url },
       email,
-     englishBio,
-      germanBio,
     }
   `;
 
-  return client.fetch<ProfileType[]>(
-    query,
-    DEFAULT_PARAMS,
-    revalidationOptions,
-  );
+  return client.fetch<Profile[]>(query, DEFAULT_PARAMS, revalidationOptions);
 }
 
-export async function getLegal(): Promise<LegalType[]> {
+export async function getAbout(): Promise<About[]> {
+  const query = groq`
+    *[_type == "about"]{
+      _id,
+      germanBio,
+      englishBio,
+      aboutImage { alt, "image": asset->url },
+    }
+  `;
+  return client.fetch<About[]>(query, DEFAULT_PARAMS, revalidationOptions);
+}
+
+export async function getLegal(): Promise<Legal[]> {
   const query = groq`
     *[_type == "legal"]{
       _id,
@@ -46,7 +53,7 @@ export async function getLegal(): Promise<LegalType[]> {
     }
   `;
 
-  return client.fetch<LegalType[]>(query, DEFAULT_PARAMS, revalidationOptions);
+  return client.fetch<Legal[]>(query, DEFAULT_PARAMS, revalidationOptions);
 }
 
 export async function getCritics(): Promise<Critic[]> {

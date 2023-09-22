@@ -1,6 +1,6 @@
 import AboutImage from "@/components/about-image";
 import Critics from "@/components/critics";
-import { getCritics, getProfile } from "@/sanity/sanity.query";
+import { getAbout, getCritics } from "@/sanity/sanity.query";
 
 const AboutLayout = async ({ children }: { children: React.ReactNode }) => {
   const critics = await getCritics();
@@ -8,11 +8,11 @@ const AboutLayout = async ({ children }: { children: React.ReactNode }) => {
   // order by ranking ascending
   critics.sort((a, b) => a.ranking - b.ranking);
 
-  const [profile] = await getProfile();
+  const [about] = await getAbout();
 
   return (
     <main className="container flex flex-1 flex-col gap-3 sm:px-16 md:gap-8">
-      <AboutImage profile={profile} />
+      <AboutImage about={about} />
       <section className="grid gap-16 pb-4 text-sm md:grid-cols-critics md:text-base">
         <Critics critics={critics} />
         {children}

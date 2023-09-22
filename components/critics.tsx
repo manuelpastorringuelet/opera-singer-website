@@ -10,14 +10,14 @@ interface CriticsProps {
 
 const Critics = ({ critics }: CriticsProps) => {
   return (
-    <div className="flex flex-col gap-4 overflow-visible">
+    <div className="flex flex-col gap-4 overflow-hidden">
       {critics.map((critics, index) => (
         <motion.div
-          initial={{ x: 400, opacity: 0 }}
-          transition={{ duration: 2 }}
+          initial={{ y: 200, opacity: 0 }}
+          transition={{ duration: 1.2 }}
           whileInView={{
             opacity: 1,
-            x: 0,
+            y: 0,
           }}
           viewport={{
             once: true,
@@ -25,7 +25,7 @@ const Critics = ({ critics }: CriticsProps) => {
           key={index}
         >
           <blockquote className="flex flex-col gap-1 text-end">
-            <q className="text-start text-2xl text-primary/80">
+            <q className="text-start text-xl text-primary/80 sm:text-2xl">
               {critics.description}
             </q>
             <cite className="text-xxs">- {critics.source}</cite>

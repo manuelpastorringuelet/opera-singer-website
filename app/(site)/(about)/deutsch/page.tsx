@@ -1,12 +1,12 @@
-import { getProfile } from "@/sanity/sanity.query";
+import { getAbout } from "@/sanity/sanity.query";
 
-import { ProfileType } from "@/types";
+import { About } from "@/types";
 import Bio from "@/components/bio";
 
 const About = async () => {
-  const profile: ProfileType[] = await getProfile();
+  const about: About[] = await getAbout();
 
-  return <Bio profile={profile} />;
+  return <Bio about={about} />;
 };
 
 export default About;

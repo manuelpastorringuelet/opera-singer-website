@@ -51,17 +51,5 @@ export default defineType({
       title: "Email Address",
       type: "string",
     },
-    {
-      name: "germanBio",
-      title: "German Bio",
-      type: "array",
-      of: [{ type: "block" }],
-    },
-    {
-      name: "englishBio",
-      title: "English Bio",
-      type: "array",
-      of: [{ type: "block" }],
-    },
   ],
 });
