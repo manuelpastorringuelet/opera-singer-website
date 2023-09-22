@@ -32,9 +32,7 @@ const Calendar = async () => {
           key={index}
           className="container flex flex-col items-start justify-center gap-4 font-light sm:flex sm:flex-row md:gap-10 lg:gap-20"
         >
-          <h1 className="text-4xl font-semibold text-primary/80 sm:text-5xl">
-            {year}
-          </h1>
+          <h1 className="text-4xl font-semibold sm:text-5xl">{year}</h1>
           <div className="flex flex-col gap-8">
             {performances
               .filter(
