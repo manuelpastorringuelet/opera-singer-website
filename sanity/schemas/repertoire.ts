@@ -50,7 +50,6 @@ export default defineType({
               of: [
                 {
                   type: "string",
-                  validation: (Rule) => Rule.required(),
                 },
               ],
             },

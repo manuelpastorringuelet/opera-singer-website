@@ -1,6 +1,9 @@
 "use client";
+
 import Image from "next/image";
 import { Download } from "lucide-react";
+import { motion } from "framer-motion";
+
 import { Picture } from "@/types";
 
 type Props = {
@@ -9,7 +12,17 @@ type Props = {
 
 export default function ImageContainer({ photo }: Props) {
   return (
-    <div className="group relative h-64 overflow-hidden rounded-xl bg-gray-200">
+    <motion.div
+      initial={{ opacity: 0 }}
+      transition={{ duration: 1.2 }}
+      whileInView={{
+        opacity: 1,
+      }}
+      viewport={{
+        once: true,
+      }}
+      className="group relative h-64 overflow-hidden rounded-xl"
+    >
       <Image
         src={photo.image}
         alt={photo.alt}
@@ -29,6 +42,6 @@ export default function ImageContainer({ photo }: Props) {
       >
         <Download size={20} />
       </a>
-    </div>
+    </motion.div>
   );
 }

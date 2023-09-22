@@ -8,9 +8,17 @@ const Repertoire = async () => {
   const repertoire = await getRepertoire();
 
   // select all the types of repertoire, and put them in an array, without duplicates
+
   const typesOfRepertoire = repertoire
     .map((item) => item.type)
-    .filter((value, index, self) => self.indexOf(value) === index);
+    .filter((item, index, array) => array.indexOf(item) === index)
+    .sort((a, b) => {
+      // sort them by occurrence
+      return (
+        repertoire.filter((item) => item.type === b).length -
+        repertoire.filter((item) => item.type === a).length
+      );
+    });
 
   return (
     <>

@@ -11,23 +11,31 @@ const RepertoireType = async ({ type }: RepertoireTypeProps) => {
 
   return (
     <section className="container mx-auto flex flex-1 flex-col gap-12 py-8 sm:gap-16 sm:px-16">
-      <div className="group group grid gap-6 sm:grid-cols-repertoire sm:gap-8 lg:gap-16">
+      <div className="grid gap-6 sm:grid-cols-repertoire sm:gap-8 lg:gap-16">
         <h1 className="text-5xl font-semibold text-primary/80 sm:justify-self-end">
           {type}
         </h1>
         <ul className="flex flex-1 flex-col gap-4">
           {filteredRepertoire.map((item, index) => (
-            <li key={index}>
-              <h2 className="peer text-xl font-semibold group-hover:text-primary/80">
+            <li key={index} className="group">
+              <h2 className="text-xl font-semibold group-hover:text-primary/80">
                 {item.composer}
               </h2>
-              <div className="peer">
+              <div>
                 {item.compositions.map((piece, index) => (
                   <p key={index} className="font-light">
                     {piece.title}
-                    {piece.role.map((item, index) => (
-                      <span key={index}>{item}</span>
-                    ))}
+                    {piece.role &&
+                      piece.role.length > 0 &&
+                      piece.role.filter((item) => item.trim() !== "").length >
+                        0 && (
+                        <>
+                          {" / "}
+                          {piece.role
+                            .filter((item) => item.trim() !== "") // Remove empty strings
+                            .join(", ")}
+                        </>
+                      )}
                   </p>
                 ))}
               </div>

@@ -26,9 +26,6 @@ export default defineType({
               name: "title",
               type: "string",
               title: "Title",
-              options: {
-                isHighlighted: true,
-              },
             },
 
             {
@@ -37,9 +34,6 @@ export default defineType({
               title: "Alternative text",
 
               description: "Important for SEO and accessiblity.",
-              options: {
-                isHighlighted: true,
-              },
             },
           ],
         },
