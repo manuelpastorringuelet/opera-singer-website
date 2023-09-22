@@ -41,6 +41,7 @@ export type Critic = {
   role: string;
   description: string;
   source: string;
+  ranking: number;
 };
 
 export type Performance = {

@@ -5,6 +5,9 @@ import { getCritics, getProfile } from "@/sanity/sanity.query";
 const AboutLayout = async ({ children }: { children: React.ReactNode }) => {
   const critics = await getCritics();
 
+  // order by ranking ascending
+  critics.sort((a, b) => a.ranking - b.ranking);
+
   const [profile] = await getProfile();
 
   return (

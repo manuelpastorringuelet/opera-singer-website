@@ -30,6 +30,11 @@ const critics = {
       type: "string",
       description: "The source of the quote",
     },
+    {
+      name: "ranking",
+      title: "Ranking",
+      type: "number",
+    },
   ],
 };
 

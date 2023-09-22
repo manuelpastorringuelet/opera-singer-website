@@ -37,26 +37,6 @@ export async function getProfile(): Promise<ProfileType[]> {
   );
 }
 
-// export default defineType({
-//   name: "legal",
-//   title: "Legal",
-//   type: "document",
-//   icon: GoLaw,
-//   fields: [
-//     {
-//       name: "title",
-//       title: "Title",
-//       type: "string",
-//     },
-//     {
-//       name: "content",
-//       title: "Content",
-//       type: "array",
-//       of: [{ type: "block" }],
-//     },
-//   ],
-// });
-
 export async function getLegal(): Promise<LegalType[]> {
   const query = groq`
     *[_type == "legal"]{
@@ -77,6 +57,7 @@ export async function getCritics(): Promise<Critic[]> {
       role,
       description,
       source,
+      ranking,
     }
   `;
 

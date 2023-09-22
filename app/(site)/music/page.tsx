@@ -1,10 +1,7 @@
 import MusicPlayer from "@/components/music-player";
-import { getMedia, getProfile } from "@/sanity/sanity.query";
-import Image from "next/image";
+import { getMedia } from "@/sanity/sanity.query";
 
 const Music = async () => {
-  const [profile] = await getProfile();
-
   const [audio, video] = await getMedia();
 
   const songs = audio.files;
