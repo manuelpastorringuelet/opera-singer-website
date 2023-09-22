@@ -14,7 +14,7 @@ const Music = async () => {
     <section className="container mx-auto flex flex-1 flex-col gap-6 py-8 sm:px-16 ">
       <section className="grid grid-cols-music gap-2">
         <MusicPlayer songs={songs} />
-        <div className="relative overflow-hidden rounded-xl">
+        {/* <div className="relative overflow-hidden rounded-xl">
           <Image
             priority
             src={profile.heroImage.image}
@@ -23,7 +23,7 @@ const Music = async () => {
             alt={profile.heroImage.alt}
             className=" object-cover"
           />
-        </div>
+        </div> */}
         {videos.map((video, index) => (
           <div key={index} className="relative overflow-hidden rounded-xl">
             <video src={video.file} muted controls className="h-full" />

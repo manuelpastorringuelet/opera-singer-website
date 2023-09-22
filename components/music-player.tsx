@@ -17,8 +17,8 @@ const MusicPlayer = ({ songs }: Props) => {
   }, [currentSong]);
 
   return (
-    <section className="flex  flex-col items-center rounded-xl bg-foreground/5">
-      <div className="flex flex-1 flex-col  justify-around gap-6">
+    <section className="flex  flex-col items-center rounded-xl ">
+      <div className="flex flex-1 flex-col  justify-center gap-6">
         <ul className="flex flex-col gap-1">
           {songs.map((song, index) => (
             <li key={index}>
@@ -40,12 +40,10 @@ const MusicPlayer = ({ songs }: Props) => {
               <a href={currentSong?.file}> Download audio </a>
             </audio>
           </figure>
-          <figcaption>
-            <h2 className="text-sm font-semibold opacity-50">
-              <span className="italic">
-                {currentSong?.title ?? "Select a song"}
-              </span>
-            </h2>
+          <figcaption className="self-center">
+            <span className="text-sm font-thin italic opacity-50">
+              {currentSong?.title ?? "Select a song"}
+            </span>
           </figcaption>
         </div>
       </div>
