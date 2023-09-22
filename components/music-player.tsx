@@ -18,7 +18,7 @@ const MusicPlayer = ({ songs }: Props) => {
 
   return (
     <section className="flex  flex-col items-center rounded-xl ">
-      <div className="flex flex-1 flex-col  justify-center gap-6">
+      <div className="flex flex-1 flex-col  justify-center gap-4">
         <ul className="flex flex-col gap-1">
           {songs.map((song, index) => (
             <li key={index}>
