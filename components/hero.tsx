@@ -5,7 +5,6 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 import { ProfileType } from "@/types";
-import { PortableText } from "@portabletext/react";
 import { cn } from "@/lib/utils";
 
 const lora = Lora({ subsets: ["latin"] });
@@ -34,20 +33,20 @@ export default function Hero({ profile }: Props) {
         transition={{
           duration: 1.5,
         }}
-        className="z-10 flex flex-col items-start gap-3 overflow-hidden px-8 pt-10 sm:justify-self-center sm:px-0 md:ml-auto md:pt-12 xl:pt-20"
+        className="z-10 flex flex-col items-start gap-3 self-center overflow-hidden px-8 sm:justify-self-center sm:px-0 md:ml-auto"
       >
         <h1 className="text-6xl uppercase sm:text-8xl">
           {profile.firstName}
           <br />
           {profile.lastName}
         </h1>
-        <h2 className="left-0 text-3xl text-primary sm:text-6xl">
+        <h2 className="left-0 text-3xl text-primary sm:text-5xl">
           {profile.voiceType}
         </h2>
-        <text className="flex w-full flex-col gap-1">
-          <PortableText value={profile.quote} />
-        </text>
-        <span className="opacity-50">- {profile.quoteSource}</span>
+        <p className="flex max-w-[250px] flex-col gap-1 text-3xl sm:max-w-[380px]">
+          {profile.quote}
+        </p>
+        <span className="opacity-50">{profile.quoteSource}</span>
       </motion.section>
       <motion.div
         className="absolute right-0 top-0 overflow-hidden"

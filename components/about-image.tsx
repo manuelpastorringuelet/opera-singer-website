@@ -1,11 +1,28 @@
-import { getProfile } from "@/sanity/sanity.query";
+"use client";
+
+import { motion } from "framer-motion";
+
+import { ProfileType } from "@/types";
 import Image from "next/image";
 
-const AboutImage = async () => {
-  const [profile] = await getProfile();
+interface AboutImageProps {
+  profile: ProfileType;
+}
 
+const AboutImage = ({ profile }: AboutImageProps) => {
   return (
-    <div className="relative w-full overflow-hidden object-cover sm:h-60 md:h-80">
+    <motion.div
+      initial={{
+        opacity: 0,
+      }}
+      animate={{
+        opacity: 1,
+      }}
+      transition={{
+        duration: 2,
+      }}
+      className="relative w-full overflow-hidden object-cover sm:h-60 md:h-80"
+    >
       <Image
         priority
         src={profile.heroImage.image}
@@ -15,7 +32,7 @@ const AboutImage = async () => {
         alt={profile.heroImage.alt}
         className="h-40 object-cover sm:h-auto"
       />
-    </div>
+    </motion.div>
   );
 };
 

@@ -2,6 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Define custom styles for specific HTML elements */
+.article h1 {
+  @apply text-2xl font-semibold;
+}
+.article h2 {
+  @apply text-xl font-semibold;
+}
+.article h3 {
+  @apply underline;
+}
+.article p {
+  @apply text-sm;
+}
+.article li {
+  @apply ml-2 list-inside list-disc text-sm;
+}
+
+p {
+  @apply text-sm;
+}
+
 @layer utilities {
   .writing-vertical-rl {
     writing-mode: vertical-rl;
