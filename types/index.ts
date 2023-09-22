@@ -80,3 +80,14 @@ export interface File {
   title: string;
   file: string;
 }
+
+export interface Repertoire extends SanityBody {
+  composer: string;
+  type: string;
+  compositions: Composition[];
+}
+
+export interface Composition {
+  title: string;
+  role: string[];
+}

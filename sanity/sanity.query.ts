@@ -8,6 +8,7 @@ import {
   Performance,
   Gallery,
   Media,
+  Repertoire,
 } from "@/types";
 
 const revalidationOptions = { next: { revalidate: 10 } };
@@ -135,4 +136,21 @@ export async function getMedia(): Promise<Media[]> {
   `;
 
   return client.fetch<Media[]>(query, DEFAULT_PARAMS, revalidationOptions);
+}
+
+export async function getRepertoire(): Promise<Repertoire[]> {
+  const query = groq`
+    *[_type == "repertoire"]{
+      _id,
+  composer,
+  type,
+  compositions[] {
+    title,
+    role[],
+  },
+
+    }
+  `;
+
+  return client.fetch<Repertoire[]>(query, DEFAULT_PARAMS, revalidationOptions);
 }

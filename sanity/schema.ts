@@ -6,7 +6,8 @@ import critics from "./schemas/critics";
 import performances from "./schemas/performances";
 import gallery from "./schemas/gallery";
 import media from "./schemas/media";
+import repertoire from "./schemas/repertoire";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [profile, legal, critics, performances, gallery, media],
+  types: [profile, legal, critics, performances, gallery, media, repertoire],
 };

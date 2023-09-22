@@ -21,9 +21,9 @@ const performances = {
       type: "string",
       options: {
         list: [
-          { title: "Opera", value: "opera" },
-          { title: "Concert", value: "concert" },
-          { title: "Church Service", value: "churchService" },
+          { title: "Oper", value: "opera" },
+          { title: "Konzert", value: "concert" },
+          { title: "Gottesdienst", value: "churchService" },
         ],
         layout: "radio",
       },

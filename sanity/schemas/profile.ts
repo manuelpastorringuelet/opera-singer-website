@@ -1,4 +1,4 @@
-import { defineField, defineType } from "sanity";
+import { defineType } from "sanity";
 import { BiUser } from "react-icons/bi";
 
 export default defineType({
