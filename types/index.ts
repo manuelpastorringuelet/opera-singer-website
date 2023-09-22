@@ -1,5 +1,12 @@
 import { PortableTextBlock } from "sanity";
 
+interface SanityBody {
+  _createdAt: string;
+  _id: string;
+  _rev: string;
+  _updatedAt: string;
+}
+
 export type ProfileType = {
   _id: string;
   firstName: string;
@@ -22,11 +29,11 @@ export type ProfileType = {
   englishBio: PortableTextBlock[];
 };
 
-export type LegalType = {
+export interface LegalType extends SanityBody {
   _id: string;
-  imprint: PortableTextBlock[];
-  privacyPolicy: PortableTextBlock[];
-};
+  title: string;
+  content: PortableTextBlock[];
+}
 
 export type Critic = {
   _id: string;
@@ -49,3 +56,14 @@ export type Performance = {
   location: string;
   orchestra: string;
 };
+
+export interface Gallery extends SanityBody {
+  _id: string;
+  title: string;
+  images: Picture[];
+}
+
+export interface Picture {
+  alt: string;
+  image: string;
+}

@@ -1,24 +1,22 @@
 import { GoLaw } from "react-icons/go";
+import { defineType } from "sanity";
 
-const legal = {
+export default defineType({
   name: "legal",
   title: "Legal",
   type: "document",
   icon: GoLaw,
   fields: [
     {
-      name: "imprint",
-      title: "Imprint",
-      type: "array",
-      of: [{ type: "block" }],
+      name: "title",
+      title: "Title",
+      type: "string",
     },
     {
-      name: "privacyPolicy",
-      title: "Privacy Policy",
+      name: "content",
+      title: "Content",
       type: "array",
       of: [{ type: "block" }],
     },
   ],
-};
-
-export default legal;
+});

@@ -1,7 +1,7 @@
 import { QueryParams, groq } from "next-sanity";
 import { client } from "./lib/client";
 
-import { Critic, LegalType, ProfileType, Performance } from "@/types";
+import { Critic, LegalType, ProfileType, Performance, Gallery } from "@/types";
 
 const revalidationOptions = { next: { revalidate: 10 } };
 const DEFAULT_PARAMS = {} as QueryParams;
@@ -29,12 +29,32 @@ export async function getProfile(): Promise<ProfileType[]> {
   );
 }
 
+// export default defineType({
+//   name: "legal",
+//   title: "Legal",
+//   type: "document",
+//   icon: GoLaw,
+//   fields: [
+//     {
+//       name: "title",
+//       title: "Title",
+//       type: "string",
+//     },
+//     {
+//       name: "content",
+//       title: "Content",
+//       type: "array",
+//       of: [{ type: "block" }],
+//     },
+//   ],
+// });
+
 export async function getLegal(): Promise<LegalType[]> {
   const query = groq`
     *[_type == "legal"]{
       _id,
-      imprint,
-      privacyPolicy,
+      title,
+      content
     }
   `;
 
@@ -77,4 +97,19 @@ export async function getPerformances(): Promise<Performance[]> {
     DEFAULT_PARAMS,
     revalidationOptions,
   );
+}
+
+export async function getGallery(): Promise<Gallery[]> {
+  const query = groq`
+    *[_type == "gallery"]{
+      _id,
+      title,
+      images[] {
+        alt,
+        "image": asset->url,
+      },
+    }
+  `;
+
+  return client.fetch<Gallery[]>(query, DEFAULT_PARAMS, revalidationOptions);
 }

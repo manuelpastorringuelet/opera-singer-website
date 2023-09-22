@@ -1,24 +1,22 @@
-import { defineField } from "sanity";
+import { defineField, defineType } from "sanity";
 import { BiUser } from "react-icons/bi";
 
-const profile = {
+export default defineType({
   name: "profile",
   title: "Profile",
   type: "document",
   icon: BiUser,
   fields: [
-    defineField({
+    {
       name: "firstName",
       title: "First Name",
       type: "string",
-      validation: (rule) => rule.required(),
-    }),
-    defineField({
+    },
+    {
       name: "lastName",
       title: "Last Name",
       type: "string",
-      validation: (rule) => rule.required(),
-    }),
+    },
     {
       name: "voiceType",
       title: "Voice Type",
@@ -66,6 +64,4 @@ const profile = {
       of: [{ type: "block" }],
     },
   ],
-};
-
-export default profile;
+});

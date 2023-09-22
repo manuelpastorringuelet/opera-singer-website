@@ -3,9 +3,9 @@ import { PortableText } from "@portabletext/react";
 import { getLegal } from "@/sanity/sanity.query";
 
 const Impressum = async () => {
-  const [content] = await getLegal();
+  const [, imprint] = await getLegal();
 
-  return <>{content.imprint && <PortableText value={content.imprint} />}</>;
+  return <>{imprint && <PortableText value={imprint.content} />}</>;
 };
 
 export default Impressum;
