@@ -1,11 +1,15 @@
-import { Performance } from "@/types";
+"use client";
+
 import React from "react";
 import { format, isSameMonth, isSameYear } from "date-fns";
+import { AddToCalendarButton } from "add-to-calendar-button-react";
+
+import { Performance } from "@/types";
 
 const PerformanceComponent = (performance: Performance) => {
   return (
     <>
-      <div className="flex flex-col gap-8">
+      <div className="relative flex flex-col gap-8">
         <div className="flex text-left">
           {/* Performance Type */}
           <h2 className="writing-vertical-rl text-32xl capitalize text-primary/80 sm:text-3xl">
@@ -35,7 +39,7 @@ const PerformanceComponent = (performance: Performance) => {
 
             <br />
             {/* Performance Dates */}
-            <p className="text-sm sm:text-base">
+            <div className="text-sm sm:text-base">
               {performance.dates.map((date, index, array) => {
                 const currentDate = new Date(date);
 
@@ -77,13 +81,13 @@ const PerformanceComponent = (performance: Performance) => {
                 }
 
                 return (
-                  <span key={index}>
+                  <p className="flex justify-between" key={index}>
                     {formattedDateParts.join(" ")}
                     {index < array.length - 1 && ", "}
-                  </span>
+                  </p>
                 );
               })}
-            </p>
+            </div>
 
             {/* Performance Location */}
             <a
@@ -94,6 +98,27 @@ const PerformanceComponent = (performance: Performance) => {
             >
               {performance.location}
             </a>
+
+            {/* Add to Calendar Button */}
+            <div className="absolute bottom-0 right-0">
+              <AddToCalendarButton
+                size="1|1|1"
+                listStyle="modal"
+                availability="busy"
+                hideTextLabelButton
+                hideBackground
+                buttonStyle="round"
+                name={performance.title}
+                description={`${performance.type} of ${performance.title} by ${performance.composer} at ${performance.location}`}
+                options={["Apple", "Google", "Outlook.com"]}
+                location={performance.location}
+                startDate={performance.dates[0].toString()}
+                endDate={performance.dates[0].toString()}
+                startTime="10:15"
+                endTime="23:30"
+                timeZone="Europe/Berlin"
+              />
+            </div>
           </div>
         </div>
       </div>
