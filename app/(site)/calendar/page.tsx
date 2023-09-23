@@ -31,7 +31,7 @@ const Calendar = async () => {
         <>
           <section
             key={index}
-            className="container flex flex-col items-start justify-center gap-4 font-light sm:flex sm:flex-row md:gap-10 lg:gap-20"
+            className="container flex flex-col items-start justify-center gap-4 font-light sm:grid sm:grid-cols-calendar md:gap-10 lg:gap-20"
           >
             <h1 className="text-4xl font-semibold sm:text-5xl">{year}</h1>
             <div className="flex flex-col gap-8">
