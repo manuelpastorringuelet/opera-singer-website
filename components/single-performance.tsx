@@ -17,7 +17,7 @@ function CustomAddToCalendarButton(props: {
   return (
     <div
       className={cn(
-        "absolute bottom-0 ml-2 inline-flex",
+        "absolute bottom-2 inline-flex",
         props.dark ? "dark:hidden" : "dark:inline-flex",
       )}
     >
@@ -50,7 +50,7 @@ const SinglePerformance = (performance: Performance) => {
           {/* Performance Type */}
           <motion.h3
             initial={{
-              x: 400,
+              x: 25,
               opacity: 0,
             }}
             whileInView={{
@@ -69,7 +69,7 @@ const SinglePerformance = (performance: Performance) => {
             {/* Performance Title */}
             <motion.h2
               initial={{
-                x: 100,
+                x: 50,
                 opacity: 0,
               }}
               whileInView={{
@@ -91,7 +91,7 @@ const SinglePerformance = (performance: Performance) => {
             {/* Composer */}
             <motion.h4
               initial={{
-                x: 150,
+                x: 75,
                 opacity: 0,
               }}
               whileInView={{
@@ -129,7 +129,7 @@ const SinglePerformance = (performance: Performance) => {
             {/* Conductor */}
             <motion.p
               initial={{
-                x: 250,
+                x: 125,
                 opacity: 0,
               }}
               whileInView={{
@@ -149,7 +149,7 @@ const SinglePerformance = (performance: Performance) => {
             {performance.producer && (
               <motion.p
                 initial={{
-                  x: 300,
+                  x: 150,
                   opacity: 0,
                 }}
                 whileInView={{
@@ -171,7 +171,7 @@ const SinglePerformance = (performance: Performance) => {
             {/* Performance Dates */}
             <motion.div
               initial={{
-                x: 350,
+                x: 175,
                 opacity: 0,
               }}
               whileInView={{
@@ -235,7 +235,7 @@ const SinglePerformance = (performance: Performance) => {
             {/* Performance Location */}
             <motion.div
               initial={{
-                x: 400,
+                x: 200,
                 opacity: 0,
               }}
               whileInView={{

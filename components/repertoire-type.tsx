@@ -24,7 +24,7 @@ const RepertoireType = ({ repertoire, type }: RepertoireTypeProps) => {
       <div className="grid gap-6 sm:grid-cols-repertoire sm:gap-8 lg:gap-16">
         <motion.h1
           initial={{
-            x: 200,
+            x: 225,
             opacity: 0,
           }}
           animate={{
@@ -45,7 +45,7 @@ const RepertoireType = ({ repertoire, type }: RepertoireTypeProps) => {
           {filteredRepertoire.map((item, index) => (
             <motion.li
               initial={{
-                x: 400 * (index % 2 === 0 ? 1 : -1),
+                x: 200 * (index % 2 === 0 ? 1 : -1),
                 opacity: 0,
               }}
               animate={{

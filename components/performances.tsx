@@ -38,11 +38,11 @@ const Performances = ({ performances }: PerformancesProps) => {
         <>
           <section
             key={index}
-            className="container flex flex-col items-start justify-center gap-4 font-light sm:grid sm:grid-cols-calendar md:gap-10 lg:gap-20"
+            className="container flex flex-col items-start justify-center gap-4 overflow-hidden font-light sm:grid sm:grid-cols-calendar md:gap-10 lg:gap-20"
           >
             <motion.h1
               initial={{
-                x: 300,
+                x: -100,
                 opacity: 0,
               }}
               animate={{
