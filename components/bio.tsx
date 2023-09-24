@@ -7,9 +7,10 @@ import { About } from "@/types";
 
 interface BioProps {
   about: About[];
+  language: string;
 }
 
-const Bio = ({ about }: BioProps) => {
+const Bio = ({ about, language }: BioProps) => {
   return (
     <motion.div
       initial={{
@@ -24,7 +25,12 @@ const Bio = ({ about }: BioProps) => {
       className="text-justify"
     >
       {about.map((data) => {
-        return <PortableText key={data._id} value={data.germanBio} />;
+        return (
+          <PortableText
+            key={data._id}
+            value={language === "deutsch" ? data.germanBio : data.englishBio}
+          />
+        );
       })}
     </motion.div>
   );

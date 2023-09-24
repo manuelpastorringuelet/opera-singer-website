@@ -6,7 +6,7 @@ import Bio from "@/components/bio";
 const About = async () => {
   const about: About[] = await getAbout();
 
-  return <Bio about={about} />;
+  return <Bio about={about} language="deutsch" />;
 };
 
 export default About;
