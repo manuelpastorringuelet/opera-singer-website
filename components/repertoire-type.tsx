@@ -1,11 +1,14 @@
-import { getRepertoire } from "@/sanity/sanity.query";
+"use client";
+
+import { motion } from "framer-motion";
+
+import { Repertoire } from "@/types";
 
 type RepertoireTypeProps = {
+  repertoire: Repertoire[];
   type: string;
 };
-const RepertoireType = async ({ type }: RepertoireTypeProps) => {
-  const repertoire = await getRepertoire();
-
+const RepertoireType = ({ repertoire, type }: RepertoireTypeProps) => {
   // Filter repertoire based on the type prop
   const filteredRepertoire = repertoire.filter((item) => item.type === type);
 
@@ -17,12 +20,39 @@ const RepertoireType = async ({ type }: RepertoireTypeProps) => {
   return (
     <section className="container mx-auto flex flex-1 flex-col gap-12 py-8 sm:gap-16 sm:px-16">
       <div className="grid gap-6 sm:grid-cols-repertoire sm:gap-8 lg:gap-16">
-        <h1 className="text-5xl font-semibold text-primary/80 sm:justify-self-end">
+        <motion.h1
+          initial={{
+            x: 200,
+            opacity: 0,
+          }}
+          animate={{
+            x: 0,
+            opacity: 1,
+          }}
+          transition={{
+            duration: 1.5,
+          }}
+          className="text-5xl font-semibold text-primary/80 sm:justify-self-end"
+        >
           {type}
-        </h1>
+        </motion.h1>
         <ul className="flex flex-1 flex-col gap-4">
           {filteredRepertoire.map((item, index) => (
-            <li key={index} className="group">
+            <motion.li
+              initial={{
+                x: 400 * (index % 2 === 0 ? 1 : -1),
+                opacity: 0,
+              }}
+              animate={{
+                x: 0,
+                opacity: 1,
+              }}
+              transition={{
+                duration: 1.5,
+              }}
+              key={index}
+              className="group"
+            >
               <h2 className="text-xl font-semibold group-hover:text-primary/80">
                 {item.composer}
               </h2>
@@ -44,7 +74,7 @@ const RepertoireType = async ({ type }: RepertoireTypeProps) => {
                   </p>
                 ))}
               </div>
-            </li>
+            </motion.li>
           ))}
         </ul>
       </div>

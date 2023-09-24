@@ -3,6 +3,7 @@
 import React from "react";
 import { format, isSameMonth, isSameYear } from "date-fns";
 import { AddToCalendarButton } from "add-to-calendar-button-react";
+import { motion } from "framer-motion";
 
 import { Performance } from "@/types";
 import { cn } from "@/lib/utils";
@@ -40,40 +41,133 @@ function CustomAddToCalendarButton(props: {
   );
 }
 
-const PerformanceComponent = (performance: Performance) => {
+const SinglePerformance = (performance: Performance) => {
   return (
     <>
       <div className="relative flex flex-col gap-8">
         <div className="flex text-left">
           {/* Performance Type */}
-          <h2 className="writing-vertical-rl text-32xl capitalize text-primary/80 sm:text-3xl">
+          <motion.h2
+            initial={{
+              x: 400,
+              opacity: 0,
+            }}
+            animate={{
+              x: 0,
+              opacity: 1,
+            }}
+            transition={{
+              duration: 1.5,
+            }}
+            className="writing-vertical-rl text-32xl capitalize text-primary/80 sm:text-3xl"
+          >
             {performance.type}
-          </h2>
+          </motion.h2>
           <div className="max-w-sm">
             {/* Performance Title */}
-            <h3 className="text-4xl font-bold sm:text-5xl">
+            <motion.h3
+              initial={{
+                x: 100,
+                opacity: 0,
+              }}
+              animate={{
+                x: 0,
+                opacity: 1,
+              }}
+              transition={{
+                duration: 1.5,
+              }}
+              className="text-4xl font-bold sm:text-5xl"
+            >
               {performance.title}
-            </h3>
+            </motion.h3>
             {/* Composer */}
-            <h4 className="text-2xl font-normal sm:text-3xl">
+            <motion.h4
+              initial={{
+                x: 200,
+                opacity: 0,
+              }}
+              animate={{
+                x: 0,
+                opacity: 1,
+              }}
+              transition={{
+                duration: 1.5,
+              }}
+              className="text-2xl font-normal sm:text-3xl"
+            >
               {performance.composer}
-            </h4>
+            </motion.h4>
             {/* Role */}
-            <p className="text-sm underline sm:text-base">{performance.role}</p>
+            <motion.p
+              initial={{
+                x: 300,
+                opacity: 0,
+              }}
+              animate={{
+                x: 0,
+                opacity: 1,
+              }}
+              transition={{
+                duration: 1.5,
+              }}
+              className="text-sm underline sm:text-base"
+            >
+              {performance.role}
+            </motion.p>
             {/* Conductor */}
-            <p className="text-sm sm:text-base">
+            <motion.p
+              initial={{
+                x: 400,
+                opacity: 0,
+              }}
+              animate={{
+                x: 0,
+                opacity: 1,
+              }}
+              transition={{
+                duration: 1.5,
+              }}
+              className="text-sm sm:text-base"
+            >
               Conductor: {performance.conductor}
-            </p>
+            </motion.p>
             {/* Producer (if available) */}
             {performance.producer && (
-              <p className="text-sm sm:text-base">
+              <motion.p
+                initial={{
+                  x: 500,
+                  opacity: 0,
+                }}
+                animate={{
+                  x: 0,
+                  opacity: 1,
+                }}
+                transition={{
+                  duration: 1.5,
+                }}
+                className="text-sm sm:text-base"
+              >
                 Production: {performance.producer}
-              </p>
+              </motion.p>
             )}
 
             <br />
             {/* Performance Dates */}
-            <div className="text-sm sm:text-base">
+            <motion.div
+              initial={{
+                x: 600,
+                opacity: 0,
+              }}
+              animate={{
+                x: 0,
+                opacity: 1,
+              }}
+              transition={{
+                duration: 1.5,
+              }}
+              className="text-sm sm:text-base"
+            >
               {performance.dates.map((date, index, array) => {
                 const currentDate = new Date(date);
 
@@ -121,29 +215,42 @@ const PerformanceComponent = (performance: Performance) => {
                   </p>
                 );
               })}
-            </div>
+            </motion.div>
 
             {/* Performance Location */}
-            <a
-              href={`https://www.google.com/maps/search/?q=${encodeURIComponent(
-                performance.location,
-              )}`}
+            <motion.div
+              initial={{
+                x: 700,
+                opacity: 0,
+              }}
+              animate={{
+                x: 0,
+                opacity: 1,
+              }}
+              transition={{
+                duration: 1.5,
+              }}
               className="text-sm sm:text-base"
             >
-              {performance.location}
-            </a>
-
-            {/* Add to Calendar Button */}
-            <>
-              <CustomAddToCalendarButton
-                performance={performance}
-                dark={false}
-              />
-              <CustomAddToCalendarButton
-                performance={performance}
-                dark={true}
-              />
-            </>
+              <a
+                href={`https://www.google.com/maps/search/?q=${encodeURIComponent(
+                  performance.location,
+                )}`}
+              >
+                {performance.location}
+              </a>
+              {/* Add to Calendar Button */}
+              <>
+                <CustomAddToCalendarButton
+                  performance={performance}
+                  dark={false}
+                />
+                <CustomAddToCalendarButton
+                  performance={performance}
+                  dark={true}
+                />
+              </>
+            </motion.div>
           </div>
         </div>
       </div>
@@ -151,4 +258,4 @@ const PerformanceComponent = (performance: Performance) => {
   );
 };
 
-export default PerformanceComponent;
+export default SinglePerformance;

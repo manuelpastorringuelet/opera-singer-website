@@ -21,7 +21,7 @@ const Repertoire = async () => {
   return (
     <>
       {typesOfRepertoire.map((type, index) => (
-        <RepertoireType key={index} type={type} />
+        <RepertoireType repertoire={repertoire} key={index} type={type} />
       ))}
     </>
   );

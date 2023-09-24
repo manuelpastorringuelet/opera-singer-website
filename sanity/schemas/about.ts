@@ -8,6 +8,11 @@ export default defineType({
   icon: BiBook,
   fields: [
     {
+      name: "title",
+      title: "Title",
+      type: "string",
+    },
+    {
       name: "germanBio",
       title: "German Bio",
       type: "array",
