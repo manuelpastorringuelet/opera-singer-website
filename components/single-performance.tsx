@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 
 import { Performance } from "@/types";
 import { cn } from "@/lib/utils";
+import { lora, montserrat } from "@/lib/fonts";
 
 // Reusable AddToCalendarButton component
 function CustomAddToCalendarButton(props: {
@@ -47,7 +48,7 @@ const SinglePerformance = (performance: Performance) => {
       <div className="relative flex flex-col gap-8">
         <div className="flex text-left">
           {/* Performance Type */}
-          <motion.h2
+          <motion.h3
             initial={{
               x: 400,
               opacity: 0,
@@ -62,10 +63,10 @@ const SinglePerformance = (performance: Performance) => {
             className="writing-vertical-rl text-32xl capitalize text-primary/80 sm:text-3xl"
           >
             {performance.type}
-          </motion.h2>
+          </motion.h3>
           <div className="max-w-sm">
             {/* Performance Title */}
-            <motion.h3
+            <motion.h2
               initial={{
                 x: 100,
                 opacity: 0,
@@ -77,10 +78,13 @@ const SinglePerformance = (performance: Performance) => {
               transition={{
                 duration: 1.5,
               }}
-              className="text-4xl font-bold sm:text-5xl"
+              className={cn(
+                "text-4xl font-bold sm:text-5xl",
+                montserrat.className,
+              )}
             >
               {performance.title}
-            </motion.h3>
+            </motion.h2>
             {/* Composer */}
             <motion.h4
               initial={{
@@ -94,7 +98,7 @@ const SinglePerformance = (performance: Performance) => {
               transition={{
                 duration: 1.5,
               }}
-              className="text-2xl font-normal sm:text-3xl"
+              className={cn("text-2xl font-normal sm:text-3xl", lora.className)}
             >
               {performance.composer}
             </motion.h4>

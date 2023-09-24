@@ -1,13 +1,11 @@
 "use client";
 
-import { Lora } from "next/font/google";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
 import { Profile } from "@/types";
 import { cn } from "@/lib/utils";
-
-const lora = Lora({ subsets: ["latin"] });
+import { lora, montserrat } from "@/lib/fonts";
 
 type Props = {
   profile: Profile;
@@ -18,7 +16,7 @@ export default function Hero({ profile }: Props) {
     <main
       className={cn(
         "mx-auto grid w-full flex-1 sm:container sm:grid-cols-2",
-        lora.className,
+        // lora.className,
       )}
     >
       <motion.section
@@ -35,15 +33,27 @@ export default function Hero({ profile }: Props) {
         }}
         className="z-10 flex flex-col items-start gap-3 self-center overflow-hidden px-8 sm:justify-self-center sm:px-0 md:ml-auto"
       >
-        <h1 className="text-6xl uppercase sm:text-8xl">
+        <h1
+          className={cn("text-6xl uppercase sm:text-8xl", montserrat.className)}
+        >
           {profile.firstName}
           <br />
           {profile.lastName}
         </h1>
-        <h2 className="left-0 text-3xl text-primary sm:text-5xl">
+        <h2
+          className={cn(
+            "left-0 text-3xl text-primary sm:text-5xl",
+            montserrat.className,
+          )}
+        >
           {profile.voiceType}
         </h2>
-        <p className="flex max-w-[250px] flex-col gap-1 text-3xl sm:max-w-[380px]">
+        <p
+          className={cn(
+            "flex max-w-[250px] flex-col gap-1 text-3xl sm:max-w-[380px]",
+            lora.className,
+          )}
+        >
           {profile.quote}
         </p>
         <span className="opacity-50">{profile.quoteSource}</span>

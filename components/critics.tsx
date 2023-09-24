@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 
 import { Critic } from "@/types";
+import { cn } from "@/lib/utils";
+import { lora } from "@/lib/fonts";
 
 interface CriticsProps {
   critics: Critic[];
@@ -25,7 +27,12 @@ const Critics = ({ critics }: CriticsProps) => {
           key={index}
         >
           <blockquote className="flex flex-col gap-1 text-end">
-            <q className="text-start text-xl text-primary/80 sm:text-2xl">
+            <q
+              className={cn(
+                "text-start text-xl text-primary/80 sm:text-2xl",
+                lora.className,
+              )}
+            >
               {critics.description}
             </q>
             <cite className="text-xxs">- {critics.source}</cite>

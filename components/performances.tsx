@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 
 import { Performance } from "@/types";
 import SinglePerformance from "@/components/single-performance";
+import { cn } from "@/lib/utils";
+import { montserrat } from "@/lib/fonts";
 
 type PerformancesProps = {
   performances: Performance[];
@@ -50,7 +52,10 @@ const Performances = ({ performances }: PerformancesProps) => {
               transition={{
                 duration: 1.5,
               }}
-              className="text-4xl font-semibold sm:text-5xl"
+              className={cn(
+                "text-4xl font-semibold sm:text-5xl",
+                montserrat.className,
+              )}
             >
               {year}
             </motion.h1>

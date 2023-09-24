@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 
 import { Repertoire } from "@/types";
+import { cn } from "@/lib/utils";
+import { montserrat } from "@/lib/fonts";
 
 type RepertoireTypeProps = {
   repertoire: Repertoire[];
@@ -32,7 +34,10 @@ const RepertoireType = ({ repertoire, type }: RepertoireTypeProps) => {
           transition={{
             duration: 1.5,
           }}
-          className="text-5xl font-semibold text-primary/80 sm:justify-self-end"
+          className={cn(
+            "text-5xl font-semibold text-primary/80 sm:justify-self-end",
+            montserrat.className,
+          )}
         >
           {type}
         </motion.h1>
