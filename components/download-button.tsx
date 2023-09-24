@@ -14,7 +14,7 @@ const DownloadButton = ({ photo, className }: DownloadButtonProps) => {
       href={`${photo.image}?dl=`}
       download
       className={cn(
-        "absolute bottom-3 hidden rounded bg-transparent p-1 hover:bg-primary/80 group-hover:flex",
+        "absolute bottom-3 rounded bg-transparent p-1 hover:bg-primary/80",
         className,
       )}
     >

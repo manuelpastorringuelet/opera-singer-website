@@ -55,7 +55,10 @@ export default function ImageContainer({ photo }: Props) {
           onClick={openModal}
           className="absolute right-3 top-3 hidden cursor-pointer rounded bg-transparent p-1 hover:bg-primary/80 group-hover:flex"
         />
-        <DownloadButton photo={photo} className="right-3" />
+        <DownloadButton
+          photo={photo}
+          className="right-3 hidden group-hover:flex"
+        />
       </motion.div>
 
       {/* Modal */}
@@ -64,8 +67,8 @@ export default function ImageContainer({ photo }: Props) {
           className="group fixed inset-0 z-40 flex max-h-screen cursor-pointer items-center justify-center overflow-auto bg-background/90"
           onClick={closeModal}
         >
-          <div className="max-h-screen max-w-screen-lg rounded-lg">
-            <span className="absolute p-4">
+          <div className="relative flex max-h-screen max-w-screen-lg flex-col items-center rounded-lg">
+            <span className="absolute left-3 p-4">
               {photo.alt
                 ? photo.alt
                 : "No description available for this image."}
@@ -78,9 +81,9 @@ export default function ImageContainer({ photo }: Props) {
               layout="responsive"
               className="max-h-screen object-cover transition-all duration-500 ease-in-out"
             />
+            <Minimize2 className="absolute right-3 top-3" />
+            <DownloadButton photo={photo} className="" />
           </div>
-          <Minimize2 className="absolute right-3 top-3" />
-          <DownloadButton photo={photo} />
         </div>
       )}
     </>
