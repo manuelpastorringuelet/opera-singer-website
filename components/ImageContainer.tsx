@@ -34,7 +34,7 @@ export default function ImageContainer({ photo }: Props) {
         viewport={{
           once: true,
         }}
-        className="group relative flex h-64 cursor-pointer items-center justify-center overflow-hidden rounded-xl"
+        className="group relative flex h-64 cursor-pointer items-center justify-center overflow-hidden rounded-xl text-white"
         onClick={openModal}
       >
         <Image
@@ -61,7 +61,7 @@ export default function ImageContainer({ photo }: Props) {
           className="group fixed inset-0 z-40 flex max-h-screen cursor-pointer items-center justify-center overflow-auto bg-background/90"
           onClick={closeModal}
         >
-          <div className="relative flex max-h-screen max-w-screen-lg flex-col items-center rounded-lg">
+          <div className="relative flex max-h-screen max-w-screen-lg flex-col items-center rounded-lg text-white">
             <span className="absolute bottom-3 left-3">
               {photo.photographer && photo.photographer}
             </span>
