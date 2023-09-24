@@ -5,6 +5,40 @@ import { format, isSameMonth, isSameYear } from "date-fns";
 import { AddToCalendarButton } from "add-to-calendar-button-react";
 
 import { Performance } from "@/types";
+import { cn } from "@/lib/utils";
+
+// Reusable AddToCalendarButton component
+function CustomAddToCalendarButton(props: {
+  performance: Performance;
+  dark?: boolean;
+}) {
+  return (
+    <div
+      className={cn(
+        "absolute bottom-0 ",
+        props.dark ? "dark:hidden" : "dark:inline-flex",
+      )}
+    >
+      <AddToCalendarButton
+        size="1|1|1"
+        listStyle="modal"
+        availability="busy"
+        hideTextLabelButton
+        lightMode={props.dark ? undefined : "dark"}
+        buttonStyle="round"
+        name={props.performance.title}
+        description={`${props.performance.type} of ${props.performance.title} by ${props.performance.composer} at ${props.performance.location}`}
+        options={["Apple", "Google", "Outlook.com"]}
+        location={props.performance.location}
+        startDate={props.performance.dates[0].toString()}
+        endDate={props.performance.dates[0].toString()}
+        startTime="10:15"
+        endTime="23:30"
+        timeZone="Europe/Berlin"
+      />
+    </div>
+  );
+}
 
 const PerformanceComponent = (performance: Performance) => {
   return (
@@ -100,25 +134,16 @@ const PerformanceComponent = (performance: Performance) => {
             </a>
 
             {/* Add to Calendar Button */}
-            <div className="absolute bottom-0 right-0">
-              <AddToCalendarButton
-                size="1|1|1"
-                listStyle="modal"
-                availability="busy"
-                hideTextLabelButton
-                hideBackground
-                buttonStyle="round"
-                name={performance.title}
-                description={`${performance.type} of ${performance.title} by ${performance.composer} at ${performance.location}`}
-                options={["Apple", "Google", "Outlook.com"]}
-                location={performance.location}
-                startDate={performance.dates[0].toString()}
-                endDate={performance.dates[0].toString()}
-                startTime="10:15"
-                endTime="23:30"
-                timeZone="Europe/Berlin"
+            <>
+              <CustomAddToCalendarButton
+                performance={performance}
+                dark={false}
               />
-            </div>
+              <CustomAddToCalendarButton
+                performance={performance}
+                dark={true}
+              />
+            </>
           </div>
         </div>
       </div>
