@@ -65,7 +65,7 @@ const SinglePerformance = (performance: Performance) => {
           >
             {performance.type}
           </motion.h3>
-          <div className="max-w-sm">
+          <div>
             {/* Performance Title */}
             <motion.h2
               initial={{
@@ -87,6 +87,7 @@ const SinglePerformance = (performance: Performance) => {
             >
               {performance.title}
             </motion.h2>
+
             {/* Composer */}
             <motion.h4
               initial={{
@@ -105,6 +106,7 @@ const SinglePerformance = (performance: Performance) => {
             >
               {performance.composer}
             </motion.h4>
+
             {/* Role */}
             <motion.p
               initial={{
@@ -123,6 +125,7 @@ const SinglePerformance = (performance: Performance) => {
             >
               {performance.role}
             </motion.p>
+
             {/* Conductor */}
             <motion.p
               initial={{
@@ -141,6 +144,7 @@ const SinglePerformance = (performance: Performance) => {
             >
               Conductor: {performance.conductor}
             </motion.p>
+
             {/* Producer (if available) */}
             {performance.producer && (
               <motion.p
@@ -163,6 +167,7 @@ const SinglePerformance = (performance: Performance) => {
             )}
 
             <br />
+
             {/* Performance Dates */}
             <motion.div
               initial={{
@@ -181,9 +186,6 @@ const SinglePerformance = (performance: Performance) => {
             >
               {performance.dates.map((date, index, array) => {
                 const currentDate = new Date(date);
-
-                // Format Date
-                const formattedDate = format(currentDate, "do MMMM yyyy");
 
                 // Check if it's the last date
                 const isLastDate = index === array.length - 1;

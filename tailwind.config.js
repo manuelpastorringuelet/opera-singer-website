@@ -74,7 +74,7 @@ module.exports = {
         gallery: "repeat(auto-fit, minmax(250px, 1fr))",
         music: "repeat(auto-fit, minmax(500px, 1fr))",
         repertoire: "33% auto",
-        calendar: "auto 45%",
+        calendar: "auto 50%",
         critics: "55% auto",
       },
       fontSize: {
