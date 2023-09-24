@@ -13,12 +13,7 @@ type Props = {
 
 export default function Hero({ profile }: Props) {
   return (
-    <main
-      className={cn(
-        "mx-auto grid w-full flex-1 sm:container sm:grid-cols-2",
-        // lora.className,
-      )}
-    >
+    <main className="mx-auto grid w-full flex-1 overflow-hidden sm:container sm:grid-cols-2">
       <motion.section
         initial={{
           x: 300,
@@ -34,7 +29,10 @@ export default function Hero({ profile }: Props) {
         className="z-10 flex flex-col items-start gap-3 self-center overflow-hidden px-8 sm:justify-self-center sm:px-0 md:ml-auto"
       >
         <h1
-          className={cn("text-6xl uppercase sm:text-8xl", montserrat.className)}
+          className={cn(
+            "text-6xl font-semibold uppercase sm:text-8xl",
+            montserrat.className,
+          )}
         >
           {profile.firstName}
           <br />
@@ -42,7 +40,7 @@ export default function Hero({ profile }: Props) {
         </h1>
         <h2
           className={cn(
-            "left-0 text-3xl text-primary sm:text-5xl",
+            "left-0 text-3xl font-semibold text-primary sm:text-5xl",
             montserrat.className,
           )}
         >
