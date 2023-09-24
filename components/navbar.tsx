@@ -11,7 +11,7 @@ import { MenuBar } from "./menubar";
 
 const Navbar = () => {
   return (
-    <header className="z-30 py-6 ">
+    <header className="z-30 py-6">
       <motion.nav
         initial={{
           opacity: 0,
@@ -37,11 +37,11 @@ const Navbar = () => {
           <Image
             priority
             src="/signature.png"
-            width={100}
-            height={100}
+            width={105}
+            height={32}
             sizes="(max-width: 640px) 0vw, (max-width: 1200px) 20vw, 70vw"
             alt="signature"
-            className="h-8 w-full object-cover dark:invert"
+            className="h-8 max-h-[32px] max-w-[105px] object-cover dark:invert"
           />
         </Link>
         <motion.nav className="hidden md:inline-flex">

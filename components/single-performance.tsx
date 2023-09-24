@@ -17,7 +17,7 @@ function CustomAddToCalendarButton(props: {
   return (
     <div
       className={cn(
-        "absolute bottom-0 ",
+        "absolute bottom-0 ml-2 inline-flex",
         props.dark ? "dark:hidden" : "dark:inline-flex",
       )}
     >
@@ -222,10 +222,12 @@ const SinglePerformance = (performance: Performance) => {
                 }
 
                 return (
-                  <p className="flex justify-between" key={index}>
-                    {formattedDateParts.join(" ")}
-                    {index < array.length - 1 && ", "}
-                  </p>
+                  <>
+                    <span className="inline-block" key={index}>
+                      {formattedDateParts.join(" ")}
+                      {index < array.length - 1 && ", "}
+                    </span>{" "}
+                  </>
                 );
               })}
             </motion.div>

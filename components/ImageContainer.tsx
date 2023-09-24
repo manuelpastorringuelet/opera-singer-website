@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 
 import { Picture } from "@/types";
 import { useState } from "react";
-import { Button } from "./ui/button";
 import DownloadButton from "./download-button";
 
 type Props = {
@@ -62,7 +61,7 @@ export default function ImageContainer({ photo }: Props) {
       </motion.div>
 
       {/* Modal */}
-      {isModalOpen && (
+      {isModalOpen && photo.image && (
         <div
           className="group fixed inset-0 z-40 flex max-h-screen cursor-pointer items-center justify-center overflow-auto bg-background/90"
           onClick={closeModal}
