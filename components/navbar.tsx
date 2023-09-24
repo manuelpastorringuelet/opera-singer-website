@@ -1,11 +1,11 @@
 "use client";
 
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
 import { ModeToggle } from "./mode-toggle";
-
 import Pages from "./pages";
 import { MenuBar } from "./menubar";
 
@@ -27,9 +27,12 @@ const Navbar = () => {
         }}
         className="container flex items-center justify-between px-6 sm:px-16"
       >
+        {/* Mobile Menu */}
         <div className="md:hidden">
           <MenuBar />
         </div>
+
+        {/* Logo */}
         <Link
           href="/"
           className="hidden flex-shrink-0 cursor-pointer rounded-md p-[2px] hover:bg-primary/90 md:inline-flex"
@@ -39,14 +42,25 @@ const Navbar = () => {
             src="/signature.png"
             width={105}
             height={32}
-            sizes="(max-width: 640px) 0vw, (max-width: 1200px) 20vw, 70vw"
             alt="signature"
-            className="h-8 max-h-[32px] max-w-[105px] object-cover dark:invert"
+            className="h-8 max-h-[32px] max-w-[105px] object-cover dark:hidden"
+          />
+          <Image
+            priority
+            src="/signature-white.png"
+            width={105}
+            height={32}
+            alt="signature"
+            className="hidden h-8 max-h-[32px] max-w-[105px] object-cover dark:inline-flex"
           />
         </Link>
+
+        {/* Desktop Menu */}
         <motion.nav className="hidden md:inline-flex">
           <Pages />
         </motion.nav>
+
+        {/* Mode Toggle */}
         <ModeToggle />
       </motion.nav>
     </header>

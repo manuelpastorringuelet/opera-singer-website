@@ -52,10 +52,7 @@ export default function ImageContainer({ photo }: Props) {
           onClick={openModal}
           className="absolute right-3 top-3 hidden cursor-pointer rounded bg-transparent p-1 hover:bg-primary/80 group-hover:flex"
         />
-        <DownloadButton
-          photo={photo}
-          className="hidden group-hover:flex"
-        />
+        <DownloadButton photo={photo} className="hidden group-hover:flex" />
       </motion.div>
 
       {/* Modal */}
@@ -73,11 +70,14 @@ export default function ImageContainer({ photo }: Props) {
               alt={photo.alt}
               width={100}
               height={100}
+              placeholder="blur"
+              blurDataURL={photo.image}
+              loading="eager"
               layout="responsive"
               className="max-h-screen object-cover transition-all duration-500 ease-in-out"
             />
             <Minimize2 className="absolute right-3 top-3" />
-            <DownloadButton photo={photo}/>
+            <DownloadButton photo={photo} />
           </div>
         </div>
       )}
