@@ -30,6 +30,7 @@ export default defineType({
               type: "string",
               title: "Alternative text",
             },
+            { name: "photographer", type: "string", title: "Photographer" },
           ],
         },
       ],

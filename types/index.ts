@@ -67,6 +67,7 @@ export interface Gallery extends SanityBody {
 
 export interface Picture {
   alt: string;
+  photographer: string;
   image: string;
 }
 

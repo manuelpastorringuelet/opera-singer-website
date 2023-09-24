@@ -45,10 +45,8 @@ export default function ImageContainer({ photo }: Props) {
           sizes="(min-width: 1280px) 278px, (min-width: 1040px) calc(12.73vw = 118px), (min-width: 800px) 33.18vw, (min-width: 540px) 50vw, calc(100vw - 16px)"
           className="object-cover align-top transition-all duration-700 ease-in-out group-hover:scale-110 group-hover:opacity-75"
         />
-        <h2 className="absolute hidden h-full w-full items-center justify-center p-8 text-center opacity-80 transition-all duration-500 ease-in-out group-hover:flex">
-          <span>
-            {photo.alt ? photo.alt : "No description available for this image."}
-          </span>
+        <h2 className="absolute bottom-3 left-3 hidden opacity-80 transition-all duration-500 ease-in-out group-hover:flex">
+          {photo.photographer && photo.photographer}
         </h2>
         <Maximize2
           onClick={openModal}
@@ -56,7 +54,7 @@ export default function ImageContainer({ photo }: Props) {
         />
         <DownloadButton
           photo={photo}
-          className="right-3 hidden group-hover:flex"
+          className="hidden group-hover:flex"
         />
       </motion.div>
 
@@ -67,10 +65,8 @@ export default function ImageContainer({ photo }: Props) {
           onClick={closeModal}
         >
           <div className="relative flex max-h-screen max-w-screen-lg flex-col items-center rounded-lg">
-            <span className="absolute left-3 p-4">
-              {photo.alt
-                ? photo.alt
-                : "No description available for this image."}
+            <span className="absolute bottom-3 left-3">
+              {photo.photographer && photo.photographer}
             </span>
             <Image
               src={photo.image}
@@ -81,7 +77,7 @@ export default function ImageContainer({ photo }: Props) {
               className="max-h-screen object-cover transition-all duration-500 ease-in-out"
             />
             <Minimize2 className="absolute right-3 top-3" />
-            <DownloadButton photo={photo} className="" />
+            <DownloadButton photo={photo}/>
           </div>
         </div>
       )}
