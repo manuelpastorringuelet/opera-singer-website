@@ -32,7 +32,7 @@ const Navbar = () => {
         </div>
         <Link
           href="/"
-          className="hidden flex-shrink-0 cursor-pointer rounded-md p-[2px] hover:bg-primary/90 md:inline-flex"
+          className="hidden flex-shrink-0 cursor-pointer rounded-md bg-white p-[2px] hover:bg-primary/90 md:inline-flex"
         >
           <Image
             priority
@@ -41,7 +41,7 @@ const Navbar = () => {
             height={32}
             sizes="(max-width: 640px) 0vw, (max-width: 1200px) 20vw, 70vw"
             alt="signature"
-            className="h-8 max-h-[32px] max-w-[105px] object-cover dark:invert"
+            className="h-8 max-h-[32px] max-w-[105px] object-cover"
           />
         </Link>
         <motion.nav className="hidden md:inline-flex">
