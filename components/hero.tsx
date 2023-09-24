@@ -13,7 +13,7 @@ type Props = {
 
 export default function Hero({ profile }: Props) {
   return (
-    <main className="mx-auto grid w-full flex-1 overflow-hidden sm:container sm:grid-cols-2">
+    <main className="mx-auto grid w-full flex-1 overflow-auto sm:container sm:grid-cols-2">
       <motion.section
         initial={{
           x: 300,
