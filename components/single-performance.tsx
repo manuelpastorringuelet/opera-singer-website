@@ -61,7 +61,7 @@ const SinglePerformance = (performance: Performance) => {
             transition={{
               duration: 1.5,
             }}
-            className="writing-vertical-rl text-32xl capitalize text-primary/80 sm:text-3xl"
+            className="writing-vertical-rl text-2xl capitalize text-primary/80 sm:text-3xl"
           >
             {performance.type}
           </motion.h3>
