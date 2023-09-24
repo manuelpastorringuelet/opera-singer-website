@@ -72,6 +72,22 @@ const performances = {
       ],
     },
     {
+      name: "datesAndTimes",
+      title: "Dates and Times",
+      type: "array",
+      of: [
+        {
+          type: "datetime",
+          options: {
+            dateFormat: "YYYY-MM-DD",
+            timeFormat: "HH:mm",
+            timeStep: 15,
+            calendarTodayLabel: "Today",
+          },
+        },
+      ],
+    },
+    {
       name: "location",
       title: "Location",
       type: "string",
