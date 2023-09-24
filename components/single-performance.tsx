@@ -53,10 +53,11 @@ const SinglePerformance = (performance: Performance) => {
               x: 400,
               opacity: 0,
             }}
-            animate={{
+            whileInView={{
               x: 0,
               opacity: 1,
             }}
+            viewport={{ once: true }}
             transition={{
               duration: 1.5,
             }}
@@ -71,10 +72,11 @@ const SinglePerformance = (performance: Performance) => {
                 x: 100,
                 opacity: 0,
               }}
-              animate={{
+              whileInView={{
                 x: 0,
                 opacity: 1,
               }}
+              viewport={{ once: true }}
               transition={{
                 duration: 1.5,
               }}
@@ -88,13 +90,14 @@ const SinglePerformance = (performance: Performance) => {
             {/* Composer */}
             <motion.h4
               initial={{
-                x: 200,
+                x: 150,
                 opacity: 0,
               }}
-              animate={{
+              whileInView={{
                 x: 0,
                 opacity: 1,
               }}
+              viewport={{ once: true }}
               transition={{
                 duration: 1.5,
               }}
@@ -105,13 +108,14 @@ const SinglePerformance = (performance: Performance) => {
             {/* Role */}
             <motion.p
               initial={{
-                x: 300,
+                x: 100,
                 opacity: 0,
               }}
-              animate={{
+              whileInView={{
                 x: 0,
                 opacity: 1,
               }}
+              viewport={{ once: true }}
               transition={{
                 duration: 1.5,
               }}
@@ -122,13 +126,14 @@ const SinglePerformance = (performance: Performance) => {
             {/* Conductor */}
             <motion.p
               initial={{
-                x: 400,
+                x: 250,
                 opacity: 0,
               }}
-              animate={{
+              whileInView={{
                 x: 0,
                 opacity: 1,
               }}
+              viewport={{ once: true }}
               transition={{
                 duration: 1.5,
               }}
@@ -140,13 +145,14 @@ const SinglePerformance = (performance: Performance) => {
             {performance.producer && (
               <motion.p
                 initial={{
-                  x: 500,
+                  x: 300,
                   opacity: 0,
                 }}
-                animate={{
+                whileInView={{
                   x: 0,
                   opacity: 1,
                 }}
+                viewport={{ once: true }}
                 transition={{
                   duration: 1.5,
                 }}
@@ -160,13 +166,14 @@ const SinglePerformance = (performance: Performance) => {
             {/* Performance Dates */}
             <motion.div
               initial={{
-                x: 600,
+                x: 350,
                 opacity: 0,
               }}
-              animate={{
+              whileInView={{
                 x: 0,
                 opacity: 1,
               }}
+              viewport={{ once: true }}
               transition={{
                 duration: 1.5,
               }}
@@ -224,13 +231,14 @@ const SinglePerformance = (performance: Performance) => {
             {/* Performance Location */}
             <motion.div
               initial={{
-                x: 700,
+                x: 400,
                 opacity: 0,
               }}
-              animate={{
+              whileInView={{
                 x: 0,
                 opacity: 1,
               }}
+              viewport={{ once: true }}
               transition={{
                 duration: 1.5,
               }}

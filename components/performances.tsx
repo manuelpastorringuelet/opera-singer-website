@@ -52,6 +52,13 @@ const Performances = ({ performances }: PerformancesProps) => {
               transition={{
                 duration: 1.5,
               }}
+              whileInView={{
+                opacity: 1,
+                x: 0,
+              }}
+              viewport={{
+                once: true,
+              }}
               className={cn(
                 "text-4xl font-semibold sm:text-5xl",
                 montserrat.className,
