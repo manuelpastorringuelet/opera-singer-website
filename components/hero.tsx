@@ -14,6 +14,7 @@ type Props = {
 
 export default function Hero({ profile }: Props) {
   const { theme } = useTheme();
+
   return (
     <main className="mx-auto grid w-full flex-1 overflow-y-auto overflow-x-hidden sm:container sm:grid-cols-2">
       <motion.section
@@ -59,7 +60,10 @@ export default function Hero({ profile }: Props) {
         <span className="opacity-50">{profile.quoteSource}</span>
       </motion.section>
       <motion.div
-        className="absolute right-0 top-0 overflow-hidden"
+        className={cn(
+          "absolute right-0 overflow-hidden",
+          theme === "dark" ? "top-0" : "bottom-[123.2px] sm:bottom-[91.2px]",
+        )}
         initial={{
           opacity: 0,
         }}
@@ -77,7 +81,7 @@ export default function Hero({ profile }: Props) {
           height={1705}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
           alt={profile.heroImage.alt}
-          className="xl:max-h-screen-85 mt-[88px] max-w-screen-sm translate-x-52 object-cover opacity-90 sm:translate-x-28 md:max-w-screen-sm lg:translate-x-0 xl:block xl:w-full xl:max-w-screen-xl"
+          className="xl:max-h-screen-85 mt-[88px] max-w-screen-sm translate-x-52 scale-110 object-cover opacity-90 sm:translate-x-28 md:max-w-screen-sm lg:translate-x-0 xl:block xl:w-full xl:max-w-screen-xl"
         />
       </motion.div>
     </main>
