@@ -81,7 +81,7 @@ export default function Hero({ profile }: Props) {
           height={1705}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
           alt={profile.heroImage.alt}
-          className="xl:max-h-screen-85 mt-[88px] max-w-screen-sm translate-x-52 scale-110 object-cover opacity-90 sm:translate-x-28 md:max-w-screen-sm lg:translate-x-0 xl:block xl:w-full xl:max-w-screen-xl"
+          className="xl:max-h-screen-85 mt-[88px] max-w-screen-sm translate-x-52 object-cover opacity-90 sm:translate-x-28 md:max-w-screen-sm lg:translate-x-0 xl:block xl:w-full xl:max-w-screen-xl"
         />
       </motion.div>
     </main>
