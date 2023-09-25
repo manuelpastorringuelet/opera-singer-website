@@ -11,7 +11,7 @@ import { MenuBar } from "./menubar";
 
 const Navbar = () => {
   return (
-    <header className="z-30 py-6">
+    <header className="z-30 bg-background py-6">
       <motion.nav
         initial={{
           opacity: 0,

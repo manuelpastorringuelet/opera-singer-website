@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useTheme } from "next-themes";
 
 import { Profile } from "@/types";
 import { cn } from "@/lib/utils";
@@ -12,6 +13,7 @@ type Props = {
 };
 
 export default function Hero({ profile }: Props) {
+  const { theme } = useTheme();
   return (
     <main className="mx-auto grid w-full flex-1 overflow-y-auto overflow-x-hidden sm:container sm:grid-cols-2">
       <motion.section
@@ -70,7 +72,7 @@ export default function Hero({ profile }: Props) {
       >
         <Image
           priority
-          src={profile.heroImage.image}
+          src={theme === "dark" ? profile.heroImage.image : "/hero-white.jpg"}
           width={2235}
           height={1705}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"

@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${hindMadurai.className} flex min-h-screen flex-col overflow-y-auto overflow-x-hidden`}
+        className={`${hindMadurai.className} flex min-h-screen flex-col overflow-y-auto overflow-x-hidden bg-background`}
       >
         <ToasterProvider />
 

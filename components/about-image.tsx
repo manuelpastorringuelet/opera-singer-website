@@ -30,16 +30,7 @@ const AboutImage = ({ about }: AboutImageProps) => {
         height={1705}
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
         alt={about.aboutImage.alt}
-        className="hidden object-cover dark:inline-flex"
-      />
-      <Image
-        priority
-        src="/about-white.jpg"
-        width={2235}
-        height={1705}
-        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
-        alt={about.aboutImage.alt}
-        className="object-cover dark:hidden sm:-translate-y-10"
+        className="object-cover"
       />
     </motion.div>
   );
