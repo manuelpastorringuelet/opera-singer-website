@@ -66,6 +66,7 @@ export default function ImageContainer({ photo }: Props) {
               {photo.photographer && photo.photographer}
             </span>
             <Image
+              quality={100}
               src={photo.image}
               alt={photo.alt}
               width={100}
