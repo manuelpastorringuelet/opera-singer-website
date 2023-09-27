@@ -17,8 +17,6 @@ const RepertoireType = ({ repertoire, type }: RepertoireTypeProps) => {
   // Sort repertoire by composer alphabetically
   filteredRepertoire.sort((a, b) => a.composer.localeCompare(b.composer));
 
-  console.log(filteredRepertoire);
-
   return (
     <section className="container mx-auto flex flex-1 flex-col gap-12 py-8 sm:gap-16 sm:px-16">
       <div className="grid gap-6 sm:grid-cols-repertoire sm:gap-8 lg:gap-16">
