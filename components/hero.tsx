@@ -38,9 +38,23 @@ export default function Hero({ profile }: Props) {
             montserrat.className,
           )}
         >
-          {profile.firstName}
+          {/* Create a span with same with for each letter */}
+
+          {
+            // Split the name into an array of letters
+            profile.firstName.split("").map((letter, index) => (
+              <span key={index} className="inline-block w-[72px]">
+                {letter}
+              </span>
+            ))
+          }
           <br />
-          {profile.lastName}
+          {/* Create a span with same with for each letter */}
+          {profile.lastName.split("").map((letter, index) => (
+            <span key={index} className="inline-block w-[72px]">
+              {letter}
+            </span>
+          ))}
         </h1>
         <h2
           className={cn(
