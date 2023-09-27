@@ -17,7 +17,7 @@ export default function Hero({ profile }: Props) {
   const { theme } = useTheme();
 
   return (
-    <main className="mx-auto grid w-full flex-1 overflow-y-auto overflow-x-hidden text-foreground sm:container sm:grid-cols-2">
+    <main className="mx-auto grid w-full flex-1 overflow-y-auto overflow-x-hidden text-foreground sm:container">
       <motion.section
         initial={{
           x: 300,
@@ -30,7 +30,7 @@ export default function Hero({ profile }: Props) {
         transition={{
           duration: 1.5,
         }}
-        className="z-10 flex flex-col items-start gap-3 self-center overflow-hidden px-8 sm:justify-self-center sm:px-0 md:ml-auto"
+        className="z-10 mx-auto flex flex-col items-start gap-3 self-center overflow-hidden px-8 sm:justify-self-center sm:px-0 md:ml-auto"
       >
         <h1
           className={cn(
@@ -38,23 +38,11 @@ export default function Hero({ profile }: Props) {
             montserrat.className,
           )}
         >
-          {/* Create a span with same with for each letter */}
-
-          {
-            // Split the name into an array of letters
-            profile.firstName.split("").map((letter, index) => (
-              <span key={index} className="inline-block w-[72px]">
-                {letter}
-              </span>
-            ))
-          }
+          {/* Render the first name with equal-width letters */}
+          <EqualWidthName name={profile.firstName} />
           <br />
-          {/* Create a span with same with for each letter */}
-          {profile.lastName.split("").map((letter, index) => (
-            <span key={index} className="inline-block w-[72px]">
-              {letter}
-            </span>
-          ))}
+          {/* Render the last name with equal-width letters */}
+          <EqualWidthName name={profile.lastName} />
         </h1>
         <h2
           className={cn(
@@ -108,5 +96,18 @@ export default function Hero({ profile }: Props) {
         />
       </motion.div>
     </main>
+  );
+}
+
+// A reusable component to render a name with equal-width letters
+function EqualWidthName({ name }: { name: string }) {
+  return (
+    <>
+      {name.split("").map((letter, index) => (
+        <span key={index} className="inline-block w-11 sm:w-[72px]">
+          {letter}
+        </span>
+      ))}
+    </>
   );
 }
