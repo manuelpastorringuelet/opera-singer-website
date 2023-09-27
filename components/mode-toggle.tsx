@@ -15,7 +15,7 @@ export function ModeToggle() {
 
   return (
     <Button
-    aria-label={theme === "light" ? "Dark mode" : "Light mode"}
+      aria-label={theme === "dark" ? "Light mode" : "Dark mode"}
       className="border-0 bg-transparent"
       variant="default"
       size="icon"
