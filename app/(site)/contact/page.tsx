@@ -17,13 +17,8 @@ import {
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-
-const formSchema = z.object({
-  name: z.string().nonempty("Please enter your name."),
-  email: z.string().email("Please enter a valid email address."),
-  subject: z.string().optional(),
-  message: z.string().nonempty("Please enter a message."),
-});
+import { formSchema } from "@/types/formSchema";
+import { sendEmail } from "@/utils/send-email";
 
 const ContactForm = () => {
   const router = useRouter();
@@ -44,7 +39,7 @@ const ContactForm = () => {
     // ✅ This will be type-safe and validated.
     router.push("/");
     toast.success("Message sent!");
-    console.log(values);
+    sendEmail(values);
   }
 
   return (
