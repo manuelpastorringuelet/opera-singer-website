@@ -8,11 +8,8 @@ import { motion } from "framer-motion";
 import { ModeToggle } from "./mode-toggle";
 import Pages from "./pages";
 import { MenuBar } from "./menubar";
-import { useTheme } from "next-themes";
 
 const Navbar = () => {
-  const { theme } = useTheme();
-
   return (
     <header className="z-30 bg-background py-6">
       <motion.nav
@@ -40,13 +37,24 @@ const Navbar = () => {
           href="/"
           className="hidden flex-shrink-0 cursor-pointer rounded-md p-[2px] hover:bg-primary/90 md:inline-flex"
         >
+          {/* Dark mode Image */}
           <Image
             priority
-            src={theme === "dark" ? "/signature-white.png" : "/signature.png"}
+            src="/signature.png"
             width={105}
             height={32}
             alt="signature"
-            className="h-8 max-h-[32px] max-w-[105px] object-cover"
+            className="inline-flex h-8 max-h-[32px] max-w-[105px] object-cover dark:hidden"
+          />
+
+          {/* Light mode Image */}
+          <Image
+            priority
+            src="/signature-white.png"
+            width={105}
+            height={32}
+            alt="signature"
+            className="hidden h-8 max-h-[32px] max-w-[105px] object-cover dark:inline-flex"
           />
         </Link>
 
