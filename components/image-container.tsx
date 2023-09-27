@@ -88,11 +88,8 @@ export default function ImageContainer({ photo }: Props) {
               alt={photo.alt}
               width={100}
               height={100}
-              placeholder="blur"
-              blurDataURL={photo.image}
-              loading="lazy"
               layout="responsive"
-              className="max-h-screen object-cover transition-all duration-500 ease-in-out"
+              className="max-h-screen object-cover"
             />
             {!isLoading && (
               <>
