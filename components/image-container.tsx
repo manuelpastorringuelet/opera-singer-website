@@ -80,7 +80,6 @@ export default function ImageContainer({ photo }: Props) {
                 className="absolute"
                 aria-label="Loading Spinner"
                 data-testid="loader"
-                className="absolute"
               />
             )}
             <Image
