@@ -24,8 +24,9 @@ export async function getProfile(): Promise<Profile[]> {
     voiceType,
     quote,
     quoteSource,
-    heroImage { alt, "image": asset->url },
-      email,
+    heroDarkImage { alt, "image": asset->url },
+    heroLightImage { alt, "image": asset->url },
+    email,
     }
   `;
 

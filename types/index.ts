@@ -20,7 +20,8 @@ export interface Profile extends SanityBody {
     | "Bass";
   quote: string;
   quoteSource: string;
-  heroImage: Picture;
+  heroDarkImage: Picture;
+  heroLightImage: Picture;
   email: string;
 }
 

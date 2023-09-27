@@ -1,32 +1,23 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { toast } from "react-hot-toast";
 
 import {
   Form,
   FormControl,
   FormField,
   FormItem,
-  FormLabel,
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-
-const formSchema = z.object({
-  name: z.string().nonempty("Please enter your name."),
-  email: z.string().email("Please enter a valid email address."),
-  subject: z.string().optional(),
-  message: z.string().nonempty("Please enter a message."),
-});
+import { formSchema } from "@/types/formSchema";
+import { sendEmail } from "@/utils/send-email";
 
 const ContactForm = () => {
-  const router = useRouter();
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -42,9 +33,9 @@ const ContactForm = () => {
   function onSubmit(values: z.infer<typeof formSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
-    router.push("/");
-    toast.success("Message sent!");
-    console.log(values);
+    // Clear the form after submission.
+    form.reset();
+    sendEmail(values);
   }
 
   return (

@@ -33,10 +33,24 @@ export default defineType({
       type: "string",
     },
     {
-      name: "heroImage",
-      title: "Hero Image",
+      name: "heroDarkImage",
+      title: "Hero Dark Image",
       type: "image",
-      description: "Upload a hero picture",
+      description: "Upload a hero dark Image",
+      options: { hotspot: true },
+      fields: [
+        {
+          name: "alt",
+          title: "Alt",
+          type: "string",
+        },
+      ],
+    },
+    {
+      name: "heroLightImage",
+      title: "Hero Light Image",
+      type: "image",
+      description: "Upload a hero light Image",
       options: { hotspot: true },
       fields: [
         {
