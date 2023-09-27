@@ -42,7 +42,7 @@ const Navbar = () => {
         >
           <Image
             priority
-            src={theme === "dark" ? "/signature-white.png" : "/signature.png"}
+            src={theme === "light" ? "/signature.png" : "/signature-white.png"}
             width={105}
             height={32}
             alt="signature"
