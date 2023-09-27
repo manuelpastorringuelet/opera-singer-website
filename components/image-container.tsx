@@ -3,9 +3,10 @@
 import Image from "next/image";
 import { Maximize2, Minimize2 } from "lucide-react";
 import { motion } from "framer-motion";
+import ClipLoader from "react-spinners/ClipLoader";
 
 import { Picture } from "@/types";
-import { useState } from "react";
+import { use, useEffect, useState } from "react";
 import DownloadButton from "./download-button";
 
 type Props = {
@@ -14,6 +15,7 @@ type Props = {
 
 export default function ImageContainer({ photo }: Props) {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -21,6 +23,10 @@ export default function ImageContainer({ photo }: Props) {
 
   const closeModal = () => {
     setIsModalOpen(false);
+  };
+
+  const handleImageLoad = () => {
+    setIsLoading(false);
   };
 
   return (
@@ -62,10 +68,21 @@ export default function ImageContainer({ photo }: Props) {
           onClick={closeModal}
         >
           <div className="relative flex max-h-screen max-w-screen-lg flex-col items-center rounded-lg text-white">
+            {isLoading && (
+              <ClipLoader
+                color="#ffffff"
+                loading={isLoading}
+                cssOverride={{ display: "block" }}
+                size={150}
+                aria-label="Loading Spinner"
+                data-testid="loader"
+              />
+            )}
             <span className="absolute bottom-3 left-3">
               {photo.photographer && photo.photographer}
             </span>
             <Image
+              onLoad={handleImageLoad}
               quality={100}
               src={photo.image}
               alt={photo.alt}
@@ -73,12 +90,16 @@ export default function ImageContainer({ photo }: Props) {
               height={100}
               placeholder="blur"
               blurDataURL={photo.image}
-              loading="eager"
+              loading="lazy"
               layout="responsive"
               className="max-h-screen object-cover transition-all duration-500 ease-in-out"
             />
-            <Minimize2 className="absolute right-3 top-3" />
-            <DownloadButton photo={photo} />
+            {!isLoading && (
+              <>
+                <Minimize2 className="absolute right-3 top-3" />
+                <DownloadButton photo={photo} />
+              </>
+            )}
           </div>
         </div>
       )}
