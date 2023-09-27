@@ -16,7 +16,7 @@ export default function Hero({ profile }: Props) {
   const { theme } = useTheme();
 
   return (
-    <main className="mx-auto grid w-full flex-1 overflow-y-auto overflow-x-hidden sm:container sm:grid-cols-2">
+    <main className="mx-auto grid w-full flex-1 overflow-y-auto overflow-x-hidden text-foreground sm:container sm:grid-cols-2">
       <motion.section
         initial={{
           x: 300,
@@ -77,17 +77,17 @@ export default function Hero({ profile }: Props) {
         <Image
           priority
           src={
-            theme === "light"
-              ? profile.heroLightImage.image
-              : profile.heroDarkImage.image
+            theme === "dark"
+              ? profile.heroDarkImage.image
+              : profile.heroLightImage.image
           }
           width={2235}
           height={1705}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
           alt={
-            theme === "light"
-              ? profile.heroLightImage.image
-              : profile.heroDarkImage.image
+            theme === "dark"
+              ? profile.heroDarkImage.image
+              : profile.heroLightImage.image
           }
           className="xl:max-h-screen-85 mt-[88px] max-w-screen-sm translate-x-52 object-cover opacity-90 sm:translate-x-28 md:max-w-screen-sm lg:translate-x-0 xl:block xl:w-full xl:max-w-screen-xl"
         />
