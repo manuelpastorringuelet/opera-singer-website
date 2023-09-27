@@ -68,6 +68,9 @@ export default function ImageContainer({ photo }: Props) {
           onClick={closeModal}
         >
           <div className="relative flex max-h-screen max-w-screen-lg flex-col items-center rounded-lg text-white">
+            <span className="absolute bottom-3 left-3">
+              {photo.photographer && photo.photographer}
+            </span>{" "}
             {isLoading && (
               <ClipLoader
                 color="#ffffff"
@@ -76,11 +79,9 @@ export default function ImageContainer({ photo }: Props) {
                 size={150}
                 aria-label="Loading Spinner"
                 data-testid="loader"
+                className="absolute"
               />
             )}
-            <span className="absolute bottom-3 left-3">
-              {photo.photographer && photo.photographer}
-            </span>
             <Image
               onLoad={handleImageLoad}
               quality={100}
