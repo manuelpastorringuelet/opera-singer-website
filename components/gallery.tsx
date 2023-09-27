@@ -1,6 +1,6 @@
-import { getGallery } from "@/sanity/sanity.query";
-import ImageContainer from "./ImageContainer";
 import { Picture } from "@/types";
+
+import ImageContainer from "@/components/image-container";
 
 type GalleryProps = {
   pictures: Picture[];

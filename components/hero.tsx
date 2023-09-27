@@ -7,6 +7,7 @@ import { useTheme } from "next-themes";
 import { Profile } from "@/types";
 import { cn } from "@/lib/utils";
 import { lora, montserrat } from "@/lib/fonts";
+import { useEffect } from "react";
 
 type Props = {
   profile: Profile;
@@ -62,7 +63,7 @@ export default function Hero({ profile }: Props) {
       <motion.div
         className={cn(
           "absolute right-0 overflow-hidden",
-          theme === "dark" ? "top-0" : "bottom-[123.2px] sm:bottom-[91.2px]",
+          theme === "light" ? "bottom-[123.2px] sm:bottom-[91.2px]" : "top-0",
         )}
         initial={{
           opacity: 0,
@@ -77,17 +78,17 @@ export default function Hero({ profile }: Props) {
         <Image
           priority
           src={
-            theme === "dark"
-              ? profile.heroDarkImage.image
-              : profile.heroLightImage.image
+            theme === "light"
+              ? profile.heroLightImage.image
+              : profile.heroDarkImage.image
           }
           width={2235}
           height={1705}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
           alt={
-            theme === "dark"
-              ? profile.heroDarkImage.image
-              : profile.heroLightImage.image
+            theme === "light"
+              ? profile.heroLightImage.image
+              : profile.heroDarkImage.image
           }
           className="xl:max-h-screen-85 mt-[88px] max-w-screen-sm translate-x-52 object-cover opacity-90 sm:translate-x-28 md:max-w-screen-sm lg:translate-x-0 xl:block xl:w-full xl:max-w-screen-xl"
         />

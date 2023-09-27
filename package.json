@@ -52,6 +52,7 @@
     "react-hook-form": "^7.46.2",
     "react-hot-toast": "^2.4.1",
     "react-icons": "^4.11.0",
+    "react-spinners": "^0.13.8",
     "sanity": "^3.16.7",
     "sanity-plugin-cloudinary": "^1.1.1",
     "styled-components": "~6.0.8",
