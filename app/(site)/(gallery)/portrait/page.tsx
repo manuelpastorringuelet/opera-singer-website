@@ -1,4 +1,4 @@
-import Gallery from "@/components/sdf";
+import Gallery from "@/components/gallery";
 import { getGallery } from "@/sanity/sanity.query";
 
 const Portrait = async () => {
