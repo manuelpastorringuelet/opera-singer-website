@@ -77,7 +77,7 @@ export default function ImageContainer({ photo }: Props) {
                 loading={isLoading}
                 cssOverride={{ display: "block" }}
                 size={150}
-                className="absolute"
+                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform"
                 aria-label="Loading Spinner"
                 data-testid="loader"
               />
