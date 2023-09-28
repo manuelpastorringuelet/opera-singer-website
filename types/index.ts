@@ -56,6 +56,7 @@ export interface Performance extends SanityBody {
   conductor: string;
   producer: string;
   dates: Date[];
+  datesAndTimes: string;
   location: string;
   orchestra: string;
 }

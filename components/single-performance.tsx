@@ -46,7 +46,7 @@ const SinglePerformance = (performance: Performance) => {
   return (
     <>
       <div className="relative flex flex-col gap-8">
-        <div className="flex text-left">
+        <div className="flex gap-2 text-left">
           {/* Performance Type */}
           <motion.h3
             initial={{
@@ -184,52 +184,7 @@ const SinglePerformance = (performance: Performance) => {
               }}
               className="text-sm sm:text-base"
             >
-              {performance.dates.map((date, index, array) => {
-                const currentDate = new Date(date);
-
-                // Check if it's the last date
-                const isLastDate = index === array.length - 1;
-
-                // Check if the month is the same as the next date's month
-                const isSameMonthAsNext = isLastDate
-                  ? false
-                  : isSameMonth(currentDate, new Date(array[index + 1]));
-
-                // Check if the year is the same as the next date's year
-                const isSameYearAsNext = isLastDate
-                  ? false
-                  : isSameYear(currentDate, new Date(array[index + 1]));
-
-                // Determine if month and year should be displayed
-                const shouldDisplayMonth =
-                  !isSameMonthAsNext || (isLastDate && !isSameMonthAsNext);
-                const shouldDisplayYear =
-                  !isSameYearAsNext || (isLastDate && !isSameYearAsNext);
-
-                const formattedDateParts = [];
-
-                // Add Month (if needed)
-                if (shouldDisplayMonth) {
-                  formattedDateParts.push(format(currentDate, "MMMM"));
-                }
-
-                // Add Day with Ordinal Suffix
-                formattedDateParts.push(format(currentDate, "do"));
-
-                // Add Year (if needed)
-                if (shouldDisplayYear) {
-                  formattedDateParts.push(format(currentDate, "yyyy"));
-                }
-
-                return (
-                  <>
-                    <span className="inline-block" key={index}>
-                      {formattedDateParts.join(" ")}
-                      {index < array.length - 1 && ", "}
-                    </span>{" "}
-                  </>
-                );
-              })}
+              {performance.datesAndTimes}
             </motion.div>
 
             {/* Performance Location */}
@@ -255,17 +210,6 @@ const SinglePerformance = (performance: Performance) => {
               >
                 {performance.location}
               </a>
-              {/* Add to Calendar Button */}
-              <>
-                <CustomAddToCalendarButton
-                  performance={performance}
-                  dark={false}
-                />
-                <CustomAddToCalendarButton
-                  performance={performance}
-                  dark={true}
-                />
-              </>
             </motion.div>
           </div>
         </div>

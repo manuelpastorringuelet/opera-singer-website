@@ -84,6 +84,7 @@ export async function getPerformances(): Promise<Performance[]> {
   conductor,
   producer,
   dates,
+  datesAndTimes,
   location,
   orchestra,
     }
