@@ -30,7 +30,7 @@ function CustomAddToCalendarButton(props: {
   return (
     <div
       className={cn(
-        "absolute -bottom-3 ml-2 inline-flex",
+        "absolute bottom-3 ml-2 inline-flex",
         props.dark ? "dark:hidden" : "dark:inline-flex",
       )}
     >
@@ -185,7 +185,6 @@ const SinglePerformance = (performance: Performance) => {
 
             <br />
 
-            {/* Performance Dates */}
             <motion.div
               initial={{
                 x: 175,
@@ -199,36 +198,39 @@ const SinglePerformance = (performance: Performance) => {
               transition={{
                 duration: 1.5,
               }}
-              className="text-sm sm:text-base"
             >
-              {performance.allDates ? performance.allDates : dateString}
-            </motion.div>
+              <div className="inline-block">
+                {/* Performance Dates */}
+                <div className="text-sm sm:text-base">
+                  {performance.allDates ? performance.allDates : dateString}
+                </div>
 
-            {/* Performance Location */}
-            <motion.div
-              initial={{
-                x: 200,
-                opacity: 0,
-              }}
-              whileInView={{
-                x: 0,
-                opacity: 1,
-              }}
-              viewport={{ once: true }}
-              transition={{
-                duration: 1.5,
-              }}
-              className="text-sm sm:text-base"
-            >
-              <a
-                href={`https://www.google.com/maps/search/?q=${encodeURIComponent(
-                  performance.location,
-                )}`}
-                className="underline"
-              >
-                {performance.location}
-              </a>
-
+                {/* Performance Location */}
+                <motion.div
+                  initial={{
+                    x: 25,
+                    opacity: 0,
+                  }}
+                  whileInView={{
+                    x: 0,
+                    opacity: 1,
+                  }}
+                  viewport={{ once: true }}
+                  transition={{
+                    duration: 1.5,
+                  }}
+                  className="text-sm sm:text-base"
+                >
+                  <a
+                    href={`https://www.google.com/maps/search/?q=${encodeURIComponent(
+                      performance.location,
+                    )}`}
+                    className="underline"
+                  >
+                    {performance.location}
+                  </a>
+                </motion.div>
+              </div>
               {/* Add to Calendar Button */}
               <>
                 <CustomAddToCalendarButton
