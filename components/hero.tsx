@@ -65,7 +65,7 @@ export default function Hero({ profile }: Props) {
       <motion.div
         className={cn(
           "absolute right-0 overflow-hidden",
-          theme === "light" ? "bottom-[123.2px] sm:bottom-[91.2px]" : "top-0",
+          theme === "light" ? "bottom-[91.2px] sm:bottom-[59.2px]" : "top-0",
         )}
         initial={{
           opacity: 0,

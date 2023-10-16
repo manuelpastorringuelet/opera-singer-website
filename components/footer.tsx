@@ -11,7 +11,7 @@ const Footer = () => {
   const datenschutzerklärungUrl = "/datenschutzerklarung";
 
   return (
-    <footer className="z-0 bg-background py-4">
+    <footer className="z-0 bg-background">
       <motion.div
         initial={{
           opacity: 0,
