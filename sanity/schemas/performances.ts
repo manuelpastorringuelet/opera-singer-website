@@ -58,28 +58,23 @@ export default defineType({
       type: "string",
     },
     {
-      name: "dates",
-      title: "Dates",
-      type: "array",
-      description: "The dates of the performance",
-      of: [
-        {
-          type: "date",
-          options: {
-            dateFormat: "YYYY-MM-DD",
-            calendarTodayLabel: "Today",
-          },
-        },
-      ],
+      name: "firstDate",
+      title: "First date",
+      type: "datetime",
+      options: {
+        dateFormat: "DD.MM.YYYY",
+        timeFormat: "HH:mm",
+        calendarTodayLabel: "Today",
+        timeStep: 15,
+      },
       validation: (Rule) => Rule.required(),
     },
     {
-      name: "datesAndTimes",
-      title: "Dates and Times",
+      name: "allDates",
+      title: "All dates",
       type: "string",
       description:
-        "The dates and times of the performance (eg. 15. September 2023, um 10 Uhr und 18 Uhr",
-      validation: (Rule) => Rule.required(),
+        "The dates and times of the performance (e.g., 15. September 2023, um 10 Uhr und 18 Uhr), only if there are multiple dates and times.",
     },
     {
       name: "location",

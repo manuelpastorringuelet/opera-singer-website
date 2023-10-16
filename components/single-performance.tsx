@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { format, isSameMonth, isSameYear } from "date-fns";
+import { format } from "date-fns";
 import { AddToCalendarButton } from "add-to-calendar-button-react";
 import { motion } from "framer-motion";
 
@@ -32,8 +32,8 @@ function CustomAddToCalendarButton(props: {
         description={`${props.performance.type} of ${props.performance.title} by ${props.performance.composer} at ${props.performance.location}`}
         options={["Apple", "Google", "Outlook.com"]}
         location={props.performance.location}
-        startDate={props.performance.dates[0].toString()}
-        endDate={props.performance.dates[0].toString()}
+        startDate={props.performance.firstDate.toString()}
+        endDate={props.performance.firstDate.toString()}
         startTime="10:15"
         endTime="23:30"
         timeZone="Europe/Berlin"
@@ -43,6 +43,11 @@ function CustomAddToCalendarButton(props: {
 }
 
 const SinglePerformance = (performance: Performance) => {
+  const performanceDate = new Date(performance.firstDate);
+
+  const dateString = format(performanceDate, "d. MMMM yyyy, 'um' HH 'Uhr'");
+  console.log(dateString);
+
   return (
     <>
       <div className="relative flex flex-col gap-8">
@@ -184,7 +189,7 @@ const SinglePerformance = (performance: Performance) => {
               }}
               className="text-sm sm:text-base"
             >
-              {performance.datesAndTimes}
+              {performance.allDates ? performance.allDates : dateString}
             </motion.div>
 
             {/* Performance Location */}
