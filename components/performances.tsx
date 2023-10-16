@@ -11,26 +11,15 @@ type PerformancesProps = {
   performances: Performance[];
 };
 
-// Helper function to convert dates to JavaScript Date objects
-const convertToDates = (dates: Date[]) => dates.map((date) => new Date(date));
-
 const Performances = ({ performances }: PerformancesProps) => {
-  // sort performances by year, extract the year from the date
-  performances.sort((a, b) => {
-    const earliestDateA = a.dates.map((date) => new Date(date))[0];
-    const earliestDateB = b.dates.map((date) => new Date(date))[0];
-
-    return earliestDateA.getFullYear() - earliestDateB.getFullYear();
-  });
-
-  // create a new array with only the years, remove duplicates
-  const years = [
-    ...new Set(
+  const years = Array.from(
+    new Set(
       performances.map((performance) =>
-        convertToDates(performance.dates)[0].getFullYear(),
+        // get the year of each performance
+        new Date(performance.firstDate).getFullYear(),
       ),
     ),
-  ];
+  );
 
   return (
     <>
@@ -66,13 +55,17 @@ const Performances = ({ performances }: PerformancesProps) => {
             >
               {year}
             </motion.h1>
-            <div className="flex flex-col gap-8">
+            <div className="flex w-full flex-col gap-8">
               {performances
                 .filter(
                   (performance) =>
-                    performance.dates
-                      .map((date) => new Date(date))[0]
-                      .getFullYear() === year,
+                    new Date(performance.firstDate).getFullYear() === year,
+                )
+                // sort performances by date
+                .sort(
+                  (a, b) =>
+                    new Date(a.firstDate).getTime() -
+                    new Date(b.firstDate).getTime(),
                 )
                 .map((performance, index) => (
                   <SinglePerformance key={index} {...performance} />

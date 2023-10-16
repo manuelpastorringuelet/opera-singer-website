@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { format, isSameMonth, isSameYear } from "date-fns";
+import { format } from "date-fns";
 import { AddToCalendarButton } from "add-to-calendar-button-react";
 import { motion } from "framer-motion";
 
@@ -14,10 +14,23 @@ function CustomAddToCalendarButton(props: {
   performance: Performance;
   dark?: boolean;
 }) {
+  // date without time
+  const date = new Date(props.performance.firstDate);
+
+  // Format the date as a string without the time
+  const dateStringWithoutTime = format(date, "yyyy-MM-dd");
+
+  const startTimeString = format(date, "HH:mm");
+
+  // end time is always start time + 2.5 hours
+  const endTime = new Date(date.getTime() + 2.5 * 60 * 60 * 1000);
+
+  const endTimeString = format(endTime, "HH:mm");
+
   return (
     <div
       className={cn(
-        "absolute bottom-2 inline-flex",
+        "absolute bottom-3 ml-2 inline-flex",
         props.dark ? "dark:hidden" : "dark:inline-flex",
       )}
     >
@@ -32,10 +45,10 @@ function CustomAddToCalendarButton(props: {
         description={`${props.performance.type} of ${props.performance.title} by ${props.performance.composer} at ${props.performance.location}`}
         options={["Apple", "Google", "Outlook.com"]}
         location={props.performance.location}
-        startDate={props.performance.dates[0].toString()}
-        endDate={props.performance.dates[0].toString()}
-        startTime="10:15"
-        endTime="23:30"
+        startDate={dateStringWithoutTime}
+        endDate={dateStringWithoutTime}
+        startTime={startTimeString}
+        endTime={endTimeString}
         timeZone="Europe/Berlin"
       />
     </div>
@@ -43,10 +56,14 @@ function CustomAddToCalendarButton(props: {
 }
 
 const SinglePerformance = (performance: Performance) => {
+  const performanceDate = new Date(performance.firstDate);
+
+  const dateString = format(performanceDate, "d. MMMM yyyy, 'um' HH 'Uhr'");
+
   return (
     <>
-      <div className="relative flex flex-col gap-8">
-        <div className="flex text-left">
+      <div className="relative flex flex-col gap-8" key={performance._id}>
+        <div className="flex gap-2 text-left">
           {/* Performance Type */}
           <motion.h3
             initial={{
@@ -65,7 +82,7 @@ const SinglePerformance = (performance: Performance) => {
           >
             {performance.type}
           </motion.h3>
-          <div>
+          <div className="w-full">
             {/* Performance Title */}
             <motion.h2
               initial={{
@@ -168,7 +185,6 @@ const SinglePerformance = (performance: Performance) => {
 
             <br />
 
-            {/* Performance Dates */}
             <motion.div
               initial={{
                 x: 175,
@@ -182,79 +198,39 @@ const SinglePerformance = (performance: Performance) => {
               transition={{
                 duration: 1.5,
               }}
-              className="text-sm sm:text-base"
             >
-              {performance.dates.map((date, index, array) => {
-                const currentDate = new Date(date);
+              <div className="inline-block">
+                {/* Performance Dates */}
+                <div className="text-sm sm:text-base">
+                  {performance.allDates ? performance.allDates : dateString}
+                </div>
 
-                // Check if it's the last date
-                const isLastDate = index === array.length - 1;
-
-                // Check if the month is the same as the next date's month
-                const isSameMonthAsNext = isLastDate
-                  ? false
-                  : isSameMonth(currentDate, new Date(array[index + 1]));
-
-                // Check if the year is the same as the next date's year
-                const isSameYearAsNext = isLastDate
-                  ? false
-                  : isSameYear(currentDate, new Date(array[index + 1]));
-
-                // Determine if month and year should be displayed
-                const shouldDisplayMonth =
-                  !isSameMonthAsNext || (isLastDate && !isSameMonthAsNext);
-                const shouldDisplayYear =
-                  !isSameYearAsNext || (isLastDate && !isSameYearAsNext);
-
-                const formattedDateParts = [];
-
-                // Add Month (if needed)
-                if (shouldDisplayMonth) {
-                  formattedDateParts.push(format(currentDate, "MMMM"));
-                }
-
-                // Add Day with Ordinal Suffix
-                formattedDateParts.push(format(currentDate, "do"));
-
-                // Add Year (if needed)
-                if (shouldDisplayYear) {
-                  formattedDateParts.push(format(currentDate, "yyyy"));
-                }
-
-                return (
-                  <>
-                    <span className="inline-block" key={index}>
-                      {formattedDateParts.join(" ")}
-                      {index < array.length - 1 && ", "}
-                    </span>{" "}
-                  </>
-                );
-              })}
-            </motion.div>
-
-            {/* Performance Location */}
-            <motion.div
-              initial={{
-                x: 200,
-                opacity: 0,
-              }}
-              whileInView={{
-                x: 0,
-                opacity: 1,
-              }}
-              viewport={{ once: true }}
-              transition={{
-                duration: 1.5,
-              }}
-              className="text-sm sm:text-base"
-            >
-              <a
-                href={`https://www.google.com/maps/search/?q=${encodeURIComponent(
-                  performance.location,
-                )}`}
-              >
-                {performance.location}
-              </a>
+                {/* Performance Location */}
+                <motion.div
+                  initial={{
+                    x: 25,
+                    opacity: 0,
+                  }}
+                  whileInView={{
+                    x: 0,
+                    opacity: 1,
+                  }}
+                  viewport={{ once: true }}
+                  transition={{
+                    duration: 1.5,
+                  }}
+                  className="text-sm sm:text-base"
+                >
+                  <a
+                    href={`https://www.google.com/maps/search/?q=${encodeURIComponent(
+                      performance.location,
+                    )}`}
+                    className="underline"
+                  >
+                    {performance.location}
+                  </a>
+                </motion.div>
+              </div>
               {/* Add to Calendar Button */}
               <>
                 <CustomAddToCalendarButton
