@@ -14,10 +14,23 @@ function CustomAddToCalendarButton(props: {
   performance: Performance;
   dark?: boolean;
 }) {
+  // date without time
+  const date = new Date(props.performance.firstDate);
+
+  // Format the date as a string without the time
+  const dateStringWithoutTime = format(date, "yyyy-MM-dd");
+
+  const startTimeString = format(date, "HH:mm");
+
+  // end time is always start time + 2.5 hours
+  const endTime = new Date(date.getTime() + 2.5 * 60 * 60 * 1000);
+
+  const endTimeString = format(endTime, "HH:mm");
+
   return (
     <div
       className={cn(
-        "absolute bottom-2 inline-flex",
+        "absolute -bottom-3 ml-2 inline-flex",
         props.dark ? "dark:hidden" : "dark:inline-flex",
       )}
     >
@@ -32,10 +45,10 @@ function CustomAddToCalendarButton(props: {
         description={`${props.performance.type} of ${props.performance.title} by ${props.performance.composer} at ${props.performance.location}`}
         options={["Apple", "Google", "Outlook.com"]}
         location={props.performance.location}
-        startDate={props.performance.firstDate.toString()}
-        endDate={props.performance.firstDate.toString()}
-        startTime="10:15"
-        endTime="23:30"
+        startDate={dateStringWithoutTime}
+        endDate={dateStringWithoutTime}
+        startTime={startTimeString}
+        endTime={endTimeString}
         timeZone="Europe/Berlin"
       />
     </div>
@@ -46,11 +59,10 @@ const SinglePerformance = (performance: Performance) => {
   const performanceDate = new Date(performance.firstDate);
 
   const dateString = format(performanceDate, "d. MMMM yyyy, 'um' HH 'Uhr'");
-  console.log(dateString);
 
   return (
     <>
-      <div className="relative flex flex-col gap-8">
+      <div className="relative flex flex-col gap-8" key={performance._id}>
         <div className="flex gap-2 text-left">
           {/* Performance Type */}
           <motion.h3
@@ -70,7 +82,7 @@ const SinglePerformance = (performance: Performance) => {
           >
             {performance.type}
           </motion.h3>
-          <div>
+          <div className="w-full">
             {/* Performance Title */}
             <motion.h2
               initial={{
@@ -212,9 +224,22 @@ const SinglePerformance = (performance: Performance) => {
                 href={`https://www.google.com/maps/search/?q=${encodeURIComponent(
                   performance.location,
                 )}`}
+                className="underline"
               >
                 {performance.location}
               </a>
+
+              {/* Add to Calendar Button */}
+              <>
+                <CustomAddToCalendarButton
+                  performance={performance}
+                  dark={false}
+                />
+                <CustomAddToCalendarButton
+                  performance={performance}
+                  dark={true}
+                />
+              </>
             </motion.div>
           </div>
         </div>

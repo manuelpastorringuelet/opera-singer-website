@@ -27,7 +27,7 @@ const Performances = ({ performances }: PerformancesProps) => {
         <>
           <section
             key={index}
-            className="container flex flex-col items-start justify-center gap-4 overflow-hidden font-light sm:grid sm:grid-cols-calendar md:gap-10 lg:gap-20"
+            className="container flex flex-col items-start justify-center gap-4 overflow-hidden pb-2 font-light sm:grid sm:grid-cols-calendar md:gap-10 lg:gap-20"
           >
             <motion.h1
               initial={{
@@ -55,7 +55,7 @@ const Performances = ({ performances }: PerformancesProps) => {
             >
               {year}
             </motion.h1>
-            <div className="flex flex-col gap-8">
+            <div className="flex w-full flex-col gap-8">
               {performances
                 .filter(
                   (performance) =>
