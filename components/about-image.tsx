@@ -21,7 +21,7 @@ const AboutImage = ({ about }: AboutImageProps) => {
       transition={{
         duration: 2,
       }}
-      className="relative w-full overflow-hidden object-cover sm:h-60 md:h-80 lg:h-96"
+      className="relative w-full overflow-hidden object-cover"
     >
       <Image
         priority

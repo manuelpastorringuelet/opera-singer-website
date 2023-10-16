@@ -1,34 +1,34 @@
-import { defineField } from "sanity";
+import { defineType } from "sanity";
 
 import { Calendar } from "lucide-react";
 
-const performances = {
+export default defineType({
   name: "performances",
   title: "Performances",
   type: "document",
   icon: Calendar,
   fields: [
-    defineField({
+    {
       name: "title",
       title: "Title",
       type: "string",
       description: "The title of the performance",
       validation: (Rule) => Rule.required(),
-    }),
-    defineField({
+    },
+    {
       name: "type",
       title: "Type",
       type: "string",
       options: {
         list: [
-          { title: "Oper", value: "opera" },
-          { title: "Konzert", value: "concert" },
-          { title: "Gottesdienst", value: "churchService" },
+          { title: "Oper", value: "Oper" },
+          { title: "Konzert", value: "Konzert" },
+          { title: "Gottesdienst", value: "Gottesdienst" },
         ],
         layout: "radio",
       },
       validation: (Rule) => Rule.required(),
-    }),
+    },
     {
       name: "composer",
       title: "Composer",
@@ -58,40 +58,30 @@ const performances = {
       type: "string",
     },
     {
-      name: "dates",
-      title: "Dates",
-      type: "array",
-      of: [
-        {
-          type: "date",
-          options: {
-            dateFormat: "YYYY-MM-DD",
-            calendarTodayLabel: "Today",
-          },
-        },
-      ],
+      name: "firstDate",
+      title: "First date",
+      type: "datetime",
+      options: {
+        dateFormat: "DD.MM.YYYY",
+        timeFormat: "HH:mm",
+        calendarTodayLabel: "Today",
+        timeStep: 15,
+      },
+      validation: (Rule) => Rule.required(),
     },
     {
-      name: "datesAndTimes",
-      title: "Dates and Times",
-      type: "array",
-      of: [
-        {
-          type: "datetime",
-          options: {
-            dateFormat: "YYYY-MM-DD",
-            timeFormat: "HH:mm",
-            timeStep: 15,
-            calendarTodayLabel: "Today",
-          },
-        },
-      ],
+      name: "allDates",
+      title: "All dates",
+      type: "string",
+      description:
+        "The dates and times of the performance (e.g., 15. September 2023, um 10 Uhr und 18 Uhr), only if there are multiple dates and times.",
     },
     {
       name: "location",
       title: "Location",
       type: "string",
       description: "The location of the performance",
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "orchestra",
@@ -100,6 +90,4 @@ const performances = {
       description: "The orchestra of the performance",
     },
   ],
-};
-
-export default performances;
+});

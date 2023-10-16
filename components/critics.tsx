@@ -12,10 +12,10 @@ interface CriticsProps {
 
 const Critics = ({ critics }: CriticsProps) => {
   return (
-    <div className="flex flex-col gap-4 overflow-x-hidden sm:overflow-x-visible">
+    <div className="flex flex-col gap-4 overflow-x-hidden px-4 sm:overflow-x-visible md:mt-20 md:px-10">
       {critics.map((critics, index) => (
         <motion.div
-          initial={{ x: 200, opacity: 0 }}
+          initial={{ x: 200 * (index % 2 === 0 ? -1 : 1), opacity: 0 }} // staggered entrance
           transition={{ duration: 1.2 }}
           whileInView={{
             opacity: 1,
