@@ -37,13 +37,10 @@ const Navbar = () => {
 
         {/* Logo */}
         <Link
-          rel="preload"
-          as="image"
           href="/"
           className="hidden flex-shrink-0 cursor-pointer rounded-md p-[2px] hover:bg-primary/90 md:inline-flex"
         >
           <Image
-            priority
             src={theme === "light" ? "/signature.png" : "/signature-white.png"}
             width={105}
             height={32}
