@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import ClipLoader from "react-spinners/ClipLoader";
 
 import { Picture } from "@/types";
-import { use, useEffect, useState } from "react";
+import { useState } from "react";
 import DownloadButton from "./download-button";
 
 type Props = {
@@ -23,6 +23,7 @@ export default function ImageContainer({ photo }: Props) {
 
   const closeModal = () => {
     setIsModalOpen(false);
+    setIsLoading(true);
   };
 
   const handleImageLoad = () => {
@@ -77,7 +78,7 @@ export default function ImageContainer({ photo }: Props) {
                 loading={isLoading}
                 cssOverride={{ display: "block" }}
                 size={150}
-                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform"
+                className="absolute flex h-full w-full items-center justify-center"
                 aria-label="Loading Spinner"
                 data-testid="loader"
               />
@@ -90,13 +91,13 @@ export default function ImageContainer({ photo }: Props) {
               width={100}
               height={100}
               layout="responsive"
-              className="max-h-screen object-cover"
+              className="z-30 max-h-screen w-screen object-cover"
             />
             {!isLoading && (
-              <>
+              <div className="z-30">
                 <Minimize2 className="absolute right-3 top-3" />
                 <DownloadButton photo={photo} />
-              </>
+              </div>
             )}
           </div>
         </div>
