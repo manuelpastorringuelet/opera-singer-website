@@ -51,6 +51,7 @@ export default defineType({
       name: "conductor",
       title: "Conductor",
       type: "string",
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "producer",

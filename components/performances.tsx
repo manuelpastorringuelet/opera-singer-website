@@ -12,18 +12,20 @@ type PerformancesProps = {
 };
 
 const Performances = ({ performances }: PerformancesProps) => {
-  const years = Array.from(
-    new Set(
-      performances.map((performance) =>
-        // get the year of each performance
-        new Date(performance.firstDate).getFullYear(),
-      ),
+  // get the year of each performance, if the performance is in the future
+  const futurePerformanceYears = [
+    ...new Set(
+      performances
+        .filter((performance) => new Date(performance.firstDate) > new Date())
+        .map((performance) => new Date(performance.firstDate).getFullYear()),
     ),
-  );
+  ].sort((a, b) => a - b);
+
+  const currentDate = new Date();
 
   return (
     <>
-      {years.map((year, index) => (
+      {futurePerformanceYears.map((year, index) => (
         <>
           <section
             key={index}
@@ -55,11 +57,14 @@ const Performances = ({ performances }: PerformancesProps) => {
             >
               {year}
             </motion.h1>
+
+            {/* Future Performances */}
             <div className="flex w-full flex-col gap-8">
               {performances
                 .filter(
                   (performance) =>
-                    new Date(performance.firstDate).getFullYear() === year,
+                    new Date(performance.firstDate).getFullYear() === year &&
+                    new Date(performance.firstDate) > currentDate,
                 )
                 // sort performances by date
                 .sort(
@@ -74,10 +79,25 @@ const Performances = ({ performances }: PerformancesProps) => {
           </section>
           {
             // add a horizontal rule between each year, except the last
-            index !== years.length - 1 && (
-              <hr className="w-full opacity-50 sm:w-2/3" />
-            )
+            index !== futurePerformanceYears.length - 1 && <hr className="w-full opacity-50" />
           }
+
+          {/* Past Performances */}
+          {/* {performances
+            .filter(
+              (performance) =>
+                new Date(performance.firstDate).getFullYear() === year &&
+                new Date(performance.firstDate) < currentDate,
+            )
+            // sort performances by date, descending
+            .sort(
+              (a, b) =>
+                new Date(b.firstDate).getTime() -
+                new Date(a.firstDate).getTime(),
+            )
+            .map((performance, index) => (
+              <SinglePerformance key={index} {...performance} />
+            ))} */}
         </>
       ))}
     </>
