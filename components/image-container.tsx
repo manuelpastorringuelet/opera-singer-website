@@ -68,7 +68,7 @@ export default function ImageContainer({ photo }: Props) {
           className="group fixed inset-0 z-40 flex max-h-screen cursor-pointer items-center justify-center overflow-auto bg-background/90"
           onClick={closeModal}
         >
-          <div className="relative flex max-h-screen max-w-screen-lg flex-col items-center rounded-lg text-white">
+          <div className="relative flex max-h-screen w-full max-w-screen-lg flex-col items-center rounded-lg text-white sm:w-auto">
             <span className="absolute bottom-3 left-3">
               {photo.photographer && photo.photographer}
             </span>{" "}
