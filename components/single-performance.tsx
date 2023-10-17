@@ -63,7 +63,7 @@ const SinglePerformance = (performance: Performance) => {
   return (
     <>
       <div className="relative flex flex-col gap-8" key={performance._id}>
-        <div className="flex gap-2 text-left">
+        <div className="flex flex-col text-left sm:flex-row sm:gap-2">
           {/* Performance Type */}
           <motion.h3
             initial={{
@@ -78,7 +78,7 @@ const SinglePerformance = (performance: Performance) => {
             transition={{
               duration: 1.5,
             }}
-            className="writing-vertical-rl text-2xl capitalize text-primary/80 sm:text-3xl"
+            className="sm:writing-vertical-rl text-2xl capitalize text-primary/80 sm:text-3xl"
           >
             {performance.type}
           </motion.h3>
@@ -98,7 +98,7 @@ const SinglePerformance = (performance: Performance) => {
                 duration: 1.5,
               }}
               className={cn(
-                "text-4xl font-bold sm:text-5xl",
+                "break-words text-4xl font-bold sm:text-5xl",
                 montserrat.className,
               )}
             >
@@ -231,6 +231,7 @@ const SinglePerformance = (performance: Performance) => {
                   </a>
                 </motion.div>
               </div>
+
               {/* Add to Calendar Button */}
               <>
                 <CustomAddToCalendarButton
