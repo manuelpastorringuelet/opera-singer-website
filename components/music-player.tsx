@@ -37,7 +37,9 @@ const MusicPlayer = ({ songs }: Props) => {
         <div className="flex flex-col justify-end gap-1">
           <figure>
             <audio controls autoPlay src={currentSong?.file} className="w-full">
-              <a href={currentSong?.file}> Download audio </a>
+              <a href={currentSong?.file} download>
+                Download audio
+              </a>
             </audio>
           </figure>
           <figcaption className="self-center">
