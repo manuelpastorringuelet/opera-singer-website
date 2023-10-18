@@ -25,12 +25,13 @@ const RepertoireType = ({ repertoire, type }: RepertoireTypeProps) => {
             x: 225,
             opacity: 0,
           }}
-          animate={{
-            x: 0,
+          transition={{ duration: 1.2 }}
+          whileInView={{
             opacity: 1,
+            x: 0,
           }}
-          transition={{
-            duration: 1.5,
+          viewport={{
+            once: true,
           }}
           className={cn(
             "text-5xl font-semibold text-primary/80 sm:justify-self-end",
@@ -46,12 +47,15 @@ const RepertoireType = ({ repertoire, type }: RepertoireTypeProps) => {
                 x: 200 * (index % 2 === 0 ? 1 : -1),
                 opacity: 0,
               }}
-              animate={{
-                x: 0,
-                opacity: 1,
-              }}
               transition={{
-                duration: 1.5,
+                duration: 1.2,
+              }}
+              whileInView={{
+                opacity: 1,
+                x: 0,
+              }}
+              viewport={{
+                once: true,
               }}
               key={index}
               className="group"
