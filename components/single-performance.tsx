@@ -106,7 +106,7 @@ const SinglePerformance = (performance: Performance) => {
             </motion.h2>
 
             {/* Composer */}
-            <motion.h4
+            <motion.p
               initial={{
                 x: 75,
                 opacity: 0,
@@ -122,7 +122,7 @@ const SinglePerformance = (performance: Performance) => {
               className={cn("text-2xl font-normal sm:text-3xl", lora.className)}
             >
               {performance.composer}
-            </motion.h4>
+            </motion.p>
 
             {/* Role */}
             <motion.p

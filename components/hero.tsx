@@ -7,7 +7,6 @@ import { useTheme } from "next-themes";
 import { Profile } from "@/types";
 import { cn } from "@/lib/utils";
 import { lora, montserrat } from "@/lib/fonts";
-import { useEffect } from "react";
 
 type Props = {
   profile: Profile;
