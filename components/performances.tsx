@@ -26,11 +26,11 @@ const Performances = ({ performances }: PerformancesProps) => {
   return (
     <>
       {futurePerformanceYears.map((year, index) => (
-        <>
-          <section
-            key={index}
-            className="container flex flex-col items-start justify-center gap-4 overflow-hidden font-light sm:grid sm:grid-cols-calendar md:gap-10 lg:gap-20"
-          >
+        <div
+          className="w-full flex-col items-center justify-center"
+          key={index}
+        >
+          <section className="container flex flex-col items-start justify-center gap-4 overflow-hidden font-light sm:grid sm:grid-cols-calendar md:gap-10 lg:gap-20">
             <motion.h1
               initial={{
                 x: -100,
@@ -79,26 +79,11 @@ const Performances = ({ performances }: PerformancesProps) => {
           </section>
           {
             // add a horizontal rule between each year, except the last
-            index !== futurePerformanceYears.length - 1 && <hr className="w-full opacity-50" />
+            index !== futurePerformanceYears.length - 1 && (
+              <hr className="container mt-8 w-full opacity-50" />
+            )
           }
-
-          {/* Past Performances */}
-          {/* {performances
-            .filter(
-              (performance) =>
-                new Date(performance.firstDate).getFullYear() === year &&
-                new Date(performance.firstDate) < currentDate,
-            )
-            // sort performances by date, descending
-            .sort(
-              (a, b) =>
-                new Date(b.firstDate).getTime() -
-                new Date(a.firstDate).getTime(),
-            )
-            .map((performance, index) => (
-              <SinglePerformance key={index} {...performance} />
-            ))} */}
-        </>
+        </div>
       ))}
     </>
   );

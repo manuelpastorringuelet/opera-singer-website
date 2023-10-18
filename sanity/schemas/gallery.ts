@@ -11,6 +11,7 @@ export default defineType({
       name: "title",
       type: "string",
       title: "Title",
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "images",
@@ -29,9 +30,11 @@ export default defineType({
               name: "alt",
               type: "string",
               title: "Alternative text",
+              validation: (Rule) => Rule.required(),
             },
             { name: "photographer", type: "string", title: "Photographer" },
           ],
+          validation: (Rule) => Rule.required(),
         },
       ],
       options: {
