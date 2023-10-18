@@ -42,7 +42,7 @@ const Footer = () => {
         <small className="text-xs">
           <a className="text-foreground" href={manuelUrl}>
             Made with &#9829; by{" "}
-            <span className="text-green-600 dark:text-green-400">
+            <span className="text-green-700 dark:text-green-400">
               Manuel Pastor Ringuelet
             </span>
             <span className="sr-only">(opens in a new tab)</span>
