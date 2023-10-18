@@ -7,7 +7,11 @@ import ToasterProvider from "@/providers/ToasterProvider";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 
-const hindMadurai = Hind_Madurai({ weight: "300", subsets: ["latin"] });
+const hindMadurai = Hind_Madurai({
+  weight: "300",
+  subsets: ["latin"],
+  preload: true,
+});
 
 export const metadata: Metadata = {
   title: "Taryn Knerr",
