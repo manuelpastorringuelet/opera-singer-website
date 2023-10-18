@@ -65,7 +65,7 @@ const SinglePerformance = (performance: Performance) => {
       <div className="relative flex flex-col gap-8" key={performance._id}>
         <div className="flex flex-col text-left sm:flex-row sm:gap-2">
           {/* Performance Type */}
-          <motion.h3
+          <motion.span
             initial={{
               x: 25,
               opacity: 0,
@@ -78,10 +78,10 @@ const SinglePerformance = (performance: Performance) => {
             transition={{
               duration: 1.5,
             }}
-            className="sm:writing-vertical-rl text-2xl capitalize text-primary/80 sm:text-3xl"
+            className="sm:writing-vertical-rl text-2xl capitalize text-primary sm:text-3xl"
           >
             {performance.type}
-          </motion.h3>
+          </motion.span>
           <div className="w-full">
             {/* Performance Title */}
             <motion.h2

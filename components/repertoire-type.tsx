@@ -34,7 +34,7 @@ const RepertoireType = ({ repertoire, type }: RepertoireTypeProps) => {
             once: true,
           }}
           className={cn(
-            "text-5xl font-semibold text-primary/80 sm:justify-self-end",
+            "text-5xl font-semibold text-primary sm:justify-self-end",
             montserrat.className,
           )}
         >
@@ -60,7 +60,7 @@ const RepertoireType = ({ repertoire, type }: RepertoireTypeProps) => {
               key={index}
               className="group"
             >
-              <h2 className="text-xl font-semibold group-hover:text-primary/80">
+              <h2 className="text-xl font-semibold group-hover:text-primary">
                 {item.composer}
               </h2>
               <div>

@@ -94,7 +94,7 @@ const ContactForm = () => {
             )}
           />
           <Button type="submit" className="w-full">
-            Submit
+            Send
           </Button>
         </form>
       </Form>
