@@ -93,7 +93,7 @@ const ContactForm = () => {
               </FormItem>
             )}
           />
-          <Button type="submit" className="w-full">
+          <Button type="submit" className="w-full text-white hover:text-black">
             Send
           </Button>
         </form>
