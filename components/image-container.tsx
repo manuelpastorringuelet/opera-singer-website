@@ -32,15 +32,7 @@ export default function ImageContainer({ photo }: Props) {
 
   return (
     <>
-      <motion.div
-        initial={{ opacity: 0 }}
-        transition={{ duration: 1.2 }}
-        whileInView={{
-          opacity: 1,
-        }}
-        viewport={{
-          once: true,
-        }}
+      <div
         className="group relative flex h-64 cursor-pointer items-center justify-center overflow-hidden rounded-xl text-white"
         onClick={openModal}
       >
@@ -60,7 +52,7 @@ export default function ImageContainer({ photo }: Props) {
           className="absolute right-3 top-3 hidden cursor-pointer rounded bg-transparent p-1 hover:bg-primary/80 group-hover:flex"
         />
         <DownloadButton photo={photo} className="hidden group-hover:flex" />
-      </motion.div>
+      </div>
 
       {/* Modal */}
       {isModalOpen && photo.image && (
