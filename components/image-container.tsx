@@ -62,9 +62,6 @@ export default function ImageContainer({ photo }: Props) {
           onClick={closeModal}
         >
           <div className="relative flex max-h-screen w-full max-w-screen-lg flex-col items-center rounded-lg text-white sm:w-auto">
-            <span className="absolute bottom-3 left-3">
-              {photo.photographer && photo.photographer}
-            </span>{" "}
             {isLoading && (
               <ClipLoader
                 color="#ffffff"
@@ -88,7 +85,10 @@ export default function ImageContainer({ photo }: Props) {
             />
             {!isLoading && (
               <div className="z-30">
-                <Minimize2 className="absolute right-3 top-3" />
+                <span className="absolute bottom-3 left-3">
+                  {photo.photographer && photo.photographer}
+                </span>
+                <Minimize2 className="absolute right-3 top-3 rounded  p-1 hover:bg-primary/80" />
                 <DownloadButton photo={photo} />
               </div>
             )}
