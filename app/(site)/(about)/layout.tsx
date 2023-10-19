@@ -8,7 +8,7 @@ const AboutLayout = async ({ children }: { children: React.ReactNode }) => {
   // order by ranking ascending
   critics.sort((a, b) => a.ranking - b.ranking);
 
-  const [about] = await getAbout();
+  const about = await getAbout();
 
   return (
     <main className="container flex flex-1 flex-col gap-3 sm:px-16 md:gap-8">

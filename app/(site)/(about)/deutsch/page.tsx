@@ -4,9 +4,9 @@ import { About } from "@/types";
 import Bio from "@/components/bio";
 
 const About = async () => {
-  const about: About[] = await getAbout();
+  const { germanBio }: About = await getAbout();
 
-  return <Bio about={about} language="deutsch" />;
+  return <Bio bio={germanBio} />;
 };
 
 export default About;

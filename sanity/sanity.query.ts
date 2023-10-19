@@ -15,7 +15,7 @@ import {
 const revalidationOptions = { next: { revalidate: 10 } };
 const DEFAULT_PARAMS = {} as QueryParams;
 
-export async function getProfile(): Promise<Profile[]> {
+export async function getProfile(): Promise<Profile> {
   const query = groq`
     *[_type == "profile"]{
       _id,
@@ -30,10 +30,16 @@ export async function getProfile(): Promise<Profile[]> {
     }
   `;
 
-  return client.fetch<Profile[]>(query, DEFAULT_PARAMS, revalidationOptions);
+  const [profile] = await client.fetch<Profile[]>(
+    query,
+    DEFAULT_PARAMS,
+    revalidationOptions,
+  );
+
+  return profile;
 }
 
-export async function getAbout(): Promise<About[]> {
+export async function getAbout(): Promise<About> {
   const query = groq`
     *[_type == "about"]{
       _id,
@@ -42,7 +48,13 @@ export async function getAbout(): Promise<About[]> {
       aboutImage { alt, "image": asset->url },
     }
   `;
-  return client.fetch<About[]>(query, DEFAULT_PARAMS, revalidationOptions);
+
+  const [about] = await client.fetch<About[]>(
+    query,
+    DEFAULT_PARAMS,
+    revalidationOptions,
+  );
+  return about;
 }
 
 export async function getLegal(): Promise<Legal[]> {
@@ -54,7 +66,13 @@ export async function getLegal(): Promise<Legal[]> {
     }
   `;
 
-  return client.fetch<Legal[]>(query, DEFAULT_PARAMS, revalidationOptions);
+  const legal = await client.fetch<Legal[]>(
+    query,
+    DEFAULT_PARAMS,
+    revalidationOptions,
+  );
+
+  return legal;
 }
 
 export async function getCritics(): Promise<Critic[]> {
@@ -69,7 +87,13 @@ export async function getCritics(): Promise<Critic[]> {
     }
   `;
 
-  return client.fetch<Critic[]>(query, DEFAULT_PARAMS, revalidationOptions);
+  const critics = await client.fetch<Critic[]>(
+    query,
+    DEFAULT_PARAMS,
+    revalidationOptions,
+  );
+
+  return critics;
 }
 
 export async function getPerformances(): Promise<Performance[]> {
@@ -90,11 +114,13 @@ export async function getPerformances(): Promise<Performance[]> {
     }
   `;
 
-  return client.fetch<Performance[]>(
+  const performances = await client.fetch<Performance[]>(
     query,
     DEFAULT_PARAMS,
     revalidationOptions,
   );
+
+  return performances;
 }
 
 export async function getGallery(): Promise<Gallery[]> {
@@ -110,7 +136,13 @@ export async function getGallery(): Promise<Gallery[]> {
     }
   `;
 
-  return client.fetch<Gallery[]>(query, DEFAULT_PARAMS, revalidationOptions);
+  const [portrait, onStage] = await client.fetch<Gallery[]>(
+    query,
+    DEFAULT_PARAMS,
+    revalidationOptions,
+  );
+
+  return [portrait, onStage];
 }
 
 export async function getMedia(): Promise<Media[]> {
@@ -126,7 +158,13 @@ export async function getMedia(): Promise<Media[]> {
     }
   `;
 
-  return client.fetch<Media[]>(query, DEFAULT_PARAMS, revalidationOptions);
+  const media = await client.fetch<Media[]>(
+    query,
+    DEFAULT_PARAMS,
+    revalidationOptions,
+  );
+
+  return media;
 }
 
 export async function getRepertoire(): Promise<Repertoire[]> {
@@ -143,5 +181,11 @@ export async function getRepertoire(): Promise<Repertoire[]> {
     }
   `;
 
-  return client.fetch<Repertoire[]>(query, DEFAULT_PARAMS, revalidationOptions);
+  const repertoire = await client.fetch<Repertoire[]>(
+    query,
+    DEFAULT_PARAMS,
+    revalidationOptions,
+  );
+
+  return repertoire;
 }

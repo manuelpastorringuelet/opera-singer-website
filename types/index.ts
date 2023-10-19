@@ -25,10 +25,12 @@ export interface Profile extends SanityBody {
   email: string;
 }
 
+export type Bio = PortableTextBlock[];
+
 export interface About extends SanityBody {
   _id: string;
-  germanBio: PortableTextBlock[];
-  englishBio: PortableTextBlock[];
+  germanBio: Bio;
+  englishBio: Bio;
   aboutImage: Picture;
 }
 export interface Legal extends SanityBody {

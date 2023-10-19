@@ -3,14 +3,13 @@
 import { PortableText } from "@portabletext/react";
 import { motion } from "framer-motion";
 
-import { About } from "@/types";
+import { Bio } from "@/types";
 
 interface BioProps {
-  about: About[];
-  language: string;
+  bio: Bio;
 }
 
-const Bio = ({ about, language }: BioProps) => {
+const Bio = ({ bio }: BioProps) => {
   return (
     <motion.div
       initial={{
@@ -24,14 +23,7 @@ const Bio = ({ about, language }: BioProps) => {
       }}
       className="text-justify"
     >
-      {about.map((data) => {
-        return (
-          <PortableText
-            key={data._id}
-            value={language === "deutsch" ? data.germanBio : data.englishBio}
-          />
-        );
-      })}
+      <PortableText value={bio} />
     </motion.div>
   );
 };

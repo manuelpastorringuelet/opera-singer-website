@@ -1,12 +1,12 @@
 import { getAbout } from "@/sanity/sanity.query";
-import { About} from "@/types";
 
+import { About } from "@/types";
 import Bio from "@/components/bio";
 
 const About = async () => {
-  const about: About[] = await getAbout();
+  const { englishBio }: About = await getAbout();
 
-  return <Bio about={about} language="english" />;
+  return <Bio bio={englishBio} />;
 };
 
 export default About;
