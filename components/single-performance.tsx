@@ -76,7 +76,7 @@ const SinglePerformance = (performance: Performance) => {
             }}
             viewport={{ once: true }}
             transition={{
-              duration: 1.5,
+              duration: 1.2,
             }}
             className="sm:writing-vertical-rl text-2xl capitalize text-primary sm:text-3xl"
           >
@@ -95,7 +95,7 @@ const SinglePerformance = (performance: Performance) => {
               }}
               viewport={{ once: true }}
               transition={{
-                duration: 1.5,
+                duration: 1.2,
               }}
               className={cn(
                 "break-words text-4xl font-bold sm:text-5xl",
@@ -117,7 +117,7 @@ const SinglePerformance = (performance: Performance) => {
               }}
               viewport={{ once: true }}
               transition={{
-                duration: 1.5,
+                duration: 1.2,
               }}
               className={cn("text-2xl font-normal sm:text-3xl", lora.className)}
             >
@@ -136,7 +136,7 @@ const SinglePerformance = (performance: Performance) => {
               }}
               viewport={{ once: true }}
               transition={{
-                duration: 1.5,
+                duration: 1.2,
               }}
               className="text-sm underline sm:text-base"
             >
@@ -155,7 +155,7 @@ const SinglePerformance = (performance: Performance) => {
               }}
               viewport={{ once: true }}
               transition={{
-                duration: 1.5,
+                duration: 1.2,
               }}
               className="text-sm sm:text-base"
             >
@@ -175,7 +175,7 @@ const SinglePerformance = (performance: Performance) => {
                 }}
                 viewport={{ once: true }}
                 transition={{
-                  duration: 1.5,
+                  duration: 1.2,
                 }}
                 className="text-sm sm:text-base"
               >
@@ -196,7 +196,7 @@ const SinglePerformance = (performance: Performance) => {
               }}
               viewport={{ once: true }}
               transition={{
-                duration: 1.5,
+                duration: 1.2,
               }}
             >
               <div className="inline-block">
@@ -217,7 +217,7 @@ const SinglePerformance = (performance: Performance) => {
                   }}
                   viewport={{ once: true }}
                   transition={{
-                    duration: 1.5,
+                    duration: 1.2,
                   }}
                   className="text-sm sm:text-base"
                 >

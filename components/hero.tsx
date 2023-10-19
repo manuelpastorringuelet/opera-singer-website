@@ -27,7 +27,7 @@ export default function Hero({ profile }: Props) {
           opacity: 1,
         }}
         transition={{
-          duration: 1.5,
+          duration: 1.2,
         }}
         className="z-10 mx-auto flex flex-col items-start gap-3 self-center overflow-hidden px-8 sm:justify-self-center sm:px-0 md:ml-auto"
       >
@@ -73,7 +73,7 @@ export default function Hero({ profile }: Props) {
           opacity: 1,
         }}
         transition={{
-          duration: 3,
+          duration: 1.2,
         }}
       >
         <Image
