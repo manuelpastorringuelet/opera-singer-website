@@ -37,11 +37,12 @@ export default function ImageContainer({ photo }: Props) {
         onClick={openModal}
       >
         <Image
+          loader={({ src }) => src}
           priority
           src={photo.image}
           alt={photo.alt}
           fill
-          sizes="(min-width: 1280px) 278px, (min-width: 1040px) calc(12.73vw = 118px), (min-width: 800px) 33.18vw, (min-width: 540px) 50vw, calc(100vw - 16px)"
+          sizes="(min-width: 808px) 50vw, 100vw"
           className="object-cover align-top transition-all duration-700 ease-in-out group-hover:scale-110 group-hover:opacity-75"
         />
         <h2 className="absolute bottom-3 left-3 hidden opacity-80 transition-all duration-500 ease-in-out group-hover:flex">
