@@ -19,6 +19,7 @@ export default function ImageContainer({ photo }: Props) {
 
   const openModal = () => {
     setIsModalOpen(true);
+    setIsLoading(true);
   };
 
   const closeModal = () => {
@@ -37,7 +38,7 @@ export default function ImageContainer({ photo }: Props) {
         onClick={openModal}
       >
         <Image
-          loader={({ src }) => src}
+          // loader={({ src }) => src}
           priority
           src={photo.image}
           alt={photo.alt}
@@ -58,33 +59,34 @@ export default function ImageContainer({ photo }: Props) {
       {/* Modal */}
       {isModalOpen && photo.image && (
         <div
-          className="group fixed inset-0 z-40 flex max-h-screen cursor-pointer items-center justify-center overflow-auto bg-background/90"
+          className="group fixed inset-0 z-40 flex max-h-screen cursor-pointer items-center justify-center overflow-auto bg-background"
           onClick={closeModal}
         >
-          <div className="relative flex max-h-screen w-full max-w-screen-lg flex-col items-center rounded-lg text-white sm:w-auto">
+          <div className="bg-opacity h-full w-full bg-black text-white">
+            {/* Clip Loader */}
             {isLoading && (
-              <ClipLoader
-                color="#ffffff"
-                loading={isLoading}
-                cssOverride={{ display: "block" }}
-                size={150}
-                className="absolute flex h-full w-full items-center justify-center"
-                aria-label="Loading Spinner"
-                data-testid="loader"
-              />
+              <div className="absolute z-10 flex h-full w-full items-center justify-center">
+                <ClipLoader
+                  color="#ffffff"
+                  loading={isLoading}
+                  cssOverride={{ display: "block" }}
+                  size={150}
+                  aria-label="Loading Spinner"
+                  data-testid="loader"
+                />
+              </div>
             )}
             <Image
               onLoad={handleImageLoad}
               quality={100}
               src={photo.image}
               alt={photo.alt}
-              width={100}
-              height={100}
-              layout="responsive"
-              className="z-30 max-h-screen w-screen object-cover"
+              fill
+              sizes="100vw"
+              className="relative object-contain"
             />
             {!isLoading && (
-              <div className="z-30">
+              <div className="p-30 z-30">
                 <span className="absolute bottom-3 left-3">
                   {photo.photographer && photo.photographer}
                 </span>
