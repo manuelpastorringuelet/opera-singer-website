@@ -11,6 +11,7 @@ interface DownloadButtonProps {
 const DownloadButton = ({ photo, className }: DownloadButtonProps) => {
   return (
     <a
+      aria-label="Download Image"
       href={`${photo.image}?dl=`}
       download
       className={cn(
