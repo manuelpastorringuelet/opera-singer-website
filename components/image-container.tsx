@@ -37,6 +37,7 @@ export default function ImageContainer({ photo }: Props) {
         onClick={openModal}
       >
         <Image
+          loader={({ src }) => src}
           priority
           src={photo.image}
           alt={photo.alt}
