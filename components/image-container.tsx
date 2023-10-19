@@ -1,12 +1,11 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Maximize2, Minimize2 } from "lucide-react";
-import { motion } from "framer-motion";
 import ClipLoader from "react-spinners/ClipLoader";
 
 import { Picture } from "@/types";
-import { useState } from "react";
 import DownloadButton from "./download-button";
 
 type Props = {
@@ -16,6 +15,20 @@ type Props = {
 export default function ImageContainer({ photo }: Props) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Add event listener to handle the modal open and close
+    if (isModalOpen) {
+      document.body.style.overflow = "hidden"; // Disable scroll when modal is open
+    } else {
+      document.body.style.overflow = "auto"; // Enable scroll when modal is closed
+    }
+
+    return () => {
+      // Clean up the event listener
+      document.body.style.overflow = "auto"; // Make sure to enable scroll when component unmounts
+    };
+  }, [isModalOpen]);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -38,7 +51,6 @@ export default function ImageContainer({ photo }: Props) {
         onClick={openModal}
       >
         <Image
-          // loader={({ src }) => src}
           priority
           src={photo.image}
           alt={photo.alt}
