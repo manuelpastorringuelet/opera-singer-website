@@ -16,7 +16,7 @@ export default function Hero({ profile }: Props) {
   const { theme } = useTheme();
 
   return (
-    <main className="mx-auto grid w-full flex-1 overflow-y-auto overflow-x-hidden sm:container">
+    <main className="mx-auto grid w-full flex-1 justify-items-end items-center overflow-y-auto overflow-x-hidden sm:container sm:grid-cols-2">
       <motion.section
         initial={{
           x: 300,
@@ -29,7 +29,7 @@ export default function Hero({ profile }: Props) {
         transition={{
           duration: 1.2,
         }}
-        className="z-10 mx-auto flex flex-col items-start gap-3 self-center overflow-hidden px-8 sm:justify-self-center sm:px-0 md:ml-auto"
+        className="z-10 sm:mx-0 mx-auto flex flex-col items-start gap-3 self-center overflow-hidden px-8 sm:justify-self-center sm:px-0 md:ml-auto"
       >
         <h1
           className={cn(
