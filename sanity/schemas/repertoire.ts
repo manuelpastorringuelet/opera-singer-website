@@ -1,5 +1,5 @@
-import { defineType, validation } from "sanity";
-import { BiMusic, BiUser } from "react-icons/bi";
+import { defineType } from "sanity";
+import { BiMusic } from "react-icons/bi";
 
 export default defineType({
   name: "repertoire",
