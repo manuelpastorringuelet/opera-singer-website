@@ -75,7 +75,7 @@ module.exports = {
         music: "repeat(auto-fit, minmax(500px, 1fr))",
         repertoire: "33% auto",
         calendar: "auto 50%",
-        critics: "55% auto",
+        critics: "60% auto",
       },
       fontSize: {
         xxs: "0.75rem",
