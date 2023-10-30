@@ -28,7 +28,7 @@ const Pages = () => {
             <Link
               href={page.href}
               className={cn(
-                "rounded-md text-foreground transition-colors hover:bg-primary/90 hover:text-primary-foreground md:p-2",
+                "rounded-md transition-colors hover:bg-primary/90 hover:text-primary-foreground md:p-2",
                 pathname === page.href && "ring-2 ring-primary",
               )}
             >

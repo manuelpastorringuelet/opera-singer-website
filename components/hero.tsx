@@ -16,7 +16,7 @@ export default function Hero({ profile }: Props) {
   const { theme } = useTheme();
 
   return (
-    <main className="mx-auto grid w-full flex-1 overflow-y-auto overflow-x-hidden text-foreground sm:container">
+    <main className="mx-auto grid w-full flex-1 overflow-y-auto overflow-x-hidden sm:container">
       <motion.section
         initial={{
           x: 300,

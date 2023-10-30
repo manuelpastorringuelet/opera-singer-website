@@ -25,7 +25,7 @@ const Footer = () => {
         transition={{
           duration: 4,
         }}
-        className="container mx-auto flex flex-col items-center justify-center gap-y-4 px-6 py-5 text-center text-foreground sm:px-16 md:flex-row md:justify-between"
+        className="container mx-auto flex flex-col items-center justify-center gap-y-4 px-6 py-5 text-center sm:px-16 md:flex-row md:justify-between"
       >
         <small>
           <span>&copy; {currentYear} Taryn Knerr</span>
@@ -40,7 +40,7 @@ const Footer = () => {
         </small>
 
         <small className="text-xs">
-          <a className="text-foreground" href={manuelUrl}>
+          <a href={manuelUrl}>
             Made with &#9829; by{" "}
             <span className="font-semibold">Manuel Pastor Ringuelet</span>
             <span className="sr-only">(opens in a new tab)</span>
