@@ -56,7 +56,7 @@ export default function ImageContainer({ photo }: Props) {
           alt={photo.alt}
           fill
           sizes="(max-width: 590px) 90vw, (max-width: 926px) 45vw, (max-width: 1190px) 30vw, 22vw"
-          className="object-cover align-top transition-all duration-700 ease-in-out group-hover:scale-110 group-hover:opacity-75"
+          className="object-cover object-top transition-all duration-700 ease-in-out group-hover:scale-110 group-hover:opacity-75"
         />
         <h2 className="absolute bottom-3 left-3 hidden opacity-80 transition-all duration-500 ease-in-out group-hover:flex">
           {photo.photographer && photo.photographer}
