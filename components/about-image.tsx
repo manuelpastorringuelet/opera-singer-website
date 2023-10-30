@@ -1,5 +1,6 @@
 "use client";
 
+import { useTheme } from "next-themes";
 import { motion } from "framer-motion";
 
 import { About } from "@/types";
@@ -10,6 +11,7 @@ interface AboutImageProps {
 }
 
 const AboutImage = ({ about }: AboutImageProps) => {
+  const { theme } = useTheme();
   return (
     <motion.div
       initial={{
@@ -21,15 +23,23 @@ const AboutImage = ({ about }: AboutImageProps) => {
       transition={{
         duration: 2,
       }}
-      className="relative w-full overflow-hidden object-cover"
+      className="relative max-h-[300px] self-end overflow-hidden object-cover"
     >
       <Image
         priority
-        src={about.aboutImage.image}
+        src={
+          theme === "light"
+            ? about.aboutImageLight.image
+            : about.aboutImageDark.image
+        }
         width={2235}
         height={1705}
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
-        alt={about.aboutImage.alt}
+        alt={
+          theme === "light"
+            ? about.aboutImageLight.image
+            : about.aboutImageDark.image
+        }
         className="object-cover"
       />
     </motion.div>

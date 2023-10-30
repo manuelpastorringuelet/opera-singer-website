@@ -45,7 +45,8 @@ export async function getAbout(): Promise<About> {
       _id,
       germanBio,
       englishBio,
-      aboutImage { alt, "image": asset->url },
+      aboutImageDark { alt, "image": asset->url },
+      aboutImageLight { alt, "image": asset->url },
     }
   `;
 

@@ -31,7 +31,8 @@ export interface About extends SanityBody {
   _id: string;
   germanBio: Bio;
   englishBio: Bio;
-  aboutImage: Picture;
+  aboutImageDark: Picture;
+  aboutImageLight: Picture;
 }
 export interface Legal extends SanityBody {
   _id: string;

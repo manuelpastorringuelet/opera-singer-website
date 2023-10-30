@@ -28,10 +28,7 @@ const Critics = ({ critics }: CriticsProps) => {
         >
           <blockquote className="flex flex-col gap-1 text-end">
             <q
-              className={cn(
-                "text-start text-lg text-primary sm:text-xl",
-                lora.className,
-              )}
+              className={cn("text-start text-lg text-primary", lora.className)}
             >
               {critics.description}
             </q>

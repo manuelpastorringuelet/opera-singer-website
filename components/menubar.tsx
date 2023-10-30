@@ -56,10 +56,7 @@ export function MenuBar() {
                   </NavigationMenuLink>
                 ) : (
                   <Accordion key={page.name} type="single" collapsible>
-                    <AccordionItem
-                      // className="border-b-0"
-                      value="item-1"
-                    >
+                    <AccordionItem value="item-1">
                       <AccordionTrigger className="py-2 font-normal">
                         {page.name}
                       </AccordionTrigger>

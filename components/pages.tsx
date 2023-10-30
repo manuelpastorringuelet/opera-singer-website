@@ -39,7 +39,7 @@ const Pages = () => {
               <DropdownMenuTrigger asChild>
                 <Button
                   className={cn(
-                    "text-md group-[ring-2 ring-primary]: flex h-[35.34px] w-fit flex-1 items-center justify-between border-0 bg-transparent p-2 font-normal transition-all hover:underline md:gap-1 [&[data-state=open]>svg]:rotate-180",
+                    "text-md group-[ring-2 ring-primary]: flex h-[35.34px] w-fit flex-1 items-center justify-between border-0 bg-transparent p-2 font-normal text-foreground transition-all hover:underline md:gap-1 [&[data-state=open]>svg]:rotate-180",
                     page.children?.find((child) => child.href === pathname) &&
                       "ring-2 ring-primary",
                   )}

@@ -27,8 +27,22 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     },
     {
-      name: "aboutImage",
-      title: "About Image",
+      name: "aboutImageDark",
+      title: "About Image Dark",
+      type: "image",
+      description: "Upload an image",
+      options: { hotspot: true },
+      fields: [
+        {
+          name: "alt",
+          title: "Alt",
+          type: "string",
+        },
+      ],
+    },
+    {
+      name: "aboutImageLight",
+      title: "About Image Light",
       type: "image",
       description: "Upload an image",
       options: { hotspot: true },
