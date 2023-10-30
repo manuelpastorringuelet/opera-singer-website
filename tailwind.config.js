@@ -72,7 +72,7 @@ module.exports = {
       },
       gridTemplateColumns: {
         gallery: "repeat(auto-fit, minmax(250px, 1fr))",
-        music: "repeat(auto-fit, minmax(500px, 1fr))",
+        music: "33% auto",
         repertoire: "33% auto",
         calendar: "auto 50%",
         critics: "60% auto",
