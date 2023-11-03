@@ -26,7 +26,7 @@ const Critics = ({ critics }: CriticsProps) => {
           }}
           key={index}
         >
-          <blockquote className="flex flex-col gap-1 text-end">
+          <blockquote className="flex flex-col text-end">
             <q
               className={cn("text-start text-lg text-primary", lora.className)}
             >
