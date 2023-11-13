@@ -21,6 +21,13 @@ html {
 .article li {
   @apply ml-2 list-inside list-disc text-sm;
 }
+.article strong {
+  @apply font-semibold;
+}
+
+.article a {
+  @apply underline;
+}
 
 p {
   @apply text-sm;
