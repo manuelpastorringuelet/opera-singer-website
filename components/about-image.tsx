@@ -23,7 +23,7 @@ const AboutImage = ({ about }: AboutImageProps) => {
       transition={{
         duration: 2,
       }}
-      className="relative max-h-[300px] self-end overflow-hidden object-cover"
+      className="relative max-h-[400px] self-end overflow-hidden object-cover"
     >
       <Image
         priority
