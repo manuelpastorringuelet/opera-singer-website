@@ -33,9 +33,6 @@ const Critics = ({ critics }: CriticsProps) => {
               {critics.description}
             </q>
             <cite className="text-xxs">- {critics.source}</cite>
-            <p className="text-xxs">
-              {critics.role} <span>({critics.opera})</span>
-            </p>
           </blockquote>
         </motion.div>
       ))}
