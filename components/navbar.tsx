@@ -9,6 +9,7 @@ import { ModeToggle } from "./mode-toggle";
 import Pages from "./pages";
 import { MenuBar } from "./menubar";
 import { useTheme } from "next-themes";
+import { Home } from "lucide-react";
 
 const Navbar = () => {
   const { theme } = useTheme();
@@ -36,18 +37,7 @@ const Navbar = () => {
         </div>
 
         {/* Logo */}
-        <Link
-          href="/"
-          className="hidden flex-shrink-0 cursor-pointer rounded-md p-[2px] hover:bg-primary/90 md:inline-flex"
-        >
-          <Image
-            src={theme === "light" ? "/signature.png" : "/signature-white.png"}
-            width={105}
-            height={32}
-            alt="signature"
-            className="h-8 max-h-[32px] max-w-[105px] object-cover"
-          />
-        </Link>
+        <div></div>
 
         {/* Desktop Menu */}
         <motion.nav className="hidden md:inline-flex">
