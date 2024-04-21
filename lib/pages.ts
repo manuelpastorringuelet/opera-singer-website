@@ -48,7 +48,17 @@ export const pages: Page[] = [
   },
   {
     name: "REPERTOIRE",
-    href: "/repertoire",
+    children: [
+      { name: "CONCERT", href: "/concert" },
+      {
+        name: "OPERA",
+        href: "/opera",
+      },
+      {
+        name: "LIED",
+        href: "/lied",
+      },
+    ],
   },
   {
     name: "CONTACT",

@@ -2,14 +2,14 @@ import { QueryParams, groq } from "next-sanity";
 import { client } from "./lib/client";
 
 import {
-  Critic,
-  Legal,
-  Profile,
-  Performance,
-  Gallery,
-  Media,
-  Repertoire,
   About,
+  Critic,
+  Gallery,
+  Legal,
+  Media,
+  Performance,
+  Profile,
+  Repertoire,
 } from "@/types";
 
 const revalidationOptions = { next: { revalidate: 10 } };
@@ -168,9 +168,55 @@ export async function getMedia(): Promise<Media[]> {
   return media;
 }
 
-export async function getRepertoire(): Promise<Repertoire[]> {
+export async function getLied(): Promise<Repertoire[]> {
   const query = groq`
-    *[_type == "repertoire"]{
+    *[_type == "repertoire" && type== "Lied"]{
+      _id,
+  composer,
+  type,
+  compositions[] {
+    title,
+    role[],
+  },
+
+    }
+  `;
+
+  const repertoire = await client.fetch<Repertoire[]>(
+    query,
+    DEFAULT_PARAMS,
+    revalidationOptions,
+  );
+
+  return repertoire;
+}
+
+export async function getOpera(): Promise<Repertoire[]> {
+  const query = groq`
+    *[_type == "repertoire" && type== "Oper"]{
+      _id,
+  composer,
+  type,
+  compositions[] {
+    title,
+    role[],
+  },
+
+    }
+  `;
+
+  const repertoire = await client.fetch<Repertoire[]>(
+    query,
+    DEFAULT_PARAMS,
+    revalidationOptions,
+  );
+
+  return repertoire;
+}
+
+export async function getConcert(): Promise<Repertoire[]> {
+  const query = groq`
+    *[_type == "repertoire" && type== "Konzert"]{
       _id,
   composer,
   type,

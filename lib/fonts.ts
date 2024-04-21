@@ -1,5 +1,4 @@
-import { Scada } from "next/font/google";
-import { Montserrat } from "next/font/google";
+import { Montserrat, Scada } from "next/font/google";
 
 export const lora = Scada({
   subsets: ["latin"],

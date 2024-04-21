@@ -1,15 +1,11 @@
 "use client";
 
-import React from "react";
-import Image from "next/image";
-import Link from "next/link";
 import { motion } from "framer-motion";
 
+import { useTheme } from "next-themes";
+import { MenuBar } from "./menubar";
 import { ModeToggle } from "./mode-toggle";
 import Pages from "./pages";
-import { MenuBar } from "./menubar";
-import { useTheme } from "next-themes";
-import { Home } from "lucide-react";
 
 const Navbar = () => {
   const { theme } = useTheme();
