@@ -1,6 +1,5 @@
 "use client";
 
-import * as React from "react";
 import { Menu, X } from "lucide-react";
 
 import {
@@ -17,7 +16,6 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 
 import { pages } from "@/lib/pages";
@@ -39,12 +37,6 @@ export function MenuBar() {
           </NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid gap-3 px-6 py-2 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-              <NavigationMenuLink
-                className="cursor-pointer py-2"
-                onClick={() => router.push("/")}
-              >
-                HOME
-              </NavigationMenuLink>
               {pages.map((page) =>
                 page.href ? (
                   <NavigationMenuLink
