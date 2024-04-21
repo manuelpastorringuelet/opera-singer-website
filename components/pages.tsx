@@ -1,8 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 import {
   DropdownMenu,
@@ -12,9 +11,9 @@ import {
 } from "./ui/dropdown-menu";
 
 import { pages } from "@/lib/pages";
-import { Button } from "./ui/button";
-import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { ChevronDown } from "lucide-react";
+import { Button } from "./ui/button";
 
 const Pages = () => {
   const router = useRouter();

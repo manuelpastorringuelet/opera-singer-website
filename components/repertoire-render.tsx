@@ -2,25 +2,14 @@
 
 import { motion } from "framer-motion";
 
-import { Repertoire } from "@/types";
-import { cn } from "@/lib/utils";
 import { montserrat } from "@/lib/fonts";
+import { cn } from "@/lib/utils";
+import { Repertoire } from "@/types";
 
-type RepertoireTypeProps = {
-  repertoire: Repertoire[];
-  type: string;
+type RepertoireRenderProps = {
+  repertoires: Repertoire[];
 };
-const RepertoireType = ({ repertoire, type }: RepertoireTypeProps) => {
-  // Filter repertoire based on the type prop
-  const filteredRepertoire = repertoire.filter((item) => item.type === type);
-
-  // Sort repertoire by composer alphabetically, considering different name formats
-  filteredRepertoire.sort((a, b) => {
-    const aLastName = a.composer.trim().split(" ").slice(-1)[0];
-    const bLastName = b.composer.trim().split(" ").slice(-1)[0];
-    return aLastName.localeCompare(bLastName);
-  });
-
+const RepertoireRender = ({ repertoires }: RepertoireRenderProps) => {
   return (
     <section className="container mx-auto flex flex-1 flex-col gap-12 py-8 sm:gap-16 sm:px-16">
       <div className="grid gap-6 sm:grid-cols-repertoire sm:gap-8 lg:gap-16">
@@ -42,13 +31,13 @@ const RepertoireType = ({ repertoire, type }: RepertoireTypeProps) => {
             montserrat.className,
           )}
         >
-          {type}
+          {repertoires[0].type}
         </motion.h1>
         <ul className="flex flex-1 flex-col gap-4">
-          {filteredRepertoire.map((item, index) => (
+          {repertoires.map((item, index) => (
             <motion.li
               initial={{
-                x: 50 + 150 * index * 0.2,
+                x: 50 + 50 * index * 0.2,
                 opacity: 0,
               }}
               transition={{
@@ -64,9 +53,7 @@ const RepertoireType = ({ repertoire, type }: RepertoireTypeProps) => {
               key={index}
               className="group"
             >
-              <h2 className="text-xl font-semibold group-hover:text-primary">
-                {item.composer.trim()}
-              </h2>
+              <h2 className="text-xl font-semibold">{item.composer.trim()}</h2>
               <div>
                 {item.compositions.map((piece, index) => (
                   <p key={index} className="font-light opacity-50">
@@ -93,4 +80,4 @@ const RepertoireType = ({ repertoire, type }: RepertoireTypeProps) => {
   );
 };
 
-export default RepertoireType;
+export default RepertoireRender;

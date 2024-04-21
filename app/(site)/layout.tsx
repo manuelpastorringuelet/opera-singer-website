@@ -1,11 +1,12 @@
-import "../globals.css";
-import type { Metadata } from "next";
-import { Hind_Madurai } from "next/font/google";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import ToasterProvider from "@/providers/ToasterProvider";
+import type { Metadata } from "next";
+import { Hind_Madurai } from "next/font/google";
+import "../globals.css";
 
-import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
+import Navbar from "@/components/navbar";
+import { cn } from "@/lib/utils";
 
 const hindMadurai = Hind_Madurai({
   weight: "300",
@@ -26,7 +27,10 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${hindMadurai.className} flex min-h-screen flex-col overflow-y-auto overflow-x-hidden bg-background`}
+        className={cn(
+          "flex min-h-screen flex-col overflow-y-auto overflow-x-hidden bg-background",
+          hindMadurai.className,
+        )}
       >
         <ToasterProvider />
 
