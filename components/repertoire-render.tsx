@@ -11,7 +11,7 @@ type RepertoireRenderProps = {
 };
 const RepertoireRender = ({ repertoires }: RepertoireRenderProps) => {
   return (
-    <section className="container mx-auto flex flex-1 flex-col gap-12 py-8 sm:gap-16 sm:px-16">
+    <section className="container overflow-x-hidden mx-auto flex flex-1 flex-col gap-12 py-8 sm:gap-16 sm:px-16">
       <div className="grid gap-6 sm:grid-cols-repertoire sm:gap-8 lg:gap-16">
         <motion.h1
           initial={{

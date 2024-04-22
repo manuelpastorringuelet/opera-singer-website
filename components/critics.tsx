@@ -2,9 +2,9 @@
 
 import { motion } from "framer-motion";
 
-import { Critic } from "@/types";
-import { cn } from "@/lib/utils";
 import { lora } from "@/lib/fonts";
+import { cn } from "@/lib/utils";
+import { Critic } from "@/types";
 
 interface CriticsProps {
   critics: Critic[];
@@ -15,7 +15,7 @@ const Critics = ({ critics }: CriticsProps) => {
     <div className="flex flex-col gap-4 overflow-x-hidden sm:overflow-x-visible">
       {critics.map((critics, index) => (
         <motion.div
-          initial={{ x: 200 * (index % 2 === 0 ? -1 : 1), opacity: 0 }} // staggered entrance
+          initial={{ x: 50 * (index % 2 === 0 ? -1 : 1), opacity: 0 }} // staggered entrance
           transition={{ duration: 1.2 }}
           whileInView={{
             opacity: 1,
