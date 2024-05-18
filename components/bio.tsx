@@ -3,7 +3,7 @@
 import { PortableText } from "@portabletext/react";
 import { motion } from "framer-motion";
 
-import { Bio } from "@/types";
+import { type Bio } from "@/types";
 
 interface BioProps {
   bio: Bio;

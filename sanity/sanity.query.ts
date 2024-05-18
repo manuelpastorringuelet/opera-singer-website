@@ -78,7 +78,7 @@ export async function getLegal(): Promise<Legal[]> {
 
 export async function getCritics(): Promise<Critic[]> {
   const query = groq`
-    *[_type == "critics"]{
+    *[_type == "critics"] | order(ranking asc){
       _id,
       opera,
       role,
@@ -170,11 +170,10 @@ export async function getMedia(): Promise<Media[]> {
 
 export async function getLied(): Promise<Repertoire[]> {
   const query = groq`
-    *[_type == "repertoire" && type== "Lied"]{
-      _id,
+    *[_type == "repertoire" && type== "Lied"] | order(composer asc){
   composer,
   type,
-  compositions[] {
+  compositions[] | order(title asc) {
     title,
     role[],
   },
@@ -193,11 +192,11 @@ export async function getLied(): Promise<Repertoire[]> {
 
 export async function getOpera(): Promise<Repertoire[]> {
   const query = groq`
-    *[_type == "repertoire" && type== "Oper"]{
+    *[_type == "repertoire" && type== "Oper"] | order(composer asc){
       _id,
   composer,
   type,
-  compositions[] {
+  compositions[] | order(title asc) {
     title,
     role[],
   },
@@ -216,11 +215,11 @@ export async function getOpera(): Promise<Repertoire[]> {
 
 export async function getConcert(): Promise<Repertoire[]> {
   const query = groq`
-    *[_type == "repertoire" && type== "Konzert"]{
+    *[_type == "repertoire" && type== "Konzert"] | order(composer asc){
       _id,
   composer,
   type,
-  compositions[] {
+    compositions[] | order(title asc) {
     title,
     role[],
   },
