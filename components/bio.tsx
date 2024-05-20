@@ -1,6 +1,6 @@
 "use client";
 
-import { PortableText } from "@portabletext/react";
+import { PortableText, PortableTextComponents } from "@portabletext/react";
 import { motion } from "framer-motion";
 
 import { type Bio } from "@/types";
@@ -8,6 +8,12 @@ import { type Bio } from "@/types";
 interface BioProps {
   bio: Bio;
 }
+
+const components: PortableTextComponents = {
+  block: {
+    normal: ({ children }) => <p className="text-base">{children}</p>,
+  },
+};
 
 const Bio = ({ bio }: BioProps) => {
   return (
@@ -23,7 +29,7 @@ const Bio = ({ bio }: BioProps) => {
       }}
       className="text-justify"
     >
-      <PortableText value={bio} />
+      <PortableText components={components} value={bio} />
     </motion.div>
   );
 };
