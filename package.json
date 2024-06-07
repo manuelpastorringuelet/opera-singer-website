@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "precommit": "tsc && npm run lint && prettier --write ./app ./*.json ./*.ts ./*.md",
     "preview-email": "email dev"
   },
   "dependencies": {

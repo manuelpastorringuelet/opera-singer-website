@@ -2,7 +2,7 @@
 
 This is a website for an opera singer, showcasing their talent, performances, and biography. The website is built using Next.js, Tailwind CSS, Sanity, and Shadcn.
 
-![Website Screenshot](public/screenshot.png) 
+![Website Screenshot](public/screenshot.png)
 
 ## Technologies Used
 

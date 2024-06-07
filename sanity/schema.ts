@@ -1,13 +1,13 @@
 import { type SchemaTypeDefinition } from "sanity";
 
-import legal from "./schemas/legal";
-import profile from "./schemas/profile";
-import critics from "./schemas/critics";
-import performances from "./schemas/performances";
-import gallery from "./schemas/gallery";
-import media from "./schemas/media";
-import repertoire from "./schemas/repertoire";
 import about from "./schemas/about";
+import critics from "./schemas/critics";
+import gallery from "./schemas/gallery";
+import legal from "./schemas/legal";
+import media from "./schemas/media";
+import performances from "./schemas/performances";
+import profile from "./schemas/profile";
+import repertoire from "./schemas/repertoire";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [

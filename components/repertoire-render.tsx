@@ -9,9 +9,11 @@ import { Repertoire } from "@/types";
 type RepertoireRenderProps = {
   repertoires: Repertoire[];
 };
+
 const RepertoireRender = ({ repertoires }: RepertoireRenderProps) => {
+  console.log("repertoires", repertoires);
   return (
-    <section className="container overflow-x-hidden mx-auto flex flex-1 flex-col gap-12 py-8 sm:gap-16 sm:px-16">
+    <section className="container mx-auto flex flex-1 flex-col gap-12 overflow-x-hidden py-8 sm:gap-16 sm:px-16">
       <div className="grid gap-6 sm:grid-cols-repertoire sm:gap-8 lg:gap-16">
         <motion.h1
           initial={{
@@ -53,7 +55,9 @@ const RepertoireRender = ({ repertoires }: RepertoireRenderProps) => {
               key={index}
               className="group"
             >
-              <h2 className="text-xl font-semibold">{item.composer.trim()}</h2>
+              <h2 className="text-xl font-semibold">
+                {`${item.composerFirstName} ${item.composerLastName}`}
+              </h2>
               <div>
                 {item.compositions.map((piece, index) => (
                   <p key={index} className="font-light opacity-50">

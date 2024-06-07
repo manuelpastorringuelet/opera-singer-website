@@ -34,6 +34,7 @@ export interface About extends SanityBody {
   aboutImageDark: Picture;
   aboutImageLight: Picture;
 }
+
 export interface Legal extends SanityBody {
   _id: string;
   title: string;
@@ -90,7 +91,8 @@ export interface File {
 }
 
 export interface Repertoire extends SanityBody {
-  composer: string;
+  composerFirstName: string;
+  composerLastName: string;
   type: string;
   compositions: Composition[];
 }

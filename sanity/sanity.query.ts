@@ -20,13 +20,13 @@ export async function getProfile(): Promise<Profile> {
     *[_type == "profile"]{
       _id,
       firstName,
-    lastName,
-    voiceType,
-    quote,
-    quoteSource,
-    heroDarkImage { alt, "image": asset->url },
-    heroLightImage { alt, "image": asset->url },
-    email,
+      lastName,
+      voiceType,
+      quote,
+      quoteSource,
+      heroDarkImage { alt, "image": asset->url },
+      heroLightImage { alt, "image": asset->url },
+      email,
     }
   `;
 
@@ -102,16 +102,16 @@ export async function getPerformances(): Promise<Performance[]> {
     *[_type == "performances"]{
       _id,
       title,
-  type,
-  composer,
-  composition,
-  role,
-  conductor,
-  producer,
-  firstDate,
-  allDates,
-  location,
-  orchestra,
+      type,
+      composer,
+      composition,
+      role,
+      conductor,
+      producer,
+      firstDate,
+      allDates,
+      location,
+      orchestra,
     }
   `;
 
@@ -170,14 +170,15 @@ export async function getMedia(): Promise<Media[]> {
 
 export async function getLied(): Promise<Repertoire[]> {
   const query = groq`
-    *[_type == "repertoire" && type== "Lied"] | order(composer asc){
-  composer,
-  type,
-  compositions[] | order(title asc) {
-    title,
-    role[],
-  },
-
+    *[_type == "repertoire" && type == "Lied"] | order(composerLastName asc){
+      _id,
+      composerFirstName,
+      composerLastName,
+      type,
+      compositions[] | order(title asc) {
+        title,
+        role[],
+      },
     }
   `;
 
@@ -192,15 +193,15 @@ export async function getLied(): Promise<Repertoire[]> {
 
 export async function getOpera(): Promise<Repertoire[]> {
   const query = groq`
-    *[_type == "repertoire" && type== "Oper"] | order(composer asc){
+    *[_type == "repertoire" && type == "Oper"] | order(composerLastName asc){
       _id,
-  composer,
-  type,
-  compositions[] | order(title asc) {
-    title,
-    role[],
-  },
-
+      composerFirstName,
+      composerLastName,
+      type,
+      compositions[] | order(title asc) {
+        title,
+        role[],
+      },
     }
   `;
 
@@ -215,15 +216,15 @@ export async function getOpera(): Promise<Repertoire[]> {
 
 export async function getConcert(): Promise<Repertoire[]> {
   const query = groq`
-    *[_type == "repertoire" && type== "Konzert"] | order(composer asc){
+    *[_type == "repertoire" && type == "Konzert"] | order(composerLastName asc){
       _id,
-  composer,
-  type,
-    compositions[] | order(title asc) {
-    title,
-    role[],
-  },
-
+      composerFirstName,
+      composerLastName,
+      type,
+      compositions[] | order(title asc) {
+        title,
+        role[],
+      },
     }
   `;
 

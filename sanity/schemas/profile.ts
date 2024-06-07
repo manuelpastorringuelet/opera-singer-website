@@ -1,5 +1,5 @@
-import { defineType } from "sanity";
 import { BiUser } from "react-icons/bi";
+import { defineType } from "sanity";
 
 export default defineType({
   name: "profile",
@@ -66,4 +66,16 @@ export default defineType({
       type: "string",
     },
   ],
+  preview: {
+    select: {
+      firstName: "firstName",
+      lastName: "lastName",
+    },
+    prepare(selection) {
+      const { firstName, lastName } = selection;
+      return {
+        title: `${firstName} ${lastName}`,
+      };
+    },
+  },
 });

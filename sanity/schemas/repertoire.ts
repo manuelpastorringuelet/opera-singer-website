@@ -1,5 +1,5 @@
-import { defineType } from "sanity";
 import { BiMusic } from "react-icons/bi";
+import { defineType } from "sanity";
 
 export default defineType({
   name: "repertoire",
@@ -8,9 +8,15 @@ export default defineType({
   icon: BiMusic,
   fields: [
     {
-      name: "composer",
+      name: "composerLastName",
       type: "string",
-      title: "Composer",
+      title: "Composer Last Name",
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: "composerFirstName",
+      type: "string",
+      title: "Composer First Name",
       validation: (Rule) => Rule.required(),
     },
     {
@@ -27,7 +33,6 @@ export default defineType({
       },
       validation: (Rule) => Rule.required(),
     },
-
     {
       name: "compositions",
       title: "Compositions",
@@ -58,4 +63,16 @@ export default defineType({
       ],
     },
   ],
+  preview: {
+    select: {
+      firstName: "composerFirstName",
+      lastName: "composerLastName",
+    },
+    prepare(selection) {
+      const { firstName, lastName } = selection;
+      return {
+        title: `${firstName} ${lastName}`,
+      };
+    },
+  },
 });

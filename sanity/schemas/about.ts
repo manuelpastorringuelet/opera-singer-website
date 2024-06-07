@@ -1,5 +1,5 @@
-import { defineType } from "sanity";
 import { BiBook } from "react-icons/bi";
+import { defineType } from "sanity";
 
 export default defineType({
   name: "about",
