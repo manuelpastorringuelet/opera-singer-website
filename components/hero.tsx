@@ -1,12 +1,12 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
+import Image from "next/image";
 
-import { Profile } from "@/types";
-import { cn } from "@/lib/utils";
 import { lora, montserrat } from "@/lib/fonts";
+import { cn } from "@/lib/utils";
+import { Profile } from "@/types";
 
 type Props = {
   profile: Profile;
@@ -103,9 +103,9 @@ function EqualWidthName({ name }: { name: string }) {
   return (
     <>
       {name.split("").map((letter, index) => (
-        <span key={index} className="inline-block w-11 sm:w-[72px]">
-          {letter}
-        </span>
+        <div key={index} className="inline-block w-11 mx-[2px] sm:w-[72px]">
+          <span className="flex w-full justify-center">{letter}</span>
+        </div>
       ))}
     </>
   );
