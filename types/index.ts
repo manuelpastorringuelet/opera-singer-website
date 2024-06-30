@@ -75,6 +75,7 @@ export interface Picture {
   alt: string;
   photographer: string;
   image: string;
+  objectPosition: ObjectPosition;
 }
 
 export interface Media extends SanityBody {
@@ -100,4 +101,12 @@ export interface Repertoire extends SanityBody {
 export interface Composition {
   title: string;
   role: string[];
+}
+
+enum ObjectPosition {
+  Center = "object-center",
+  Top = "object-top",
+  Bottom = "object-bottom",
+  Right = "object-right",
+  Left = "object-left",
 }

@@ -1,10 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import Image from "next/image";
 import { Maximize2, Minimize2 } from "lucide-react";
+import Image from "next/image";
+import { useEffect, useState } from "react";
 import ClipLoader from "react-spinners/ClipLoader";
 
+import { cn } from "@/lib/utils";
 import { Picture } from "@/types";
 import DownloadButton from "./download-button";
 
@@ -56,7 +57,10 @@ export default function ImageContainer({ photo }: Props) {
           alt={photo.alt}
           fill
           sizes="(max-width: 590px) 90vw, (max-width: 926px) 45vw, (max-width: 1190px) 30vw, 22vw"
-          className="object-cover object-top transition-all duration-700 ease-in-out group-hover:scale-110 group-hover:opacity-75"
+          className={cn(
+            "object-cover transition-all duration-700 ease-in-out group-hover:scale-110 group-hover:opacity-75",
+            photo.objectPosition || "object-top",
+          )}
         />
         <h2 className="absolute bottom-3 left-3 hidden opacity-80 transition-all duration-500 ease-in-out group-hover:flex">
           {photo.photographer && photo.photographer}

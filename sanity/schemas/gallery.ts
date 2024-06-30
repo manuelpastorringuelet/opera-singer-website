@@ -32,7 +32,26 @@ export default defineType({
               title: "Alternative text",
               validation: (Rule) => Rule.required(),
             },
-            { name: "photographer", type: "string", title: "Photographer" },
+            {
+              name: "photographer",
+              type: "string",
+              title: "Photographer",
+            },
+            {
+              name: "objectPosition",
+              type: "string",
+              title: "Image position",
+              options: {
+                list: [
+                  { title: "Center", value: "object-center" },
+                  { title: "Top", value: "object-top" },
+                  { title: "Bottom", value: "object-bottom" },
+                  { title: "Right", value: "object-right" },
+                  { title: "Left", value: "object-left" },
+                ],
+                layout: "dropdown",
+              },
+            },
           ],
           validation: (Rule) => Rule.required(),
         },

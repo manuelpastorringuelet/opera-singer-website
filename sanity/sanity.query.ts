@@ -132,6 +132,7 @@ export async function getGallery(): Promise<Gallery[]> {
       images[] {
         alt,
         photographer,
+        objectPosition,
         "image": asset->url,
       },
     }
