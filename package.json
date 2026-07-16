@@ -5,6 +5,14 @@
   "engines": {
     "node": ">=20.19 <22 || >=22.12"
   },
+  "overrides": {
+    "postcss": "8.5.19"
+  },
+  "pnpm": {
+    "overrides": {
+      "postcss": "8.5.19"
+    }
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
